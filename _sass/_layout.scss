@@ -2,9 +2,7 @@
  * Site header
  */
 .site-header {
-    border-top: 5px solid $grey-color-dark;
-    border-bottom: 1px solid $grey-color-light;
-    min-height: 56px;
+    border-top: 8px solid $grey-color-dark;
 
     // Positioning context for the mobile navigation icon
     position: relative;
@@ -98,7 +96,6 @@
  * Site footer
  */
 .site-footer {
-    border-top: 1px solid $grey-color-light;
     padding: $spacing-unit 0;
 }
 
@@ -239,4 +236,21 @@
             font-size: 18px;
         }
     }
+}
+
+
+.title {
+  font-weight: 900;
+  font-size: 36px;
+  @include media-query($on-laptop) {
+      font-size: 48px;
+  }
+}
+
+.name {
+  color: purple;
+}
+
+.noMargin {
+  margin: 0;
 }
