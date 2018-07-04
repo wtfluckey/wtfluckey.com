@@ -1,23 +1,26 @@
 ---
 layout: default
 ---
-
+<h1 class="title">Hi! I'm <span class="name">Aly Fluckey</span>.</h1>
 <div class="home">
-
-  <h1 class="page-heading">Posts</h1>
-
-  <ul class="post-list">
-    {% for post in site.posts %}
-      <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-
-        <h2>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </h2>
-      </li>
-    {% endfor %}
+  <p class="noMargin">
+    I am a UX Developer in Chicago with a passion for design, usability and inclusivity.
+  </p>
+  <p>
+    I feel that we have a responsibility as software developers to build products that do no harm.
+  </p>
+  
+  I love:
+  <ul>
+    <li>
+      building delightful, intuitive user interfaces and scalable, maintainable visual systems (and <a href="">speaking</a> about these things!)
+    </li>
+    <li>
+      traveling, learning to cook and painting
+    </li>
+    <li>
+      lava lamps, space 🌌and cats 🐱
+    </li>
   </ul>
-
-  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
-
 </div>
+
