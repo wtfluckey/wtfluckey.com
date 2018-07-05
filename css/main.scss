@@ -15,12 +15,19 @@ $base-line-height: 1.5;
 $spacing-unit:     30px;
 
 $text-color:       #111;
-$background-color: #fdfdfd;
+$background-color: #fafbff;
 $brand-color:      #2a7ae2;
 
 $grey-color:       #828282;
 $grey-color-light: lighten($grey-color, 40%);
 $grey-color-dark:  darken($grey-color, 25%);
+
+$color--accent:    #d84722;
+
+$blue: #0989aa;
+$teal: #1BA39C;
+$purple: #9900CC;
+$orange: #E65722;
 
 // Width of the content area
 $content-width:    800px;
@@ -49,5 +56,8 @@ $on-laptop:        800px;
 @import
         "base",
         "layout",
-        "syntax-highlighting"
+        "components",
+        "blog",
+        "syntax-highlighting",
+        "utilities"
 ;

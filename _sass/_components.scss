@@ -1,0 +1,27 @@
+.header {
+  border-top: 8px solid $blue;
+}
+
+.footer {
+  border-bottom: 8px solid $blue;
+  padding: $spacing-unit 0;
+}
+
+.footer__social {
+  display: flex;
+  list-style-type: none;
+  justify-content: space-between;
+  margin-left: 0;
+}
+
+.title {
+  font-weight: 900;
+  font-size: 36px;
+  @include media-query($on-laptop) {
+      font-size: 48px;
+  }
+}
+
+.name {
+  color: $teal;
+}
