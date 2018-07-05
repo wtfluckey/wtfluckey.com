@@ -9,16 +9,22 @@
 
 .footer__social {
   display: flex;
+  flex-direction: column;
+  justify-content: center;
   list-style-type: none;
-  justify-content: space-between;
   margin-left: 0;
+
+  @include media-query($on-palm) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
 }
 
 .title {
   font-weight: 900;
   font-size: 36px;
   @include media-query($on-laptop) {
-      font-size: 48px;
+    font-size: 48px;
   }
 }
 
