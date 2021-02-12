@@ -87,15 +87,15 @@ h1, h2, h3, h4, h5, h6 {
  * Links
  */
 a {
-    color: $purple;
+    color: $linkColor;
     text-decoration: none;
     font-weight: 700;
     border-bottom: 2px solid transparent;
     transition: border-bottom .2s, color .2s;
 
     &:hover {
-        color: $orange;
-        border-bottom: 2px solid $orange;
+        color: $linkHoverColor;
+        border-bottom: 2px solid $linkBorder;
         transition: border-bottom .2s, color .2s;
     }
 }
