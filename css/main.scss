@@ -14,11 +14,20 @@ $base-line-height: 1.5;
 
 $spacing-unit:     30px;
 
+$spacing-xs:       5px;
+$spacing-sm:       10px;
+$spacing-md:       15px;
+$spacing-lg:       30px;
+$spacing-xl:       100px;
+
+$border-radius:    15px;
+
 $text-color:       #111;
 
 $grey-color:       #828282;
 $grey-color-light: lighten($grey-color, 40%);
 $grey-color-dark:  darken($grey-color, 25%);
+$shadow:           rgba(2,12,27,0.7); 
 
 $indigo: #5E60CE;
 $purple: #7400b8;
@@ -34,12 +43,15 @@ $linkHoverColor: $violet;
 $linkBorder: $blue;
 
 // Width of the content area
-$content-width:    1000px;
+$content-width:    1200px;
 
 $on-palm:          600px;
 $on-laptop:        800px;
 
 
+@mixin shadow {
+  box-shadow: 0 10px 30px -15px $shadow;
+}
 
 // Use media queries like this:
 // @include media-query($on-palm) {

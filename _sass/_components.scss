@@ -1,10 +1,10 @@
 .header {
-  border-top: 8px solid $borderColor;
+  border-top: $spacing-sm solid $borderColor;
 }
 
 .footer {
-  border-bottom: 8px solid $borderColor;
-  padding: $spacing-unit 0;
+  border-bottom: $spacing-sm solid $borderColor;
+  padding: $spacing-lg 0;
 }
 
 .footer__social {
@@ -30,4 +30,77 @@
 
 .name {
   color: $nameColor;
+}
+
+.project {
+  display: grid;
+  gap: $spacing-sm;
+  grid-template-columns: repeat(12, 1fr);
+  align-items: center;
+  margin-bottom: $spacing-xl;
+}
+
+.project-time {
+  margin-bottom: $spacing-xs;
+  font-family: monospace;
+}
+
+.project-content {
+  position: relative;
+  grid-area: 1 / 1 / -1 / 7;
+}
+
+.project:nth-of-type(2n+1) .project-content {
+  grid-column: 7 / -1;
+  text-align: right;
+}
+
+.project-description {
+  background: rgba(0, 229, 255, 0.5);
+  backdrop-filter: blur(2px);
+  padding: $spacing-lg;
+  margin-bottom: $spacing-sm;
+}
+
+.project:nth-of-type(2n+1) .project-image {
+  grid-column: 1 / 8;
+  margin-left: 0;
+  margin-right: $spacing-lg;
+}
+
+.project-image {
+  @include shadow;
+  grid-area: 1 / 6 / -1 / -1;
+  position: relative;
+  z-index: -1;
+  margin-left: $spacing-lg;
+  margin-right: 0;
+  border-radius: $border-radius;
+
+  img {
+    border-radius: $border-radius;
+  }
+}
+
+.project-tech {
+  list-style: none;
+  margin: 0;
+
+  li {
+    display: inline-block;
+    margin-right: $spacing-md;
+    font-family: monospace;
+  }
+}
+
+.project-external-link {
+  display: inline-block;
+  font-size: 24px;
+  color: $text-color;
+  margin-top: $spacing-sm;
+  border: 0;
+
+  &:hover {
+    border: 0;
+  }
 }

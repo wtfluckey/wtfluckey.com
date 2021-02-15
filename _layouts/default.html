@@ -16,6 +16,60 @@
       </div>
     </div>
 
+    <section class="l--content">
+      <div class="l--wrapper">
+        <h2 class="u--textCenter">Portfolio</h2>
+
+        <!-- BriteCo -->
+        {% include project.html
+          time="2018-2019"
+          title="BriteCo"
+          description1="A jewelry and watch appraisal system for independent jewelers, allowing them to provide their customers with accurate appraisals and insurance quotes."
+          description2="Built using Ruby on Rails on the backend, Stimulus for JavaScript-based user interactions, Bulma for styling, Hologram to document the living styleguide, branding guidelines and design system."
+          tech1="Ruby on Rails"
+          tech1Link="https://rubyonrails.org/"
+          tech2="Stimulus"
+          tech2Link="https://stimulus.hotwire.dev/"
+          tech3="Bulma"
+          tech3Link="https://bulma.io/"
+          tech4="Hologram"
+          tech4Link="https://github.com/trulia/hologram"
+          externalLink="https://brite.co/"
+          image="briteco.gif"
+        %}
+
+        <!-- Landscape Hub -->
+        {% include project.html
+          time="2017"
+          title="Landscape Hub"
+          description1="A business-to-business marketplace in the landscaping industry to connect buyers and suppliers."
+          description2="Built using Ruby on Rails on the backend, lightweight React apps on the frontend along with HTML/SCSS. Initial product MVP validated using Google design sprints along with user research and validation."
+          tech1="Ruby on Rails"
+          tech1Link="https://rubyonrails.org/"
+          tech2="React"
+          tech2Link="https://reactjs.org/"
+          tech3="Google design sprints"
+          tech3Link="https://www.tablexi.com/google-design-sprint"
+          externalLink="https://www.tablexi.com/work/building-marketplace"
+          image="landscapehub.png"
+        %}
+
+        <!-- Spice House -->
+        {% include project.html
+          time="2015"
+          title="The Spice House"
+          description1="Our team redesigned and rebuilt the ecommerce website to be mobile-friendly, content-rich and search-optimized to serve The Spice House’s retail and wholesale clients."
+          description2="Built using Ruby on Rails on the backend, HTML/SCSS and Vue.js for the frontend including a fully custom cart and checkout flow using Stripe payment processing."
+          tech1="Ruby on Rails"
+          tech1Link="https://rubyonrails.org/"
+          tech2="Vue.js"
+          tech2Link="https://vuejs.org/"
+          externalLink="https://www.tablexi.com/work/ecommerce-site"
+          image="spicehouse.jpg"
+        %}
+      </div>
+    </section>
+
     {% include footer.html %}
 
   </body>
