@@ -26,11 +26,14 @@
 }
 
 .project {
-  display: grid;
-  gap: $spacing-sm;
-  grid-template-columns: repeat(12, 1fr);
-  align-items: center;
   margin-bottom: $spacing-xl;
+
+  @include media-query($on-laptop) {
+    display: grid;
+    gap: $spacing-sm;
+    grid-template-columns: repeat(12, 1fr);
+    align-items: center;
+  }
 }
 
 .project-time {
@@ -39,13 +42,15 @@
 }
 
 .project-content {
-  position: relative;
-  grid-area: 1 / 1 / -1 / 7;
-}
+  @include media-query($on-laptop) {
+    position: relative;
+    grid-area: 1 / 1 / -1 / 7;
 
-.project:nth-of-type(2n) .project-content {
-  grid-column: 7 / -1;
-  text-align: right;
+    .project:nth-of-type(2n) & {
+      grid-column: 7 / -1;
+      text-align: right;
+    }
+  }
 }
 
 .project-description {
@@ -55,23 +60,28 @@
   margin-bottom: $spacing-sm;
 }
 
-.project:nth-of-type(2n) .project-image {
-  grid-column: 1 / 8;
-  margin-left: 0;
-  margin-right: $spacing-lg;
-}
-
 .project-image {
   @include shadow;
   grid-area: 1 / 6 / -1 / -1;
-  position: relative;
-  z-index: -1;
-  margin-left: $spacing-lg;
-  margin-right: 0;
   border-radius: $border-radius;
+  z-index: -1;
+  margin-top: $spacing-md;
 
   img {
     border-radius: $border-radius;
+  }
+
+  @include media-query($on-laptop) {
+    grid-area: 1 / 6 / -1 / -1;
+    position: relative;
+    margin-left: $spacing-lg;
+    margin-right: 0;
+    margin-top: 0;
+
+    .project:nth-of-type(2n) & {
+      grid-column: 1 / 8;
+      margin: 0 $spacing-lg 0 0;
+    }
   }
 }
 
