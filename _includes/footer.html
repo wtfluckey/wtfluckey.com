@@ -1,25 +1,5 @@
 <footer class="footer">
   <div class="l--wrapper">
-    <ul class="footer__social">
-      <li>
-        <i class="fas fa-envelope"></i>
-        <a href="mailto:{{ site.email }}">I read email</a>
-      </li>
-      <li>
-        <i class="fab fa-instagram"></i>
-        <a href="https://www.instagram.com/wtfluckey/">I take photos</a>
-      </li>
-      {% if site.github_username %}
-      <li>
-        {% include icon-github.html username=site.github_username %}
-      </li>
-      {% endif %}
-
-      {% if site.twitter_username %}
-      <li>
-        {% include icon-twitter.html username=site.twitter_username %}
-      </li>
-      {% endif %}
-    </ul>
+    <a href="{{ site.baseurl }}/assets/resume.pdf" download>Download my resume</a>
   </div>
 </footer>

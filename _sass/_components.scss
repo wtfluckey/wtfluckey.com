@@ -5,19 +5,7 @@
 .footer {
   border-bottom: $spacing-sm solid $borderColor;
   padding: $spacing-lg 0;
-}
-
-.footer__social {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  list-style-type: none;
-  margin-left: 0;
-
-  @include media-query($on-palm) {
-    flex-direction: row;
-    justify-content: space-between;
-  }
+  text-align: center;
 }
 
 .title {
