@@ -43,7 +43,7 @@
   grid-area: 1 / 1 / -1 / 7;
 }
 
-.project:nth-of-type(2n+1) .project-content {
+.project:nth-of-type(2n) .project-content {
   grid-column: 7 / -1;
   text-align: right;
 }
@@ -55,7 +55,7 @@
   margin-bottom: $spacing-sm;
 }
 
-.project:nth-of-type(2n+1) .project-image {
+.project:nth-of-type(2n) .project-image {
   grid-column: 1 / 8;
   margin-left: 0;
   margin-right: $spacing-lg;
