@@ -8,6 +8,11 @@ html {
   box-sizing: inherit;
 }
 
+body,
+html {
+    height: 100%;
+    margin: 0;
+}
 /**
  * Reset some basic elements
  */
@@ -24,6 +29,10 @@ dl, dd, ol, ul, figure {
 body {
     font: $base-font-weight #{$base-font-size}/#{$base-line-height} $base-font-family;
     color: $text-color;
+    background-image: linear-gradient(rgba(5, 14, 55, 0.75), rgba(5, 14, 55, 0.75)),
+    url('../assets/webb-deepfield.jpg');
+    background-size: cover;
+    background-position: center;
     background-color: $background-color;
     -webkit-text-size-adjust: 100%;
     -webkit-font-feature-settings: "kern" 1;
@@ -93,7 +102,6 @@ p:last-of-type {
 a {
     color: $linkColor;
     text-decoration: none;
-    font-weight: 700;
     border-bottom: 2px solid transparent;
     transition: border-bottom .2s, color .2s;
 
