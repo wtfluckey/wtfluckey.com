@@ -6,8 +6,8 @@
 
 
 // Our variables
-$base-font-family: 'Comfortaa', Helvetica, Arial, sans-serif;
-$base-font-size:   16px;
+$base-font-family: 'Exo', Helvetica, Arial, sans-serif;
+$base-font-size:   20px;
 $base-font-weight: 400;
 $small-font-size:  $base-font-size * 0.875;
 $base-line-height: 1.5;
@@ -22,25 +22,24 @@ $spacing-xl:       100px;
 
 $border-radius:    15px;
 
-$text-color:       #111;
+$text-color:       #fff;
 
 $grey-color:       #828282;
 $grey-color-light: lighten($grey-color, 40%);
 $grey-color-dark:  darken($grey-color, 25%);
 $shadow:           rgba(2,12,27,0.7); 
 
-$indigo: #5E60CE;
-$purple: #7400b8;
-$violet: #6930C3;
-$blue: #56CFE1;
-$body: #eefdfb;
+$navy: #050e37;
+$periwinkle: #5E4AE3;
+$lavender: #947BD3;
+$coral: #F0A7A0;
+$pink: #F26CA7;
 
-$background-color: $body;
-$borderColor: $purple;
-$nameColor: $indigo;
-$linkColor: $purple;
-$linkHoverColor: $violet;
-$linkBorder: $blue;
+$background-color: $navy;
+$borderColor: $coral;
+$linkColor: $coral;
+$linkHoverColor: $pink;
+$linkBorder: $lavender;
 
 // Width of the content area
 $content-width:    1200px;
@@ -71,6 +70,5 @@ $on-laptop:        768px;
 // Import partials from `sass_dir` (defaults to `_sass`)
 @import
         "base",
-        "layout",
         "components"
 ;
