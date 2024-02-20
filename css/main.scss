@@ -30,6 +30,7 @@ $grey-color-dark:  darken($grey-color, 25%);
 $shadow:           rgba(2,12,27,0.7); 
 
 $navy: #050e37;
+$blue: #05299E;
 $periwinkle: #5E4AE3;
 $lavender: #947BD3;
 $coral: #F0A7A0;
@@ -70,5 +71,7 @@ $on-laptop:        768px;
 // Import partials from `sass_dir` (defaults to `_sass`)
 @import
         "base",
+        "mixins",
+        "tooltips",
         "components"
 ;

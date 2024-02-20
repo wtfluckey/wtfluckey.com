@@ -99,6 +99,16 @@ p:last-of-type {
 /**
  * Links
  */
+
+button, a {
+    background: none;
+    border: 0;
+    cursor: pointer;
+    padding: 0;
+    font: inherit;
+}
+
+button,
 a {
     color: $linkColor;
     text-decoration: none;
