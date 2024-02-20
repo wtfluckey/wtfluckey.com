@@ -1,26 +1,10 @@
-@keyframes slide {
-  0% {
-    background-position: 0% 50%;
-  }
-
-  50% {
-    background-position: 100% 50%;
-
-  }
-
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-@mixin border {
-  background: linear-gradient(270deg, $navy, $periwinkle, $lavender, $pink, $coral);
-  background-size: 200% 200%;
-  animation: slide 5s linear infinite;
-}
-
 .border-header {
   @include border;
+  padding-top: 10px;
+}
+
+body.rainbow-time .border-header {
+  @include border-rainbow;
   padding-top: 10px;
 }
 
@@ -29,9 +13,15 @@
   padding-bottom: 10px;
 }
 
+body.rainbow-time .border-footer {
+  @include border-rainbow;
+  padding-bottom: 10px;
+}
+
 .title {
   color: $coral;
   font-size: 48px;
+  text-align: center;
   margin-bottom: 0;
   @include media-query($on-palm) {
     font-size: 72px;
@@ -45,16 +35,25 @@
   }
 }
 
-.test {
+body.rainbow-time .title {
+  background-image: linear-gradient(45deg in hsl longer hue, $pink, $coral, $lavender, $periwinkle);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+
+  .callout {
+    color: transparent;
+  }
+}
+
+.wrapper {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  text-align: center;
   height: calc(100% - 20px);
   margin: 0 auto;
   padding: 0 20px;
-
 }
 
 .home {
@@ -62,4 +61,32 @@
   flex-direction: column;
   justify-content: center;
   height: calc(100% - 70px);
+  max-width: 600px;
+
+  p {
+    font-size: 14px;
+    @include media-query($on-palm) {
+      font-size: 16px;
+    }
+  }
 }
+
+.contact {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  text-align: center;
+  width: 300px;
+}
+
+.icon {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  color: $pink;
+
+  path {
+    fill: $pink;
+  }
+}
+

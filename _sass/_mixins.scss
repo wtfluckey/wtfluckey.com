@@ -1,0 +1,34 @@
+@keyframes slide {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@mixin rainbow {
+  background: linear-gradient(270deg in hsl longer hue, $blue, $periwinkle, $lavender, $pink, $coral);
+}
+
+@mixin gradient {
+  background: linear-gradient(270deg, $blue, $periwinkle, $lavender, $pink, $coral);
+}
+
+@mixin border {
+  @include gradient;
+  background-size: 200% 200%;
+  animation: slide 5s linear infinite;
+}
+
+@mixin border-rainbow {
+  @include rainbow;
+  background-size: 200% 200%;
+  animation: slide 5s linear infinite;
+}

@@ -1,13 +1,62 @@
 ---
 layout: default
 ---
-<div class="test">
+<div class="wrapper">
   <div class="home">
     <h1 class="title">
       ALY <span class="callout">FLUCKEY</span>
     </h1>
+
+    <p>I’m a front-end developer with a solid decade of experience in software development, UX design, and consulting. My
+    passion lies in making technology more usable and inclusive through thoughtful design systems.</p>
+    
+    <p>I have been consistently recognized for my technical leadership and ability to work well within teams, having contributed significantly
+    to the success of several high-profile projects.</p>
+    
+    <p>My goal is to use my skills to craft solutions that truly address user needs, in an environment where creativity and
+    effective teamwork pave the way to impactful products.</p>
+
+    <p>If you're on the lookout for someone with my background and enthusiasm to join your team, I'd be thrilled to chat. Feel
+    free to reach out through the links below. I’m excited about the possibility of working together to create something
+    great.</p>
   </div>
 
-  <a href="{{ site.baseurl }}/assets/AlyFluckey-resume-2024.pdf" download>Download my resume</a>
+  <div class="contact">
+    <a href="mailto:fluckeya@gmail.com?subject=Hello!%20%F0%9F%91%8B&body=Please%20write%20your%20message%20here">
+      <span class="icon tooltip" data-tooltip="Email me!">
+        {% include email.svg %}
+      </span>
+    </a>
+
+    <a href="https://github.com/wtfluckey" target="_blank">
+      <span class="icon tooltip" data-tooltip="Peep my code!">
+        {% include github.svg %}
+      </span>
+    </a>
+  
+    <a href="www.linkedin.com/in/alyfluckey" target="_blank">
+      <span class="icon tooltip" data-tooltip="Follow me!">
+        {% include linkedin.svg %}
+      </span>
+    </a>
+
+    <a href="{{ site.baseurl }}/assets/AlyFluckey-resume-2024.pdf" download>
+      <span class="icon tooltip" data-tooltip="Get my resume!">
+        {% include resume.svg %}
+      </span>
+    </a>
+
+    <button>
+      <span class="icon rainbow tooltip" id="cue-rainbow-time" data-tooltip="Toggle rainbow time! 🌈">
+        {% include rainbow.svg %}
+      </span>
+    </button>
+  </div>
 </div>
+
+<script>
+  document.getElementById('cue-rainbow-time').addEventListener('click', function () {
+    document.body.classList.toggle('rainbow-time');
+  });
+</script>
 
