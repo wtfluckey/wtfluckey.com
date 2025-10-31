@@ -1,49 +1,76 @@
 ---
 layout: default
 ---
+
 <div class="wrapper">
   <div class="home">
-    <h1 class="title">
-      ALY <span class="callout">FLUCKEY</span>
-    </h1>
+    <h1 class="title">ALY <span class="callout">FLUCKEY</span></h1>
 
-    <p>I’ve spent over 12 years in software, diving into all things product development, agile project management, front-end development, and user experience/design.</p>
+    <p>
+      With almost 15 years of experience spanning frontend engineering, UX
+      collaboration, and cross-functional project delivery, I’m driven by
+      creating products that genuinely serve users.
+    </p>
 
-    <p>I’m all about working with teams to take an initial idea and see it through to completion, making sure we hit our milestones and staying flexible when things change.</p>
+    <p>
+      I excel at partnering with stakeholders to define direction, break down
+      complexity, and translate goals into accessible, scalable solutions.
+    </p>
 
-    <p>I create meaningful relationships with stakeholders, work alongside them to define project scope and deliverables and then make sure we stick to our timelines and budget.</p>
+    <p>
+      I’m known for a collaborative leadership style that empowers teams,
+      improves workflows, and leads to successful outcomes.
+    </p>
 
-    <p>I’m very passionate about setting teams up for success by effective planning and communication and fostering environments that are inclusive and collaborative.</p>
-
+    <p>
+      I’m passionate about delivering thoughtful design systems and interfaces
+      that help teams move faster and create consistent, inclusive
+      experiences.ance, and consistency baked-in.
+    </p>
   </div>
 
   <div class="contact">
-    <a href="mailto:fluckeya@gmail.com?subject=Hello!%20%F0%9F%91%8B&body=Please%20write%20your%20message%20here">
-      <span class="icon tooltip" data-tooltip="Email me!">
+    <a
+      href="mailto:fluckeya@gmail.com?subject=Hello!%20%F0%9F%91%8B&body=Please%20write%20your%20message%20here"
+    >
+      <span
+        class="icon tooltip"
+        data-tooltip="Email me!"
+        aria-label="Email me!"
+      >
         {% include email.svg %}
       </span>
     </a>
 
     <a href="https://github.com/wtfluckey" target="_blank">
-      <span class="icon tooltip" data-tooltip="Peep my code!">
+      <span
+        class="icon tooltip"
+        data-tooltip="Peep my code!"
+        aria-label="Check out my code on Github"
+      >
         {% include github.svg %}
       </span>
     </a>
-  
-    <a href="https://www.linkedin.com/in/alyfluckey" target="_blank">
+
+    <a
+      href="https://www.linkedin.com/in/alyfluckey"
+      target="_blank"
+      aria-label="Check out my LinkedIn page"
+    >
       <span class="icon tooltip" data-tooltip="Follow me!">
         {% include linkedin.svg %}
       </span>
     </a>
 
-    <a href="{{ site.baseurl }}/assets/AlyFluckey-project-manager.pdf" download>
-      <span class="icon tooltip" data-tooltip="Get my resume!">
-        {% include resume.svg %}
-      </span>
-    </a>
-
-    <button>
-      <span class="icon rainbow tooltip" id="cue-rainbow-time" data-tooltip="Toggle rainbow time! 🌈">
+    <button
+      aria-label="Toggle rainbow time. Rainbow time changes the color of my name and adds an animated rainbow border around the page.
+        These changes are purely presentational and do not affect the functionality of the website."
+    >
+      <span
+        class="icon rainbow tooltip"
+        id="cue-rainbow-time"
+        data-tooltip="Toggle rainbow time! 🌈"
+      >
         {% include rainbow.svg %}
       </span>
     </button>
@@ -51,8 +78,9 @@ layout: default
 </div>
 
 <script>
-  document.getElementById('cue-rainbow-time').addEventListener('click', function () {
-    document.body.classList.toggle('rainbow-time');
-  });
+  document
+    .getElementById("cue-rainbow-time")
+    .addEventListener("click", function () {
+      document.body.classList.toggle("rainbow-time");
+    });
 </script>
-
