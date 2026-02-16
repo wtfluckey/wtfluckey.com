@@ -9,12 +9,12 @@
 title: Hi! I'm Aly Fluckey
 email: fluckeya@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
-  I am a UX Developer in Chicago with a passion for design, usability and inclusivity.
-  I feel that we have a responsibility as software developers to build products that do no harm.
+  Engineering leader focused on product-aligned teams, sustainable execution,
+  and building high-trust environments where engineers thrive.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://wtfluckey.com" # the base hostname & protocol for your site
 twitter_username: wtfluckey
-github_username:  wtfluckey
+github_username: wtfluckey
 
 # Build settings
 markdown: kramdown
