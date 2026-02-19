@@ -478,11 +478,11 @@ a {
   height: 4rem;
   background: linear-gradient(to bottom, transparent, var(--text-secondary));
   animation: scrollPulse 2.2s var(--ease-out) infinite;
-  animation-play-state: running;
+  animation-play-state: paused;
 }
 
-.hero__scroll-line.paused {
-  animation-play-state: paused;
+.hero__scroll-line.playing {
+  animation-play-state: running;
 }
 
 @keyframes scrollPulse {

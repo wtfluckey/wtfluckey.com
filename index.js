@@ -338,41 +338,24 @@
   function initAnimations() {
     if (!("IntersectionObserver" in window)) return;
 
-    // scrollPulse — pause when hero scrolls out of view
-    var scrollLine = $(".hero__scroll-line");
-    if (scrollLine) {
-      var scrollObserver = new IntersectionObserver(
+    // Adds className when el enters the viewport, removes it when it leaves.
+    function observeVisibility(el, className) {
+      if (!el) return;
+      new IntersectionObserver(
         function (entries) {
           entries.forEach(function (entry) {
-            if (entry.isIntersecting) {
-              scrollLine.classList.remove("paused");
-            } else {
-              scrollLine.classList.add("paused");
-            }
+            el.classList.toggle(className, entry.isIntersecting);
           });
         },
         { threshold: 0 },
-      );
-      scrollObserver.observe(scrollLine);
+      ).observe(el);
     }
 
+    // scrollPulse — only animate when the scroll hint is visible
+    observeVisibility($(".hero__scroll-line"), "playing");
+
     // glyphSpin — only run when the glyph is visible
-    var glyph = $(".lets-talk__glyph");
-    if (glyph) {
-      var glyphObserver = new IntersectionObserver(
-        function (entries) {
-          entries.forEach(function (entry) {
-            if (entry.isIntersecting) {
-              glyph.classList.add("spinning");
-            } else {
-              glyph.classList.remove("spinning");
-            }
-          });
-        },
-        { threshold: 0 },
-      );
-      glyphObserver.observe(glyph);
-    }
+    observeVisibility($(".lets-talk__glyph"), "spinning");
   }
 
   /* ============================================================
