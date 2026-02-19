@@ -1,0 +1,56 @@
+name: Deploy to AWS
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "index.html"
+      - "index.css"
+      - "index.js"
+  workflow_dispatch: {}
+
+permissions:
+  id-token: write
+  contents: read
+
+concurrency:
+  group: deploy-production
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ vars.DEPLOY_ROLE_ARN }}
+          aws-region: us-east-1
+
+      - name: Sync site files to S3
+        run: |
+          aws s3 sync . s3://alyfluckey.com \
+            --delete \
+            --exclude "*" \
+            --include "index.html" \
+            --include "index.css" \
+            --include "index.js" \
+            --cache-control "public, max-age=3600, s-maxage=86400"
+
+      - name: Set HTML cache headers
+        run: |
+          aws s3 cp s3://alyfluckey.com/index.html s3://alyfluckey.com/index.html \
+            --metadata-directive REPLACE \
+            --content-type "text/html" \
+            --cache-control "public, max-age=0, must-revalidate, s-maxage=86400"
+
+      - name: Invalidate CloudFront cache
+        run: |
+          aws cloudfront create-invalidation \
+            --distribution-id ${{ vars.DISTRIBUTION_ID }} \
+            --paths "/*"

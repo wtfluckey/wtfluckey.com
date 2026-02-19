@@ -1,0 +1,266 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: Static site hosting for alyfluckey.com with CloudFront, S3, and GitHub Actions CI/CD
+
+Parameters:
+  PrimaryDomain:
+    Type: String
+    Default: alyfluckey.com
+
+  SecondaryDomain:
+    Type: String
+    Default: wtfluckey.com
+
+  PrimaryHostedZoneId:
+    Type: AWS::Route53::HostedZone::Id
+    Description: Route 53 hosted zone ID for the primary domain
+
+  SecondaryHostedZoneId:
+    Type: AWS::Route53::HostedZone::Id
+    Description: Route 53 hosted zone ID for the secondary domain
+
+  GitHubOrg:
+    Type: String
+    Default: wtfluckey
+
+  GitHubRepo:
+    Type: String
+    Default: wtfluckey.com
+
+Resources:
+  # S3 bucket for site content - no public access, CloudFront OAC handles reads
+  SiteBucket:
+    Type: AWS::S3::Bucket
+    DeletionPolicy: Retain
+    UpdateReplacePolicy: Retain
+    Properties:
+      BucketName: !Ref PrimaryDomain
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        BlockPublicPolicy: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+          - ServerSideEncryptionByDefault:
+              SSEAlgorithm: AES256
+
+  SiteBucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: !Ref SiteBucket
+      PolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: cloudfront.amazonaws.com
+            Action: s3:GetObject
+            Resource: !Sub "${SiteBucket.Arn}/*"
+            Condition:
+              StringEquals:
+                AWS:SourceArn: !Sub "arn:aws:cloudfront::${AWS::AccountId}:distribution/${SiteDistribution}"
+
+  # ACM certificate covering all 4 domain variants
+  TlsCertificate:
+    Type: AWS::CertificateManager::Certificate
+    Properties:
+      DomainName: !Ref PrimaryDomain
+      SubjectAlternativeNames:
+        - !Sub "www.${PrimaryDomain}"
+        - !Ref SecondaryDomain
+        - !Sub "www.${SecondaryDomain}"
+      ValidationMethod: DNS
+      DomainValidationOptions:
+        - DomainName: !Ref PrimaryDomain
+          HostedZoneId: !Ref PrimaryHostedZoneId
+        - DomainName: !Sub "www.${PrimaryDomain}"
+          HostedZoneId: !Ref PrimaryHostedZoneId
+        - DomainName: !Ref SecondaryDomain
+          HostedZoneId: !Ref SecondaryHostedZoneId
+        - DomainName: !Sub "www.${SecondaryDomain}"
+          HostedZoneId: !Ref SecondaryHostedZoneId
+
+  # CloudFront Function to redirect non-primary domains to the primary
+  RedirectFunction:
+    Type: AWS::CloudFront::Function
+    Properties:
+      Name: alyfluckey-redirect
+      AutoPublish: true
+      FunctionConfig:
+        Comment: Redirect non-primary domains to alyfluckey.com
+        Runtime: cloudfront-js-2.0
+      FunctionCode: |
+        function handler(event) {
+          var request = event.request;
+          var host = request.headers.host.value;
+          if (host !== 'alyfluckey.com') {
+            return {
+              statusCode: 301,
+              statusDescription: 'Moved Permanently',
+              headers: {
+                location: { value: 'https://alyfluckey.com' + request.uri }
+              }
+            };
+          }
+          return request;
+        }
+
+  # Origin Access Control for S3
+  CloudFrontOAC:
+    Type: AWS::CloudFront::OriginAccessControl
+    Properties:
+      OriginAccessControlConfig:
+        Name: alyfluckey-oac
+        OriginAccessControlOriginType: s3
+        SigningBehavior: always
+        SigningProtocol: sigv4
+
+  # Single CloudFront distribution serving all 4 domains
+  SiteDistribution:
+    Type: AWS::CloudFront::Distribution
+    Properties:
+      DistributionConfig:
+        Enabled: true
+        HttpVersion: http2and3
+        IPV6Enabled: true
+        DefaultRootObject: index.html
+        Aliases:
+          - !Ref PrimaryDomain
+          - !Sub "www.${PrimaryDomain}"
+          - !Ref SecondaryDomain
+          - !Sub "www.${SecondaryDomain}"
+        ViewerCertificate:
+          AcmCertificateArn: !Ref TlsCertificate
+          SslSupportMethod: sni-only
+          MinimumProtocolVersion: TLSv1.2_2021
+        Origins:
+          - Id: S3Origin
+            DomainName: !GetAtt SiteBucket.RegionalDomainName
+            OriginAccessControlId: !Ref CloudFrontOAC
+            S3OriginConfig:
+              OriginAccessIdentity: ""
+        DefaultCacheBehavior:
+          TargetOriginId: S3Origin
+          ViewerProtocolPolicy: redirect-to-https
+          CachePolicyId: 658327ea-f89d-4fab-a63d-7e88639e58f6 # CachingOptimized
+          Compress: true
+          FunctionAssociations:
+            - EventType: viewer-request
+              FunctionARN: !GetAtt RedirectFunction.FunctionARN
+
+  # Route 53 records for the primary domain
+  PrimaryDnsRecords:
+    Type: AWS::Route53::RecordSetGroup
+    Properties:
+      HostedZoneId: !Ref PrimaryHostedZoneId
+      RecordSets:
+        - Name: !Ref PrimaryDomain
+          Type: A
+          AliasTarget:
+            DNSName: !GetAtt SiteDistribution.DomainName
+            HostedZoneId: Z2FDTNDATAQYW2 # CloudFront's fixed hosted zone ID
+        - Name: !Ref PrimaryDomain
+          Type: AAAA
+          AliasTarget:
+            DNSName: !GetAtt SiteDistribution.DomainName
+            HostedZoneId: Z2FDTNDATAQYW2
+        - Name: !Sub "www.${PrimaryDomain}"
+          Type: A
+          AliasTarget:
+            DNSName: !GetAtt SiteDistribution.DomainName
+            HostedZoneId: Z2FDTNDATAQYW2
+        - Name: !Sub "www.${PrimaryDomain}"
+          Type: AAAA
+          AliasTarget:
+            DNSName: !GetAtt SiteDistribution.DomainName
+            HostedZoneId: Z2FDTNDATAQYW2
+
+  # Route 53 records for the secondary domain
+  SecondaryDnsRecords:
+    Type: AWS::Route53::RecordSetGroup
+    Properties:
+      HostedZoneId: !Ref SecondaryHostedZoneId
+      RecordSets:
+        - Name: !Ref SecondaryDomain
+          Type: A
+          AliasTarget:
+            DNSName: !GetAtt SiteDistribution.DomainName
+            HostedZoneId: Z2FDTNDATAQYW2
+        - Name: !Ref SecondaryDomain
+          Type: AAAA
+          AliasTarget:
+            DNSName: !GetAtt SiteDistribution.DomainName
+            HostedZoneId: Z2FDTNDATAQYW2
+        - Name: !Sub "www.${SecondaryDomain}"
+          Type: A
+          AliasTarget:
+            DNSName: !GetAtt SiteDistribution.DomainName
+            HostedZoneId: Z2FDTNDATAQYW2
+        - Name: !Sub "www.${SecondaryDomain}"
+          Type: AAAA
+          AliasTarget:
+            DNSName: !GetAtt SiteDistribution.DomainName
+            HostedZoneId: Z2FDTNDATAQYW2
+
+  # GitHub Actions OIDC provider
+  GitHubOidcProvider:
+    Type: AWS::IAM::OIDCProvider
+    Properties:
+      Url: https://token.actions.githubusercontent.com
+      ClientIdList:
+        - sts.amazonaws.com
+      ThumbprintList:
+        - ffffffffffffffffffffffffffffffffffffffff
+
+  # IAM role for GitHub Actions deployments
+  GitHubActionsRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: alyfluckey-github-deploy
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal:
+              Federated: !GetAtt GitHubOidcProvider.Arn
+            Action: sts:AssumeRoleWithWebIdentity
+            Condition:
+              StringEquals:
+                "token.actions.githubusercontent.com:aud": sts.amazonaws.com
+              StringLike:
+                "token.actions.githubusercontent.com:sub": !Sub "repo:${GitHubOrg}/${GitHubRepo}:ref:refs/heads/main"
+      Policies:
+        - PolicyName: DeployToS3AndInvalidateCache
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action:
+                  - s3:PutObject
+                  - s3:DeleteObject
+                Resource: !Sub "${SiteBucket.Arn}/*"
+              - Effect: Allow
+                Action:
+                  - s3:ListBucket
+                Resource: !GetAtt SiteBucket.Arn
+              - Effect: Allow
+                Action:
+                  - cloudfront:CreateInvalidation
+                Resource: !Sub "arn:aws:cloudfront::${AWS::AccountId}:distribution/${SiteDistribution}"
+
+Outputs:
+  DistributionId:
+    Description: CloudFront distribution ID
+    Value: !Ref SiteDistribution
+
+  DistributionDomainName:
+    Description: CloudFront distribution domain name
+    Value: !GetAtt SiteDistribution.DomainName
+
+  BucketName:
+    Description: S3 bucket name
+    Value: !Ref SiteBucket
+
+  DeployRoleArn:
+    Description: IAM role ARN for GitHub Actions
+    Value: !GetAtt GitHubActionsRole.Arn
