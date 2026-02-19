@@ -22,7 +22,7 @@
   /* Text */
   --text-primary: #f0f0ff;
   --text-secondary: #9090b8;
-  --text-muted: #60608a;
+  --text-muted: #8484aa;
 
   /* Accents */
   --accent-cyan: #00dbde;
@@ -64,7 +64,7 @@ body.rainbow-mode {
 }
 
 body.rainbow-mode .hero__name .gradient-text,
-body.rainbow-mode .footer__name {
+body.rainbow-mode .lets-talk__glyph {
   background-image: linear-gradient(
     to right,
     #ff0080 0%,
@@ -74,6 +74,23 @@ body.rainbow-mode .footer__name {
     #00c6ff 80%,
     #7928ca 100%
   );
+}
+
+body.rainbow-mode .footer__name {
+  background-image: linear-gradient(
+    135deg,
+    #ff0080 0%,
+    #ff8c00 18%,
+    #ffe600 36%,
+    #00ff88 54%,
+    #00c6ff 72%,
+    #7928ca 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+  transition: none;
 }
 
 body.rainbow-mode .pillar {
@@ -94,8 +111,16 @@ body.rainbow-mode .pillar {
   border: 1.5px solid transparent;
 }
 
-body.rainbow-mode .btn--primary {
-  background: linear-gradient(135deg, #ff0080, #7928ca);
+body.rainbow-mode .btn--primary::before {
+  background: linear-gradient(
+    135deg,
+    #ff0080 0%,
+    #ff8c00 20%,
+    #ffe600 40%,
+    #00ff88 60%,
+    #00c6ff 80%,
+    #7928ca 100%
+  );
 }
 
 /* ============================================================
@@ -201,17 +226,41 @@ a {
 }
 
 .btn--primary {
+  background: transparent;
+  color: var(--text-primary);
+  border: 2px solid transparent;
+  position: relative;
+}
+
+.btn--primary::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: calc(var(--radius-sm) + 2px);
+  padding: 2px;
   background: var(--gradient);
-  color: #fff;
-  background-size: 200% 100%;
-  background-position: left center;
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0.7;
+  transition: opacity var(--duration) var(--ease-out);
+}
+
+.btn--primary:hover::before,
+.btn--primary:focus-visible::before {
+  opacity: 1;
 }
 
 .btn--primary:hover,
 .btn--primary:focus-visible {
   transform: translateY(-2px);
   box-shadow: 0 6px 28px var(--accent-glow);
-  background-position: right center;
 }
 
 .btn--ghost {
@@ -299,13 +348,26 @@ a {
 
 .nav__wordmark {
   font-family: var(--font-display);
-  font-size: 1.25rem;
-  letter-spacing: 0.05em;
-  background-image: var(--gradient);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  user-select: none;
+  font-size: 1.375rem;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+  opacity: 0;
+  transform: translateY(-6px);
+  pointer-events: none;
+  transition:
+    opacity 0.4s var(--ease-out),
+    transform 0.4s var(--ease-out);
+}
+
+.nav__wordmark .gradient-text {
+  font-size: inherit;
+  font-family: inherit;
+}
+
+.nav.name-visible .nav__wordmark {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
 }
 
 /* ============================================================
@@ -351,7 +413,7 @@ a {
 
 @media (min-width: 768px) {
   .hero__inner {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: minmax(min-content, 300px) 1fr;
     gap: var(--space-lg);
   }
 }
@@ -359,7 +421,7 @@ a {
 /* Big name */
 .hero__name {
   font-family: var(--font-display);
-  font-size: clamp(5rem, 18vw, 14rem);
+  font-size: clamp(4rem, 13vw, 10rem);
   line-height: 0.9;
   letter-spacing: -0.02em;
   margin-bottom: 0.2em;
@@ -826,6 +888,83 @@ a {
   font-size: 1rem;
   color: var(--text-secondary);
   line-height: 1.75;
+}
+
+/* ============================================================
+   LETS TALK
+============================================================ */
+
+.lets-talk {
+  background-color: var(--navy-2);
+}
+
+.lets-talk__inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .lets-talk__inner {
+    grid-template-columns: 1fr auto;
+    gap: var(--space-xl);
+  }
+}
+
+.lets-talk__content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 560px;
+}
+
+.lets-talk__body {
+  font-size: 1.0625rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+}
+
+.lets-talk__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  padding-top: 0.5rem;
+}
+
+.lets-talk__aside {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .lets-talk__aside {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.lets-talk__glyph {
+  font-size: clamp(6rem, 12vw, 10rem);
+  line-height: 1;
+  user-select: none;
+  opacity: 0.6;
+  animation: glyphSpin 18s linear infinite;
+}
+
+@keyframes glyphSpin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lets-talk__glyph {
+    animation: none;
+  }
 }
 
 /* ============================================================
