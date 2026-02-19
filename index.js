@@ -332,6 +332,50 @@
   }
 
   /* ============================================================
+     ANIMATIONS — pause/resume infinite animations based on visibility
+  ============================================================ */
+
+  function initAnimations() {
+    if (!("IntersectionObserver" in window)) return;
+
+    // scrollPulse — pause when hero scrolls out of view
+    var scrollLine = $(".hero__scroll-line");
+    if (scrollLine) {
+      var scrollObserver = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              scrollLine.classList.remove("paused");
+            } else {
+              scrollLine.classList.add("paused");
+            }
+          });
+        },
+        { threshold: 0 },
+      );
+      scrollObserver.observe(scrollLine);
+    }
+
+    // glyphSpin — only run when the glyph is visible
+    var glyph = $(".lets-talk__glyph");
+    if (glyph) {
+      var glyphObserver = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              glyph.classList.add("spinning");
+            } else {
+              glyph.classList.remove("spinning");
+            }
+          });
+        },
+        { threshold: 0 },
+      );
+      glyphObserver.observe(glyph);
+    }
+  }
+
+  /* ============================================================
      INIT
   ============================================================ */
 
@@ -341,6 +385,7 @@
     initRainbow();
     initScrollReveal();
     initStagger();
+    initAnimations();
   }
 
   if (document.readyState === "loading") {
