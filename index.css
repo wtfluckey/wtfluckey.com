@@ -179,33 +179,20 @@
   }
 
   /* ----- Bold uppercase label (eyebrow / overline pattern) ----- */
-  /* Utility class: .label--overline
-     Also applied via component selectors for backward compat */
-  .label--overline,
-  .section__eyebrow,
-  .case-study__org,
-  .case-study__col-title {
+  .text--overline {
     font-weight: 600;
     text-transform: uppercase;
   }
 
   /* ----- Medium uppercase label (tag / subtitle pattern) ----- */
-  /* Utility class: .label--tag
-     Also applied via component selectors for backward compat */
-  .label--tag,
-  .hero__title,
-  .case-study__tag {
+  .text--tag {
     font-weight: 500;
     letter-spacing: var(--tracking-wide);
     text-transform: uppercase;
   }
 
   /* ----- Primary body text ----- */
-  /* Utility class: .text--body
-     Also applied via component selectors for backward compat */
-  .text--body,
-  .pillar__body,
-  .case-study__teaser {
+  .text--body {
     font-size: var(--font-size-base);
     color: var(--text-secondary);
   }
