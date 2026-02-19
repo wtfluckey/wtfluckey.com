@@ -64,7 +64,7 @@ body.rainbow-mode {
 }
 
 body.rainbow-mode .hero__name .gradient-text,
-body.rainbow-mode .footer__name {
+body.rainbow-mode .lets-talk__glyph {
   background-image: linear-gradient(
     to right,
     #ff0080 0%,
@@ -74,6 +74,23 @@ body.rainbow-mode .footer__name {
     #00c6ff 80%,
     #7928ca 100%
   );
+}
+
+body.rainbow-mode .footer__name {
+  background-image: linear-gradient(
+    135deg,
+    #ff0080 0%,
+    #ff8c00 18%,
+    #ffe600 36%,
+    #00ff88 54%,
+    #00c6ff 72%,
+    #7928ca 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+  transition: none;
 }
 
 body.rainbow-mode .pillar {
@@ -95,7 +112,15 @@ body.rainbow-mode .pillar {
 }
 
 body.rainbow-mode .btn--primary::before {
-  background: linear-gradient(135deg, #ff0080, #7928ca);
+  background: linear-gradient(
+    135deg,
+    #ff0080 0%,
+    #ff8c00 20%,
+    #ffe600 40%,
+    #00ff88 60%,
+    #00c6ff 80%,
+    #7928ca 100%
+  );
 }
 
 /* ============================================================
