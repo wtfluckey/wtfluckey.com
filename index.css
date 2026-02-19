@@ -94,7 +94,7 @@ body.rainbow-mode .pillar {
   border: 1.5px solid transparent;
 }
 
-body.rainbow-mode .btn--primary {
+body.rainbow-mode .btn--primary::before {
   background: linear-gradient(135deg, #ff0080, #7928ca);
 }
 
@@ -201,17 +201,41 @@ a {
 }
 
 .btn--primary {
+  background: transparent;
+  color: var(--text-primary);
+  border: 2px solid transparent;
+  position: relative;
+}
+
+.btn--primary::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: calc(var(--radius-sm) + 2px);
+  padding: 2px;
   background: var(--gradient);
-  color: #fff;
-  background-size: 200% 100%;
-  background-position: left center;
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0.7;
+  transition: opacity var(--duration) var(--ease-out);
+}
+
+.btn--primary:hover::before,
+.btn--primary:focus-visible::before {
+  opacity: 1;
 }
 
 .btn--primary:hover,
 .btn--primary:focus-visible {
   transform: translateY(-2px);
   box-shadow: 0 6px 28px var(--accent-glow);
-  background-position: right center;
 }
 
 .btn--ghost {
@@ -351,7 +375,7 @@ a {
 
 @media (min-width: 768px) {
   .hero__inner {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: minmax(min-content, 300px) 1fr;
     gap: var(--space-lg);
   }
 }
@@ -359,7 +383,7 @@ a {
 /* Big name */
 .hero__name {
   font-family: var(--font-display);
-  font-size: clamp(5rem, 18vw, 14rem);
+  font-size: clamp(4rem, 13vw, 10rem);
   line-height: 0.9;
   letter-spacing: -0.02em;
   margin-bottom: 0.2em;
