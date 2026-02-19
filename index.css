@@ -348,13 +348,26 @@ a {
 
 .nav__wordmark {
   font-family: var(--font-display);
-  font-size: 1.25rem;
-  letter-spacing: 0.05em;
-  background-image: var(--gradient);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  user-select: none;
+  font-size: 1.375rem;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+  opacity: 0;
+  transform: translateY(-6px);
+  pointer-events: none;
+  transition:
+    opacity 0.4s var(--ease-out),
+    transform 0.4s var(--ease-out);
+}
+
+.nav__wordmark .gradient-text {
+  font-size: inherit;
+  font-family: inherit;
+}
+
+.nav.name-visible .nav__wordmark {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
 }
 
 /* ============================================================

@@ -38,6 +38,28 @@
 
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll(); // run once on load in case page is already scrolled
+
+    // Show the nav name once the hero h1 scrolls out of view
+    var heroName = $("#hero-name");
+    if (heroName && "IntersectionObserver" in window) {
+      var nameObserver = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              nav.classList.remove("name-visible");
+            } else {
+              nav.classList.add("name-visible");
+            }
+          });
+        },
+        {
+          // Fire as soon as the bottom edge of the h1 leaves the viewport top
+          rootMargin: "0px 0px 0px 0px",
+          threshold: 0,
+        },
+      );
+      nameObserver.observe(heroName);
+    }
   }
 
   /* ============================================================
