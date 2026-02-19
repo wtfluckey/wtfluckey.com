@@ -478,6 +478,11 @@ a {
   height: 4rem;
   background: linear-gradient(to bottom, transparent, var(--text-secondary));
   animation: scrollPulse 2.2s var(--ease-out) infinite;
+  animation-play-state: paused;
+}
+
+.hero__scroll-line.playing {
+  animation-play-state: running;
 }
 
 @keyframes scrollPulse {
@@ -950,6 +955,11 @@ a {
   user-select: none;
   opacity: 0.6;
   animation: glyphSpin 18s linear infinite;
+  animation-play-state: paused;
+}
+
+.lets-talk__glyph.spinning {
+  animation-play-state: running;
 }
 
 @keyframes glyphSpin {
@@ -962,7 +972,8 @@ a {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .lets-talk__glyph {
+  .lets-talk__glyph,
+  .lets-talk__glyph.spinning {
     animation: none;
   }
 }
@@ -1081,6 +1092,12 @@ a {
 ============================================================ */
 
 @media (max-width: 767px) {
+  .nav {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    background: rgba(8, 8, 24, 0.96);
+  }
+
   .hero {
     padding-top: 5rem;
     padding-bottom: var(--space-lg);
