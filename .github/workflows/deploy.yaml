@@ -3,10 +3,6 @@ name: Deploy to AWS
 on:
   push:
     branches: [main]
-    paths:
-      - "index.html"
-      - "index.css"
-      - "index.js"
   workflow_dispatch: {}
 
 permissions:
