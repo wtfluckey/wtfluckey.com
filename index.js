@@ -250,7 +250,7 @@
     if (!("IntersectionObserver" in window)) return;
 
     var targets = $$(
-      ".pillar, .case-study, .seeking-card, .seeking-note, .section__header",
+      ".pillar, .case-study, .seeking-card, .seeking-note, .section__header, .lets-talk__content",
     );
 
     // Set initial hidden state via inline style so CSS isn't required

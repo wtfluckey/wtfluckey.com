@@ -853,6 +853,83 @@ a {
 }
 
 /* ============================================================
+   LETS TALK
+============================================================ */
+
+.lets-talk {
+  background-color: var(--navy-2);
+}
+
+.lets-talk__inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .lets-talk__inner {
+    grid-template-columns: 1fr auto;
+    gap: var(--space-xl);
+  }
+}
+
+.lets-talk__content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 560px;
+}
+
+.lets-talk__body {
+  font-size: 1.0625rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+}
+
+.lets-talk__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  padding-top: 0.5rem;
+}
+
+.lets-talk__aside {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .lets-talk__aside {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.lets-talk__glyph {
+  font-size: clamp(6rem, 12vw, 10rem);
+  line-height: 1;
+  user-select: none;
+  opacity: 0.6;
+  animation: glyphSpin 18s linear infinite;
+}
+
+@keyframes glyphSpin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lets-talk__glyph {
+    animation: none;
+  }
+}
+
+/* ============================================================
    FOOTER
 ============================================================ */
 
