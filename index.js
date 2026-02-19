@@ -355,7 +355,7 @@
     observeVisibility($(".hero__scroll-line"), "playing");
 
     // glyphSpin — only run when the glyph is visible
-    observeVisibility($(".lets-talk__glyph"), "spinning");
+    observeVisibility($(".lets-talk__glyph"), "playing");
   }
 
   /* ============================================================

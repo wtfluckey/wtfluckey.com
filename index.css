@@ -530,7 +530,8 @@
     animation-play-state: paused;
   }
 
-  .hero__scroll-line.playing {
+  .hero__scroll-line.playing,
+  .lets-talk__glyph.playing {
     animation-play-state: running;
   }
 
@@ -557,6 +558,18 @@
     }
   }
 
+  /* ----- Card base (shared by .pillar and .seeking-card) ----- */
+
+  .pillar,
+  .seeking-card {
+    background: var(--navy-card);
+    border: 1px solid var(--navy-border);
+    border-radius: var(--radius-md);
+    transition:
+      border-color var(--duration),
+      transform var(--duration) var(--ease-out);
+  }
+
   /* ----- Philosophy Pillars ----- */
 
   .pillars {
@@ -578,9 +591,6 @@
   }
 
   .pillar {
-    background: var(--navy-card);
-    border: 1px solid var(--navy-border);
-    border-radius: var(--radius-md);
     padding: 2rem 1.75rem;
     display: flex;
     flex-direction: column;
@@ -823,13 +833,7 @@
   }
 
   .seeking-card {
-    background: var(--navy-card);
-    border: 1px solid var(--navy-border);
-    border-radius: var(--radius-md);
     padding: 2rem;
-    transition:
-      border-color var(--duration),
-      transform var(--duration) var(--ease-out);
   }
 
   .seeking-card:hover {
@@ -925,10 +929,6 @@
     opacity: 0.6;
     animation: glyphSpin 18s linear infinite;
     animation-play-state: paused;
-  }
-
-  .lets-talk__glyph.spinning {
-    animation-play-state: running;
   }
 
   @keyframes glyphSpin {
@@ -1117,7 +1117,7 @@
     }
 
     .lets-talk__glyph,
-    .lets-talk__glyph.spinning {
+    .lets-talk__glyph.playing {
       animation: none;
     }
   }
