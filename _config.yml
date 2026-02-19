@@ -12,8 +12,7 @@ description: > # this means to ignore newlines until "baseurl:"
   Engineering leader focused on product-aligned teams, sustainable execution,
   and building high-trust environments where engineers thrive.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://wtfluckey.com" # the base hostname & protocol for your site
-twitter_username: wtfluckey
+url: "https://alyfluckey.com" # the base hostname & protocol for your site
 github_username: wtfluckey
 
 # Build settings
