@@ -1,77 +1,779 @@
----
-layout: default
----
+<!doctype html>
+<!--
+  Hey, you found the source. That's very you.
+  Want to talk? fluckeya@gmail.com
+-->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aly Fluckey — Engineering Leader</title>
+    <meta
+      name="description"
+      content="Aly Fluckey is an Engineering Leader with nearly 15 years of experience building high-trust, product-aligned teams."
+    />
 
-<div class="wrapper">
-  <div class="home">
-    <h1 class="title">ALY <span class="callout">FLUCKEY</span></h1>
-    <p>Engineering Leader building high-trust, product-aligned teams.</p>
-
-    <p>
-      I specialize in bringing clarity to ambiguous product spaces - partnering
-      across engineering, product, and design to deliver complex systems with
-      sustainable, predictable execution.
-    </p>
-
-    <p>
-      I care deeply about psychological safety paired with accountability. I
-      focus on building environments where engineers can do their best work
-      without chaos or heroics.
-    </p>
-  </div>
-
-  <div class="contact">
-    <a
-      href="mailto:fluckeya@gmail.com?subject=Hello!%20%F0%9F%91%8B&body=Please%20write%20your%20message%20here"
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
     >
-      <span
-        class="icon tooltip"
-        data-tooltip="Email me!"
-        aria-label="Email me!"
+
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <!-- ============================================================
+       NAV
+  ============================================================ -->
+    <nav class="nav" aria-label="Site navigation">
+      <span class="nav__wordmark">AF</span>
+      <div class="nav__actions">
+        <button
+          class="rainbow-toggle"
+          id="rainbowToggle"
+          aria-pressed="false"
+          aria-label="Toggle Rainbow Time mode"
+          title="Toggle Rainbow Time"
+        >
+          <span class="rainbow-toggle__icon" aria-hidden="true">🌈</span>
+          <span class="rainbow-toggle__label">Rainbow Time</span>
+        </button>
+      </div>
+    </nav>
+
+    <main>
+      <!-- ============================================================
+         HERO
+    ============================================================ -->
+      <section class="hero" aria-labelledby="hero-name">
+        <div class="hero__inner container">
+          <div class="hero__name-wrap">
+            <h1 class="hero__name" id="hero-name">
+              <span class="gradient-text">Aly</span><br />
+              <span class="gradient-text">Fluckey</span>
+            </h1>
+          </div>
+
+          <div class="hero__content">
+            <p class="hero__title">
+              Engineering Leader
+              <span class="hero__title-sep" aria-hidden="true"> · </span>
+              Product-Aligned Execution
+              <span class="hero__title-sep" aria-hidden="true"> · </span>
+              High-Trust Teams
+            </p>
+
+            <p class="hero__statement">
+              I build the conditions for great engineering — not just the
+              engineering itself. With nearly 15 years of experience spanning
+              frontend craft, cross-functional leadership, and organizational
+              systems, I help teams move with clarity, confidence, and
+              sustainable pace.
+            </p>
+
+            <div class="hero__cta-group">
+              <a href="#impact" class="btn btn--primary">See My Work</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero__scroll-hint" aria-hidden="true">
+          <span class="hero__scroll-line"></span>
+        </div>
+      </section>
+
+      <!-- ============================================================
+         PHILOSOPHY
+    ============================================================ -->
+      <section
+        class="section philosophy"
+        id="philosophy"
+        aria-labelledby="philosophy-heading"
       >
-        {% include email.svg %}
-      </span>
-    </a>
+        <div class="container">
+          <header class="section__header">
+            <p class="section__eyebrow">How I Lead</p>
+            <h2 class="section__title" id="philosophy-heading">
+              Leadership Philosophy
+            </h2>
+            <p class="section__subtitle">
+              Good engineering teams don't happen by accident. They're built
+              deliberately — through the right structures, the right culture,
+              and the right habits.
+            </p>
+          </header>
 
-    <a href="https://github.com/wtfluckey" target="_blank">
-      <span
-        class="icon tooltip"
-        data-tooltip="Peep my code!"
-        aria-label="Check out my code on Github"
+          <div class="pillars">
+            <article class="pillar">
+              <div class="pillar__icon" aria-hidden="true">⚙️</div>
+              <h3 class="pillar__title">Systems Over Heroics</h3>
+              <p class="pillar__body">
+                Sustainable delivery comes from strong planning rituals, clear
+                sequencing, and shared ownership — not from burning people out
+                in sprints. I design the systems that make heroics unnecessary.
+              </p>
+            </article>
+
+            <article class="pillar">
+              <div class="pillar__icon" aria-hidden="true">🛡️</div>
+              <h3 class="pillar__title">Safety With Accountability</h3>
+              <p class="pillar__body">
+                Psychological safety isn't softness — it's the precondition for
+                honest feedback, genuine risk-taking, and real ownership. I hold
+                both: a team where people feel safe <em>and</em> one where
+                expectations are clear and commitments are kept.
+              </p>
+            </article>
+
+            <article class="pillar">
+              <div class="pillar__icon" aria-hidden="true">🔍</div>
+              <h3 class="pillar__title">Clarity in Ambiguity</h3>
+              <p class="pillar__body">
+                Ambiguity is the norm in product engineering. My job is to
+                translate fuzzy goals into concrete plans — surfacing tradeoffs,
+                aligning stakeholders, and making sure engineers have what they
+                need to make good decisions independently.
+              </p>
+            </article>
+
+            <article class="pillar">
+              <div class="pillar__icon" aria-hidden="true">📈</div>
+              <h3 class="pillar__title">Data-Informed, Human-Centered</h3>
+              <p class="pillar__body">
+                Metrics matter — but they're a compass, not a command. I build
+                experimentation frameworks and analytics integration so teams
+                can learn fast, while keeping the human on the other end of the
+                product firmly in view.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================
+         IMPACT
+    ============================================================ -->
+      <section
+        class="section impact"
+        id="impact"
+        aria-labelledby="impact-heading"
       >
-        {% include github.svg %}
-      </span>
-    </a>
+        <div class="container">
+          <header class="section__header">
+            <p class="section__eyebrow">Case Studies</p>
+            <h2 class="section__title" id="impact-heading">Selected Impact</h2>
+            <p class="section__subtitle">
+              A few examples of what cross-functional engineering leadership
+              looks like in practice.
+            </p>
+          </header>
 
-    <a
-      href="https://www.linkedin.com/in/alyfluckey"
-      target="_blank"
-      aria-label="Check out my LinkedIn page"
-    >
-      <span class="icon tooltip" data-tooltip="Follow me!">
-        {% include linkedin.svg %}
-      </span>
-    </a>
+          <div class="case-studies">
+            <!-- CASE STUDY 1 -->
+            <article class="case-study" id="cs-lists">
+              <button
+                class="case-study__trigger"
+                aria-expanded="false"
+                aria-controls="cs-lists-body"
+              >
+                <div class="case-study__meta">
+                  <span class="case-study__org">Mozilla Pocket</span>
+                  <span class="case-study__tag"
+                    >Cross-Functional Leadership</span
+                  >
+                </div>
+                <h3 class="case-study__title">Pocket Lists — Feature Launch</h3>
+                <p class="case-study__teaser">
+                  Led a cross-functional team through the full lifecycle of
+                  Pocket Lists, from discovery through post-launch iteration.
+                </p>
+                <span class="case-study__chevron" aria-hidden="true"></span>
+              </button>
 
-    <button
-      aria-label="Toggle rainbow time. Rainbow time changes the color of my name and adds an animated rainbow border around the page.
-        These changes are purely presentational and do not affect the functionality of the website."
-    >
-      <span
-        class="icon rainbow tooltip"
-        id="cue-rainbow-time"
-        data-tooltip="Toggle rainbow time! 🌈"
-      >
-        {% include rainbow.svg %}
-      </span>
-    </button>
-  </div>
-</div>
+              <div class="case-study__body" id="cs-lists-body" hidden>
+                <div class="case-study__grid">
+                  <div class="case-study__col">
+                    <h4 class="case-study__col-title">Context</h4>
+                    <p>
+                      Pocket's core save-and-read loop was strong, but user
+                      organization features had stagnated. Lists represented a
+                      meaningful step toward helping readers manage large
+                      collections — a high-visibility, high-complexity
+                      initiative that required coordination across frontend,
+                      backend, product, design, QA, and data.
+                    </p>
+                  </div>
+                  <div class="case-study__col">
+                    <h4 class="case-study__col-title">Goals</h4>
+                    <ul class="case-study__list">
+                      <li>
+                        Ship a production-quality Lists feature on schedule
+                      </li>
+                      <li>
+                        Establish cross-functional rituals that could scale
+                        beyond this project
+                      </li>
+                      <li>
+                        Improve content engagement metrics by giving users
+                        better organizational tools
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="case-study__col">
+                    <h4 class="case-study__col-title">Who I Worked With</h4>
+                    <p>
+                      Frontend engineers, backend engineers, a product manager,
+                      UX designer, QA engineers, and the data team. Stakeholder
+                      alignment across multiple time zones.
+                    </p>
+                  </div>
+                  <div class="case-study__col">
+                    <h4 class="case-study__col-title">What I Led</h4>
+                    <ul class="case-study__list">
+                      <li>Owned planning, sequencing, and delivery tracking</li>
+                      <li>
+                        Ran cross-functional syncs and unblocked dependencies
+                      </li>
+                      <li>
+                        Partnered with product on scope decisions and tradeoff
+                        conversations
+                      </li>
+                      <li>
+                        Coached engineers through architectural decisions on the
+                        feature
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="case-study__col">
+                    <h4 class="case-study__col-title">Results</h4>
+                    <ul class="case-study__list">
+                      <li>Feature shipped on target timeline</li>
+                      <li>
+                        Measurable lift in content engagement metrics
+                        post-launch
+                      </li>
+                      <li>
+                        Planning framework adopted for subsequent feature work
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="case-study__col">
+                    <h4 class="case-study__col-title">What I Learned</h4>
+                    <p>
+                      Sequencing is often more valuable than speed. Getting the
+                      order of work right — and making that order visible to
+                      everyone — reduced rework significantly and kept the team
+                      from stepping on each other.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </article>
 
-<script>
-  document
-    .getElementById("cue-rainbow-time")
-    .addEventListener("click", function () {
-      document.body.classList.toggle("rainbow-time");
-    });
-</script>
+            <!-- CASE STUDY 2 -->
+            <article class="case-study" id="cs-design-system">
+              <button
+                class="case-study__trigger"
+                aria-expanded="false"
+                aria-controls="cs-design-system-body"
+              >
+                <div class="case-study__meta">
+                  <span class="case-study__org">Mozilla Pocket</span>
+                  <span class="case-study__tag">Frontend Systems</span>
+                </div>
+                <h3 class="case-study__title">
+                  Card Anatomy & Design System Modernization
+                </h3>
+                <p class="case-study__teaser">
+                  Drove the modernization of Pocket's core card components and
+                  underlying design system to reduce friction for every team
+                  touching the UI.
+                </p>
+                <span class="case-study__chevron" aria-hidden="true"></span>
+              </button>
+
+              <div class="case-study__body" id="cs-design-system-body" hidden>
+                <div class="case-study__grid">
+                  <div class="case-study__col">
+                    <h4 class="case-study__col-title">Context</h4>
+                    <p>
+                      Pocket's card components — the core UI unit across the
+                      product — had accumulated significant inconsistency and
+                      technical debt. Each team was solving presentation
+                      problems independently, creating divergence that slowed
+                      down feature work and made design changes expensive.
+                    </p>
+                  </div>
+                  <div class="case-study__col">
+                    <h4 class="case-study__col-title">Goals</h4>
+                    <ul class="case-study__list">
+                      <li>Establish a consistent, composable card anatomy</li>
+                      <li>Reduce time-to-ship for UI changes across teams</li>
+                      <li>Improve design-to-engineering handoff quality</li>
+                    </ul>
+                  </div>
+                  <div class="case-study__col">
+                    <h4 class="case-study__col-title">Who I Worked With</h4>
+                    <p>
+                      Frontend engineers across multiple teams, the design
+                      system team, and UX designers. Required alignment with
+                      product managers on prioritization of "invisible"
+                      infrastructure work.
+                    </p>
+                  </div>
+                  <div class="case-study__col">
+                    <h4 class="case-study__col-title">What I Led</h4>
+                    <ul class="case-study__list">
+                      <li>
+                        Built the case for prioritizing design system work
+                        alongside feature delivery
+                      </li>
+                      <li>
+                        Partnered with designers to define canonical card
+                        variants
+                      </li>
+                      <li>Oversaw the implementation and migration strategy</li>
+                      <li>
+                        Created documentation standards for component consumers
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="case-study__col">
+                    <h4 class="case-study__col-title">Results</h4>
+                    <ul class="case-study__list">
+                      <li>
+                        Significantly reduced UI inconsistency across the
+                        product
+                      </li>
+                      <li>
+                        Improved velocity on subsequent feature work touching
+                        card layouts
+                      </li>
+                      <li>
+                        Stronger design–engineering shared language established
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="case-study__col">
+                    <h4 class="case-study__col-title">What I Learned</h4>
+                    <p>
+                      Infrastructure work lives or dies on stakeholder buy-in.
+                      Framing system improvements in terms of future feature
+                      velocity — not just code quality — is what unlocks the
+                      space to do it well.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- CASE STUDY 3 -->
+            <article class="case-study" id="cs-experiments">
+              <button
+                class="case-study__trigger"
+                aria-expanded="false"
+                aria-controls="cs-experiments-body"
+              >
+                <div class="case-study__meta">
+                  <span class="case-study__org">Mozilla Pocket</span>
+                  <span class="case-study__tag"
+                    >Experimentation & Analytics</span
+                  >
+                </div>
+                <h3 class="case-study__title">
+                  A/B Testing & Experimentation Enablement
+                </h3>
+                <p class="case-study__teaser">
+                  Built the frameworks and culture needed for product teams to
+                  run meaningful experiments and make data-informed decisions.
+                </p>
+                <span class="case-study__chevron" aria-hidden="true"></span>
+              </button>
+
+              <div class="case-study__body" id="cs-experiments-body" hidden>
+                <div class="case-study__grid">
+                  <div class="case-study__col">
+                    <h4 class="case-study__col-title">Context</h4>
+                    <p>
+                      Product teams wanted to test more, but the experimentation
+                      infrastructure was inconsistent and the process for
+                      running rigorous A/B tests wasn't well established.
+                      Decisions were being made on instinct rather than
+                      evidence.
+                    </p>
+                  </div>
+                  <div class="case-study__col">
+                    <h4 class="case-study__col-title">Goals</h4>
+                    <ul class="case-study__list">
+                      <li>
+                        Establish a reliable, repeatable experimentation process
+                      </li>
+                      <li>
+                        Give product and engineering teams confidence in test
+                        results
+                      </li>
+                      <li>Increase the rate of data-informed decisions</li>
+                    </ul>
+                  </div>
+                  <div class="case-study__col">
+                    <h4 class="case-study__col-title">Who I Worked With</h4>
+                    <p>
+                      Data engineers, product managers, frontend engineers, and
+                      QA. Close collaboration with analytics to ensure
+                      instrumentation was accurate and consistent.
+                    </p>
+                  </div>
+                  <div class="case-study__col">
+                    <h4 class="case-study__col-title">What I Led</h4>
+                    <ul class="case-study__list">
+                      <li>Defined experiment design and review standards</li>
+                      <li>
+                        Oversaw analytics integration across feature surfaces
+                      </li>
+                      <li>
+                        Partnered with data team on instrumentation quality
+                      </li>
+                      <li>
+                        Ran retrospectives on experiment outcomes to capture
+                        learnings
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="case-study__col">
+                    <h4 class="case-study__col-title">Results</h4>
+                    <ul class="case-study__list">
+                      <li>
+                        Teams moved from ad hoc testing to structured
+                        experimentation
+                      </li>
+                      <li>
+                        Improved confidence in ship decisions based on
+                        experiment results
+                      </li>
+                      <li>
+                        Analytics instrumentation coverage increased
+                        meaningfully
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="case-study__col">
+                    <h4 class="case-study__col-title">What I Learned</h4>
+                    <p>
+                      Experimentation is as much a cultural shift as a technical
+                      one. Getting teams to slow down enough to design a good
+                      test — and to actually wait for results — requires as much
+                      facilitation as engineering.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- CASE STUDY 4 -->
+            <article class="case-study" id="cs-social">
+              <button
+                class="case-study__trigger"
+                aria-expanded="false"
+                aria-controls="cs-social-body"
+              >
+                <div class="case-study__meta">
+                  <span class="case-study__org">Mozilla Social</span>
+                  <span class="case-study__tag"
+                    >Analytics · Invite Systems</span
+                  >
+                </div>
+                <h3 class="case-study__title">
+                  Mozilla Social — Analytics & Invite Flow
+                </h3>
+                <p class="case-study__teaser">
+                  Owned analytics infrastructure and the user invite flow during
+                  Mozilla's entry into the federated social space.
+                </p>
+                <span class="case-study__chevron" aria-hidden="true"></span>
+              </button>
+
+              <div class="case-study__body" id="cs-social-body" hidden>
+                <div class="case-study__grid">
+                  <div class="case-study__col">
+                    <h4 class="case-study__col-title">Context</h4>
+                    <p>
+                      Mozilla launched a Mastodon-based social instance during
+                      the broader Fediverse growth period. As a new product with
+                      a small team and high public visibility, it required
+                      careful onboarding design and meaningful instrumentation
+                      from day one.
+                    </p>
+                  </div>
+                  <div class="case-study__col">
+                    <h4 class="case-study__col-title">Goals</h4>
+                    <ul class="case-study__list">
+                      <li>
+                        Build a controlled, trust-based invite and onboarding
+                        flow
+                      </li>
+                      <li>
+                        Establish analytics that could guide early product
+                        decisions
+                      </li>
+                      <li>
+                        Ensure privacy-respecting instrumentation aligned with
+                        Mozilla's values
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="case-study__col">
+                    <h4 class="case-study__col-title">Who I Worked With</h4>
+                    <p>
+                      Small, cross-functional team including product,
+                      engineering, and trust & safety. Close alignment with
+                      Mozilla's privacy and data governance teams.
+                    </p>
+                  </div>
+                  <div class="case-study__col">
+                    <h4 class="case-study__col-title">What I Led</h4>
+                    <ul class="case-study__list">
+                      <li>Designed and owned the invite flow architecture</li>
+                      <li>Built out analytics instrumentation from scratch</li>
+                      <li>
+                        Ran stakeholder alignment on privacy-first data
+                        decisions
+                      </li>
+                      <li>
+                        Coordinated rollout sequencing during public launch
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="case-study__col">
+                    <h4 class="case-study__col-title">Results</h4>
+                    <ul class="case-study__list">
+                      <li>
+                        Invite system launched with controlled onboarding that
+                        matched server capacity
+                      </li>
+                      <li>
+                        Analytics baseline established for ongoing product
+                        decisions
+                      </li>
+                      <li>
+                        Zero major instrumentation or privacy incidents at
+                        launch
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="case-study__col">
+                    <h4 class="case-study__col-title">What I Learned</h4>
+                    <p>
+                      Launching a new product — even inside a large org —
+                      requires treating ambiguity as the default state and
+                      building decision-making muscles in the team early. The
+                      teams that stay calm under ambiguity are the ones who
+                      practiced staying calm before the ambiguity hit.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- CASE STUDY 5 -->
+            <article class="case-study" id="cs-consulting">
+              <button
+                class="case-study__trigger"
+                aria-expanded="false"
+                aria-controls="cs-consulting-body"
+              >
+                <div class="case-study__meta">
+                  <span class="case-study__org">Consulting</span>
+                  <span class="case-study__tag"
+                    >Architecture · Internationalization</span
+                  >
+                </div>
+                <h3 class="case-study__title">
+                  Multilingual Architecture in Webflow
+                </h3>
+                <p class="case-study__teaser">
+                  Designed and built a multilingual content architecture for a
+                  client operating across multiple language markets.
+                </p>
+                <span class="case-study__chevron" aria-hidden="true"></span>
+              </button>
+
+              <div class="case-study__body" id="cs-consulting-body" hidden>
+                <div class="case-study__grid">
+                  <div class="case-study__col">
+                    <h4 class="case-study__col-title">Context</h4>
+                    <p>
+                      A client needed to expand their Webflow-based site to
+                      support multiple language markets — without rebuilding
+                      from scratch or introducing a content management burden
+                      that the team couldn't sustain. Existing i18n tooling in
+                      the platform was immature.
+                    </p>
+                  </div>
+                  <div class="case-study__col">
+                    <h4 class="case-study__col-title">Goals</h4>
+                    <ul class="case-study__list">
+                      <li>
+                        Enable multilingual content delivery within platform
+                        constraints
+                      </li>
+                      <li>
+                        Build something maintainable by a non-technical content
+                        team
+                      </li>
+                      <li>Avoid full platform migration</li>
+                    </ul>
+                  </div>
+                  <div class="case-study__col">
+                    <h4 class="case-study__col-title">Who I Worked With</h4>
+                    <p>
+                      Client stakeholders, content editors, and a small
+                      development team. Required close collaboration with
+                      non-technical team members to ensure the solution fit
+                      their actual workflows.
+                    </p>
+                  </div>
+                  <div class="case-study__col">
+                    <h4 class="case-study__col-title">What I Led</h4>
+                    <ul class="case-study__list">
+                      <li>
+                        Designed the content architecture and routing strategy
+                      </li>
+                      <li>Built and tested the multilingual implementation</li>
+                      <li>
+                        Created documentation and training materials for the
+                        content team
+                      </li>
+                      <li>
+                        Managed client expectations through technical
+                        constraints
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="case-study__col">
+                    <h4 class="case-study__col-title">Results</h4>
+                    <ul class="case-study__list">
+                      <li>
+                        Multilingual content delivery live across target markets
+                      </li>
+                      <li>
+                        Content team able to publish independently without dev
+                        involvement
+                      </li>
+                      <li>No platform migration required</li>
+                    </ul>
+                  </div>
+                  <div class="case-study__col">
+                    <h4 class="case-study__col-title">What I Learned</h4>
+                    <p>
+                      Constraints imposed by platform limitations often force
+                      more creative, maintainable solutions than a greenfield
+                      build would. Understanding what the client actually needs
+                      to do day-to-day is as important as understanding the
+                      technical problem.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+          <!-- /.case-studies -->
+        </div>
+      </section>
+    </main>
+
+    <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+    <footer class="footer" role="contentinfo">
+      <div class="container footer__inner">
+        <div class="footer__brand">
+          <span class="footer__name gradient-text">Aly Fluckey</span>
+          <p class="footer__tagline">
+            Engineering Leader. Team builder. Forever rainbow enthusiast.
+          </p>
+        </div>
+
+        <nav class="footer__links" aria-label="Social and contact links">
+          <a
+            href="https://github.com/wtfluckey"
+            class="footer__link"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub profile"
+          >
+            <svg
+              class="footer__link-icon"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+              />
+            </svg>
+            GitHub
+          </a>
+
+          <a
+            href="https://www.linkedin.com/in/alyfluckey"
+            class="footer__link"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn profile"
+          >
+            <svg
+              class="footer__link-icon"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+              />
+            </svg>
+            LinkedIn
+          </a>
+
+          <a
+            href="mailto:fluckeya@gmail.com"
+            class="footer__link"
+            aria-label="Send email"
+          >
+            <svg
+              class="footer__link-icon"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                d="M1.5 8.67v8.58a3 3 0 003 3h15a3 3 0 003-3V8.67l-8.928 5.493a3 3 0 01-3.144 0L1.5 8.67z"
+              />
+              <path
+                d="M22.5 6.908V6.75a3 3 0 00-3-3h-15a3 3 0 00-3 3v.158l9.714 5.978a1.5 1.5 0 001.572 0L22.5 6.908z"
+              />
+            </svg>
+            Email
+          </a>
+        </nav>
+
+        <div class="footer__bottom">
+          <span class="footer__copy">
+            Built with intention. No frameworks harmed.
+          </span>
+          <button
+            class="rainbow-toggle rainbow-toggle--sm"
+            id="rainbowToggleFooter"
+            aria-label="Toggle Rainbow Time mode"
+          >
+            <span aria-hidden="true">🌈</span> Rainbow Time
+          </button>
+        </div>
+      </div>
+    </footer>
+
+    <script src="index.js"></script>
+  </body>
+</html>
