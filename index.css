@@ -157,6 +157,35 @@
     color: transparent;
     transition: background-image 0.5s var(--ease-out);
   }
+
+  /* ----- Bold uppercase label (eyebrow / overline pattern) ----- */
+  /* Used by: .section__eyebrow, .case-study__org, .case-study__col-title */
+  .section__eyebrow,
+  .case-study__org,
+  .case-study__col-title {
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  /* ----- Medium uppercase label (tag / subtitle pattern) ----- */
+  /* Used by: .hero__title, .case-study__tag */
+  .hero__title,
+  .case-study__tag {
+    font-weight: 500;
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+  }
+
+  /* ----- Primary body text ----- */
+  /* Used by: .pillar__body, .case-study__teaser, .case-study__col p, .case-study__list li, .seeking-card__body */
+  .pillar__body,
+  .case-study__teaser,
+  .case-study__col p,
+  .case-study__list li,
+  .seeking-card__body {
+    font-size: var(--font-size-base);
+    color: var(--text-secondary);
+  }
 } /* end @layer typography */
 
 /* ============================================================
@@ -188,9 +217,7 @@
 
   .section__eyebrow {
     font-size: var(--font-size-sm);
-    font-weight: 600;
     letter-spacing: var(--tracking-widest);
-    text-transform: uppercase;
     color: var(--accent-cyan);
     margin-bottom: 0.75rem;
   }
@@ -461,9 +488,6 @@
 
   .hero__title {
     font-size: clamp(0.8125rem, 2vw, 0.9375rem);
-    font-weight: 500;
-    letter-spacing: var(--tracking-wide);
-    text-transform: uppercase;
     color: var(--text-secondary);
   }
 
@@ -587,8 +611,6 @@
   }
 
   .pillar__body {
-    font-size: var(--font-size-base);
-    color: var(--text-secondary);
     line-height: var(--leading-relaxed);
     flex: 1;
   }
@@ -652,17 +674,12 @@
 
   .case-study__org {
     font-size: var(--font-size-sm);
-    font-weight: 600;
     letter-spacing: var(--tracking-wider);
-    text-transform: uppercase;
     color: var(--accent-cyan);
   }
 
   .case-study__tag {
     font-size: var(--font-size-xs);
-    font-weight: 500;
-    letter-spacing: var(--tracking-wide);
-    text-transform: uppercase;
     color: var(--text-muted);
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid var(--navy-border);
@@ -691,8 +708,6 @@
 
   .case-study__teaser {
     grid-area: teaser;
-    font-size: var(--font-size-base);
-    color: var(--text-secondary);
     line-height: var(--leading-snug);
     max-width: 66ch;
   }
@@ -762,16 +777,12 @@
 
   .case-study__col-title {
     font-size: var(--font-size-xs);
-    font-weight: 600;
     letter-spacing: var(--tracking-wider);
-    text-transform: uppercase;
     color: var(--accent-pink);
     margin-bottom: 0.65rem;
   }
 
   .case-study__col p {
-    font-size: var(--font-size-base);
-    color: var(--text-secondary);
     line-height: var(--leading-relaxed);
   }
 
@@ -782,8 +793,6 @@
   }
 
   .case-study__list li {
-    font-size: var(--font-size-base);
-    color: var(--text-secondary);
     line-height: var(--leading-snug);
     padding-left: 1.1rem;
     position: relative;
@@ -837,8 +846,6 @@
   }
 
   .seeking-card__body {
-    font-size: var(--font-size-base);
-    color: var(--text-secondary);
     line-height: var(--leading-loose);
   }
 
