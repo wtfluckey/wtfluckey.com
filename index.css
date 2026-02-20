@@ -254,6 +254,7 @@
     font-size: var(--font-size-md);
     color: var(--text-secondary);
     line-height: var(--leading-relaxed);
+    margin-bottom: var(--space-sm-plus);
   }
 
   /* Alternating section backgrounds */
@@ -494,15 +495,10 @@
   }
 
   /* Right-side content */
-  .hero__content {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-sm-plus);
-  }
-
   .hero__title {
     font-size: clamp(0.8125rem, 2vw, 0.9375rem);
     color: var(--text-secondary);
+    margin-bottom: var(--space-sm-plus);
   }
 
   .hero__title-sep {
@@ -513,6 +509,7 @@
     font-size: clamp(1rem, 2.2vw, 1.1875rem);
     color: var(--text-secondary);
     line-height: var(--leading-loose);
+    margin-bottom: var(--space-sm-plus);
   }
 
   .hero__cta-group {
@@ -799,9 +796,6 @@
   }
 
   .lets-talk__content {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-sm-plus);
     max-width: var(--measure);
   }
 
@@ -863,16 +857,11 @@
     }
   }
 
-  .footer__brand {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-xs);
-  }
-
   .footer__name {
     font-family: var(--font-display);
     font-size: var(--font-size-2xl);
     letter-spacing: var(--tracking-tight);
+    margin-bottom: var(--space-xs);
   }
 
   .footer__tagline {
