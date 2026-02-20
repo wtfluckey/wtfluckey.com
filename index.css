@@ -342,47 +342,41 @@
     transform: translateY(-2px);
   }
 
-  /* ----- Rainbow Toggle ----- */
+  /* ----- Button size modifiers ----- */
 
-  .rainbow-toggle {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
-    padding: 0.45rem 1rem;
-    border-radius: var(--radius-pill);
+  .btn--sm {
+    font-size: var(--font-size-sm);
+    padding: var(--space-xs) var(--space-sm);
+  }
+
+  /* ----- Rainbow variant ----- */
+
+  .btn--rainbow {
     border: 1px solid var(--navy-border);
     color: var(--text-secondary);
-    font-size: var(--font-size-ui);
-    font-weight: var(--weight-medium);
-    letter-spacing: var(--tracking-normal);
+    background: transparent;
     transition:
       border-color var(--duration),
       color var(--duration),
       background-color var(--duration);
-    background: transparent;
   }
 
-  .rainbow-toggle:hover,
-  .rainbow-toggle[aria-pressed="true"] {
+  .btn--rainbow:hover,
+  .btn--rainbow[aria-pressed="true"] {
     border-color: var(--border-hover-strong);
     color: var(--text-primary);
     background: var(--surface-hover-md);
   }
 
-  .rainbow-toggle__icon {
-    font-size: var(--font-size-lg);
+  .btn__icon {
+    font-size: var(--font-size-ui);
     line-height: var(--leading-none);
     transition: transform var(--duration-medium) var(--ease-out);
   }
 
-  .rainbow-toggle:hover .rainbow-toggle__icon,
-  .rainbow-toggle[aria-pressed="true"] .rainbow-toggle__icon {
+  .btn--rainbow:hover .btn__icon,
+  .btn--rainbow[aria-pressed="true"] .btn__icon {
     transform: rotate(20deg) scale(1.15);
-  }
-
-  .rainbow-toggle--sm {
-    font-size: var(--font-size-sm);
-    padding: 0.35rem 0.85rem;
   }
 } /* end @layer elements */
 
@@ -1020,7 +1014,6 @@
     .hero__name {
       font-size: clamp(4.5rem, 22vw, 8rem);
     }
-
 
     .case-study__trigger {
       padding: var(--space-sm-plus);

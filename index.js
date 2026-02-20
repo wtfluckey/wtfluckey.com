@@ -145,7 +145,7 @@
   var RAINBOW_KEY = "af-rainbow-mode";
 
   function initRainbow() {
-    var toggles = $$("#rainbowToggle, #rainbowToggleFooter, .rainbow-toggle");
+    var toggles = $$("#rainbowToggle, #rainbowToggleFooter");
 
     // Restore preference
     var saved = localStorage.getItem(RAINBOW_KEY);
