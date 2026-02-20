@@ -97,6 +97,9 @@
     --leading-relaxed: 1.7; /* secondary body paragraphs */
     --leading-loose: 1.75; /* statement & lead paragraphs */
 
+    /* Measure — max line length for text containers */
+    --measure: 60ch;
+
     /* Radius */
     --radius-sm: 6px;
     --radius-md: 12px;
@@ -227,7 +230,7 @@
   }
 
   .section__header {
-    max-width: 640px;
+    max-width: var(--measure);
     margin-bottom: var(--space-lg);
   }
 
@@ -251,7 +254,6 @@
     font-size: var(--font-size-md);
     color: var(--text-secondary);
     line-height: var(--leading-relaxed);
-    max-width: 52ch;
   }
 
   /* Alternating section backgrounds */
@@ -511,7 +513,6 @@
     font-size: clamp(1rem, 2.2vw, 1.1875rem);
     color: var(--text-secondary);
     line-height: var(--leading-loose);
-    max-width: 48ch;
   }
 
   .hero__cta-group {
@@ -676,7 +677,6 @@
   .case-study__teaser {
     grid-area: teaser;
     line-height: var(--leading-snug);
-    max-width: 66ch;
   }
 
   /* Chevron arrow */
@@ -802,13 +802,7 @@
     display: flex;
     flex-direction: column;
     gap: var(--space-sm-plus);
-    max-width: 560px;
-  }
-
-  .lets-talk__body {
-    font-size: var(--font-size-md);
-    color: var(--text-secondary);
-    line-height: var(--leading-loose);
+    max-width: var(--measure);
   }
 
   .lets-talk__actions {
