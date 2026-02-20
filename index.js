@@ -175,7 +175,6 @@
         localStorage.setItem(RAINBOW_KEY, "true");
       } catch (e) {}
     }
-    spawnRainbowBurst();
   }
 
   function disableRainbow(toggles) {
@@ -186,81 +185,6 @@
     try {
       localStorage.setItem(RAINBOW_KEY, "false");
     } catch (e) {}
-  }
-
-  /* ============================================================
-     RAINBOW BURST — a tiny playful particle effect on toggle
-  ============================================================ */
-
-  function spawnRainbowBurst() {
-    var colors = [
-      "#ff0080",
-      "#ff8c00",
-      "#ffe600",
-      "#00ff88",
-      "#00c6ff",
-      "#7928ca",
-      "#fc00ff",
-      "#00dbde",
-    ];
-    var count = 18;
-
-    for (var i = 0; i < count; i++) {
-      (function (index) {
-        setTimeout(function () {
-          var dot = document.createElement("span");
-          dot.setAttribute("aria-hidden", "true");
-
-          var angle = (360 / count) * index;
-          var distance = 60 + Math.random() * 40;
-          var size = 6 + Math.random() * 6;
-          var color = colors[index % colors.length];
-
-          // Starting position — center of viewport
-          var cx = window.innerWidth / 2;
-          var cy = window.innerHeight / 2;
-
-          Object.assign(dot.style, {
-            position: "fixed",
-            left: cx + "px",
-            top: cy + "px",
-            width: size + "px",
-            height: size + "px",
-            borderRadius: "50%",
-            background: color,
-            pointerEvents: "none",
-            zIndex: "9999",
-            transform: "translate(-50%, -50%)",
-            transition:
-              "transform 0.6s cubic-bezier(0.22,1,0.36,1), opacity 0.6s ease",
-            opacity: "1",
-            willChange: "transform, opacity",
-          });
-
-          document.body.appendChild(dot);
-
-          // Trigger paint before animating
-          requestAnimationFrame(function () {
-            requestAnimationFrame(function () {
-              var rad = (angle * Math.PI) / 180;
-              var dx = Math.cos(rad) * distance;
-              var dy = Math.sin(rad) * distance;
-              dot.style.transform =
-                "translate(calc(-50% + " +
-                dx +
-                "px), calc(-50% + " +
-                dy +
-                "px)) scale(0)";
-              dot.style.opacity = "0";
-            });
-          });
-
-          setTimeout(function () {
-            if (dot.parentNode) dot.parentNode.removeChild(dot);
-          }, 700);
-        }, index * 18);
-      })(i);
-    }
   }
 
   /* ============================================================
