@@ -15,7 +15,7 @@
     --navy: #080818;
     --navy-2: #0e0e24;
     --navy-3: #14143a;
-    --navy-card: #0f0f28;
+    --navy-card: #121230;
     --navy-border: rgba(255, 255, 255, 0.08);
 
     /* Gradient — cyan → pink/magenta (brand DNA) */
@@ -30,7 +30,6 @@
     /* Text */
     --text-primary: #f0f0ff;
     --text-secondary: #9090b8;
-    --text-muted: #8484aa;
 
     /* Accents */
     --accent-cyan: #00dbde;
@@ -43,10 +42,8 @@
     --accent-cyan-border: rgba(0, 219, 222, 0.3); /* pillar hover border */
     --navy-overlay: rgba(8, 8, 24, 0.7); /* nav backdrop */
     --navy-overlay-solid: rgba(8, 8, 24, 0.96); /* mobile nav */
-    --surface-hover: rgba(255, 255, 255, 0.02); /* very subtle hover bg */
-    --surface-hover-md: rgba(255, 255, 255, 0.04); /* slightly visible hover */
-    --border-hover: rgba(255, 255, 255, 0.2); /* ghost btn hover border */
-    --border-hover-strong: rgba(255, 255, 255, 0.25); /* toggle hover border */
+    --surface-hover-md: rgba(255, 255, 255, 0.04); /* subtle hover bg */
+    --border-hover: rgba(255, 255, 255, 0.2); /* btn hover border */
 
     /* Shadows */
     --shadow-sm: 0 1px 24px rgba(0, 0, 0, 0.4); /* nav scroll */
@@ -363,7 +360,7 @@
 
   .btn--rainbow:hover,
   .btn--rainbow[aria-pressed="true"] {
-    border-color: var(--border-hover-strong);
+    border-color: var(--border-hover);
     color: var(--text-primary);
     background: var(--surface-hover-md);
   }
@@ -496,7 +493,7 @@
   }
 
   .hero__title-sep {
-    color: var(--text-muted);
+    color: var(--text-secondary);
   }
 
   .hero__statement {
@@ -616,7 +613,7 @@
   }
 
   .case-study__trigger:hover {
-    background: var(--surface-hover);
+    background: var(--surface-hover-md);
   }
 
   .case-study.is-open .case-study__trigger {
@@ -639,7 +636,7 @@
 
   .case-study__tag {
     font-size: var(--font-size-xs);
-    color: var(--text-muted);
+    color: var(--text-secondary);
     background: var(--surface-hover-md);
     border: 1px solid var(--navy-border);
     padding: 0.2em 0.6em;
@@ -676,8 +673,8 @@
     align-self: center;
     width: 1.25rem;
     height: 1.25rem;
-    border-right: 2px solid var(--text-muted);
-    border-bottom: 2px solid var(--text-muted);
+    border-right: 2px solid var(--text-secondary);
+    border-bottom: 2px solid var(--text-secondary);
     border-radius: 1px;
     transform: rotate(45deg);
     transition:
@@ -860,7 +857,7 @@
 
   .footer__tagline {
     font-size: var(--font-size-ui);
-    color: var(--text-muted);
+    color: var(--text-secondary);
     line-height: var(--leading-snug);
   }
 
@@ -903,7 +900,7 @@
 
   .footer__copy {
     font-size: var(--font-size-ui);
-    color: var(--text-muted);
+    color: var(--text-secondary);
   }
 
   .footer__link--inline {

@@ -55,7 +55,7 @@
 
     .sg-nav__sub {
       font-size: var(--font-size-xs);
-      color: var(--text-muted);
+      color: var(--text-secondary);
       transition: color var(--duration);
       white-space: nowrap;
       padding-left: var(--space-sm);
@@ -128,7 +128,7 @@
 
     .sg-token__value {
       font-size: var(--font-size-xs);
-      color: var(--text-muted);
+      color: var(--text-secondary);
       font-family: monospace;
     }
 
@@ -181,7 +181,7 @@
     .sg-type-meta {
       font-family: monospace;
       font-size: var(--font-size-xs);
-      color: var(--text-muted);
+      color: var(--text-secondary);
       min-width: 8ch;
       flex-shrink: 0;
     }
@@ -225,7 +225,7 @@
     /* Note callout */
     .sg-note {
       font-size: var(--font-size-sm);
-      color: var(--text-muted);
+      color: var(--text-secondary);
       border-left: 2px solid var(--navy-border);
       padding-left: var(--space-sm);
       margin-bottom: var(--space-sm);
@@ -324,17 +324,22 @@
       <div class="sg-token">
         <div class="sg-swatch" style="background:#0e0e24;"></div>
         <span class="sg-token__name">--navy-2</span>
-        <span class="sg-token__value">#0e0e24</span>
+        <span class="sg-token__value">#0e0e24 — philosophy/lets-talk bg</span>
       </div>
       <div class="sg-token">
         <div class="sg-swatch" style="background:#14143a;"></div>
         <span class="sg-token__name">--navy-3</span>
-        <span class="sg-token__value">#14143a</span>
+        <span class="sg-token__value">#14143a — case study open state</span>
       </div>
       <div class="sg-token">
-        <div class="sg-swatch" style="background:#0f0f28;"></div>
+        <div class="sg-swatch" style="background:#121230;"></div>
         <span class="sg-token__name">--navy-card</span>
-        <span class="sg-token__value">#0f0f28</span>
+        <span class="sg-token__value">#121230 — card/panel bg</span>
+      </div>
+      <div class="sg-token">
+        <div class="sg-swatch" style="background:rgba(255,255,255,0.08);border:none;"></div>
+        <span class="sg-token__name">--navy-border</span>
+        <span class="sg-token__value">rgba(255,255,255,0.08) — default dividers &amp; card borders</span>
       </div>
     </div>
 
@@ -349,11 +354,6 @@
         <div class="sg-swatch" style="background:#9090b8;"></div>
         <span class="sg-token__name">--text-secondary</span>
         <span class="sg-token__value">#9090b8</span>
-      </div>
-      <div class="sg-token">
-        <div class="sg-swatch" style="background:#8484aa;"></div>
-        <span class="sg-token__name">--text-muted</span>
-        <span class="sg-token__value">#8484aa</span>
       </div>
     </div>
 
@@ -386,42 +386,37 @@
       <div class="sg-token">
         <div class="sg-swatch" style="background:rgba(0,219,222,0.07);"></div>
         <span class="sg-token__name">--accent-cyan-subtle</span>
-        <span class="sg-token__value">rgba(0,219,222,0.07) — hero glow</span>
+        <span class="sg-token__value">rgba(0,219,222,0.07) — hero bg glow</span>
       </div>
       <div class="sg-token">
         <div class="sg-swatch" style="background:rgba(252,0,255,0.07);"></div>
         <span class="sg-token__name">--accent-pink-subtle</span>
-        <span class="sg-token__value">rgba(252,0,255,0.07) — hero glow</span>
+        <span class="sg-token__value">rgba(252,0,255,0.07) — hero bg glow</span>
       </div>
       <div class="sg-token">
         <div class="sg-swatch" style="background:rgba(0,219,222,0.3);"></div>
         <span class="sg-token__name">--accent-cyan-border</span>
-        <span class="sg-token__value">rgba(0,219,222,0.3) — pillar hover</span>
+        <span class="sg-token__value">rgba(0,219,222,0.3) — pillar hover border</span>
       </div>
       <div class="sg-token">
         <div class="sg-swatch" style="background:rgba(8,8,24,0.7);"></div>
         <span class="sg-token__name">--navy-overlay</span>
-        <span class="sg-token__value">rgba(8,8,24,0.7) — nav backdrop</span>
+        <span class="sg-token__value">rgba(8,8,24,0.7) — nav desktop backdrop</span>
       </div>
       <div class="sg-token">
-        <div class="sg-swatch" style="background:rgba(255,255,255,0.02);"></div>
-        <span class="sg-token__name">--surface-hover</span>
-        <span class="sg-token__value">rgba(255,255,255,0.02)</span>
+        <div class="sg-swatch" style="background:rgba(8,8,24,0.96);"></div>
+        <span class="sg-token__name">--navy-overlay-solid</span>
+        <span class="sg-token__value">rgba(8,8,24,0.96) — nav mobile (no blur)</span>
       </div>
       <div class="sg-token">
         <div class="sg-swatch" style="background:rgba(255,255,255,0.04);"></div>
         <span class="sg-token__name">--surface-hover-md</span>
-        <span class="sg-token__value">rgba(255,255,255,0.04)</span>
+        <span class="sg-token__value">rgba(255,255,255,0.04) — subtle hover/tag bg</span>
       </div>
       <div class="sg-token">
         <div class="sg-swatch" style="background:rgba(255,255,255,0.2);"></div>
         <span class="sg-token__name">--border-hover</span>
-        <span class="sg-token__value">rgba(255,255,255,0.2)</span>
-      </div>
-      <div class="sg-token">
-        <div class="sg-swatch" style="background:rgba(255,255,255,0.25);"></div>
-        <span class="sg-token__name">--border-hover-strong</span>
-        <span class="sg-token__value">rgba(255,255,255,0.25)</span>
+        <span class="sg-token__value">rgba(255,255,255,0.2) — btn/input hover border</span>
       </div>
     </div>
 
@@ -992,12 +987,22 @@
       <div class="sg-token">
         <div class="sg-swatch" style="background:#05051a;"></div>
         <span class="sg-token__name">--navy</span>
-        <span class="sg-token__value">#05051a</span>
+        <span class="sg-token__value">#05051a (was #080818)</span>
       </div>
       <div class="sg-token">
         <div class="sg-swatch" style="background:#0a0520;"></div>
         <span class="sg-token__name">--navy-2</span>
-        <span class="sg-token__value">#0a0520</span>
+        <span class="sg-token__value">#0a0520 (was #0e0e24)</span>
+      </div>
+      <div class="sg-token">
+        <div class="sg-swatch" style="background:#0f0a2e;"></div>
+        <span class="sg-token__name">--navy-3</span>
+        <span class="sg-token__value">#0f0a2e (was #14143a)</span>
+      </div>
+      <div class="sg-token">
+        <div class="sg-swatch" style="background:#090520;"></div>
+        <span class="sg-token__name">--navy-card</span>
+        <span class="sg-token__value">#090520 (was #121230)</span>
       </div>
       <div class="sg-token">
         <div class="sg-swatch" style="background:#ff0080;"></div>
@@ -1012,12 +1017,42 @@
       <div class="sg-token">
         <div class="sg-swatch" style="background:#0affef;"></div>
         <span class="sg-token__name">--accent-cyan</span>
-        <span class="sg-token__value">#0affef</span>
+        <span class="sg-token__value">#0affef (was #00dbde)</span>
       </div>
       <div class="sg-token">
         <div class="sg-swatch" style="background:#ff6ec7;"></div>
         <span class="sg-token__name">--accent-pink</span>
-        <span class="sg-token__value">#ff6ec7</span>
+        <span class="sg-token__value">#ff6ec7 (was #fc00ff)</span>
+      </div>
+      <div class="sg-token">
+        <div class="sg-swatch" style="background:rgba(121,40,202,0.25);"></div>
+        <span class="sg-token__name">--accent-glow</span>
+        <span class="sg-token__value">rgba(121,40,202,0.25) — purple glow</span>
+      </div>
+      <div class="sg-token">
+        <div class="sg-swatch" style="background:rgba(10,255,239,0.07);"></div>
+        <span class="sg-token__name">--accent-cyan-subtle</span>
+        <span class="sg-token__value">rgba(10,255,239,0.07) — hero bg glow</span>
+      </div>
+      <div class="sg-token">
+        <div class="sg-swatch" style="background:rgba(255,110,199,0.07);"></div>
+        <span class="sg-token__name">--accent-pink-subtle</span>
+        <span class="sg-token__value">rgba(255,110,199,0.07) — hero bg glow</span>
+      </div>
+      <div class="sg-token">
+        <div class="sg-swatch" style="background:rgba(10,255,239,0.3);"></div>
+        <span class="sg-token__name">--accent-cyan-border</span>
+        <span class="sg-token__value">rgba(10,255,239,0.3) — pillar hover border</span>
+      </div>
+      <div class="sg-token">
+        <div class="sg-swatch" style="background:rgba(5,5,26,0.7);"></div>
+        <span class="sg-token__name">--navy-overlay</span>
+        <span class="sg-token__value">rgba(5,5,26,0.7) — nav desktop backdrop</span>
+      </div>
+      <div class="sg-token">
+        <div class="sg-swatch" style="background:rgba(5,5,26,0.96);"></div>
+        <span class="sg-token__name">--navy-overlay-solid</span>
+        <span class="sg-token__value">rgba(5,5,26,0.96) — nav mobile</span>
       </div>
       <div class="sg-token">
         <div class="sg-swatch" style="background:linear-gradient(to right,#ff0080,#ff8c00,#ffe600,#00ff88,#00c6ff,#7928ca);"></div>
