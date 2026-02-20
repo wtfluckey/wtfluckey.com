@@ -5,9 +5,20 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Style Guide — wtfluckey.com</title>
+  <!-- Fonts: Exo (project font) + Inter (styleguide chrome) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100..900;1,100..900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="index.css" />
   <style>
     /* Style guide chrome — uses project tokens, not inline values */
+
+    /* Override body font to Inter for chrome; Exo still renders via
+       var(--font-display) on .sg-heading and all component demos */
+    body {
+      font-family: "Inter", system-ui, sans-serif;
+    }
+
     .sg-page {
       padding: var(--space-xl) var(--space-md);
       max-width: 1100px;
@@ -468,42 +479,42 @@
       <div class="sg-type-row" style="padding:var(--space-sm);">
         <span class="sg-type-label">--font-size-xs</span>
         <span class="sg-type-meta">0.6875rem / 11px</span>
-        <span style="font-size:0.6875rem;color:var(--text-secondary);">Tag labels, marker arrows</span>
+        <span style="font-family:'Exo',sans-serif;font-size:0.6875rem;color:var(--text-secondary);">Tag labels, marker arrows</span>
       </div>
       <div class="sg-type-row" style="padding:var(--space-sm);">
         <span class="sg-type-label">--font-size-sm</span>
         <span class="sg-type-meta">0.75rem / 12px</span>
-        <span style="font-size:0.75rem;color:var(--text-secondary);">Eyebrows, overlines, small labels, btn--sm</span>
+        <span style="font-family:'Exo',sans-serif;font-size:0.75rem;color:var(--text-secondary);">Eyebrows, overlines, small labels, btn--sm</span>
       </div>
       <div class="sg-type-row" style="padding:var(--space-sm);">
         <span class="sg-type-label">--font-size-ui</span>
         <span class="sg-type-meta">0.875rem / 14px</span>
-        <span style="font-size:0.875rem;color:var(--text-secondary);">UI chrome — toggles, footer copy, links &amp; tagline</span>
+        <span style="font-family:'Exo',sans-serif;font-size:0.875rem;color:var(--text-secondary);">UI chrome — toggles, footer copy, links &amp; tagline</span>
       </div>
       <div class="sg-type-row" style="padding:var(--space-sm);">
         <span class="sg-type-label">--font-size-base</span>
         <span class="sg-type-meta">0.9375rem / 15px</span>
-        <span style="font-size:0.9375rem;color:var(--text-secondary);">Primary body text</span>
+        <span style="font-family:'Exo',sans-serif;font-size:0.9375rem;color:var(--text-secondary);">Primary body text</span>
       </div>
       <div class="sg-type-row" style="padding:var(--space-sm);">
         <span class="sg-type-label">--font-size-md</span>
         <span class="sg-type-meta">1.0625rem / 17px</span>
-        <span style="font-size:1.0625rem;color:var(--text-secondary);">Lead text, section subtitle</span>
+        <span style="font-family:'Exo',sans-serif;font-size:1.0625rem;color:var(--text-secondary);">Lead text, section subtitle</span>
       </div>
       <div class="sg-type-row" style="padding:var(--space-sm);">
         <span class="sg-type-label">--font-size-lg</span>
         <span class="sg-type-meta">1.125rem / 18px</span>
-        <span style="font-size:1.125rem;color:var(--text-secondary);">Component headings</span>
+        <span style="font-family:'Exo',sans-serif;font-size:1.125rem;color:var(--text-secondary);">Component headings</span>
       </div>
       <div class="sg-type-row" style="padding:var(--space-sm);">
         <span class="sg-type-label">--font-size-xl</span>
         <span class="sg-type-meta">1.375rem / 22px</span>
-        <span style="font-size:1.375rem;color:var(--text-secondary);">Nav wordmark, case study title</span>
+        <span style="font-family:'Exo',sans-serif;font-size:1.375rem;color:var(--text-secondary);">Nav wordmark, case study title</span>
       </div>
       <div class="sg-type-row" style="padding:var(--space-sm);">
         <span class="sg-type-label">--font-size-2xl</span>
         <span class="sg-type-meta">1.75rem / 28px</span>
-        <span style="font-size:1.75rem;color:var(--text-secondary);">Footer name, pillar icon</span>
+        <span style="font-family:'Exo',sans-serif;font-size:1.75rem;color:var(--text-secondary);">Footer name, pillar icon</span>
       </div>
     </div>
 
@@ -513,54 +524,17 @@
       <div class="sg-type-row" style="padding:var(--space-sm);">
         <span class="sg-type-label">--weight-normal</span>
         <span class="sg-type-meta">400</span>
-        <span style="font-weight:400;font-size:var(--font-size-md);">The quick brown fox</span>
+        <span style="font-family:'Exo',sans-serif;font-weight:400;font-size:var(--font-size-md);">The quick brown fox</span>
       </div>
       <div class="sg-type-row" style="padding:var(--space-sm);">
         <span class="sg-type-label">--weight-medium</span>
         <span class="sg-type-meta">500</span>
-        <span style="font-weight:500;font-size:var(--font-size-md);">The quick brown fox</span>
+        <span style="font-family:'Exo',sans-serif;font-weight:500;font-size:var(--font-size-md);">The quick brown fox</span>
       </div>
       <div class="sg-type-row" style="padding:var(--space-sm);">
         <span class="sg-type-label">--weight-semibold</span>
         <span class="sg-type-meta">600</span>
-        <span style="font-weight:600;font-size:var(--font-size-md);">The quick brown fox</span>
-      </div>
-    </div>
-
-    <!-- LINE HEIGHT -->
-    <h2 class="sg-subheading">Line Height</h2>
-    <div class="sg-token-grid">
-      <div class="sg-token">
-        <span class="sg-token__name">--leading-none</span>
-        <span class="sg-token__value">1 — icon glyphs</span>
-      </div>
-      <div class="sg-token">
-        <span class="sg-token__name">--leading-hero</span>
-        <span class="sg-token__value">0.9 — oversized display headline</span>
-      </div>
-      <div class="sg-token">
-        <span class="sg-token__name">--leading-display</span>
-        <span class="sg-token__value">1.05 — large section titles</span>
-      </div>
-      <div class="sg-token">
-        <span class="sg-token__name">--leading-tight</span>
-        <span class="sg-token__value">1.2 — component title headings</span>
-      </div>
-      <div class="sg-token">
-        <span class="sg-token__name">--leading-snug</span>
-        <span class="sg-token__value">1.6 — compact body text</span>
-      </div>
-      <div class="sg-token">
-        <span class="sg-token__name">--leading-normal</span>
-        <span class="sg-token__value">1.65 — base body (default)</span>
-      </div>
-      <div class="sg-token">
-        <span class="sg-token__name">--leading-relaxed</span>
-        <span class="sg-token__value">1.7 — secondary body paragraphs</span>
-      </div>
-      <div class="sg-token">
-        <span class="sg-token__name">--leading-loose</span>
-        <span class="sg-token__value">1.75 — statement &amp; lead paragraphs</span>
+        <span style="font-family:'Exo',sans-serif;font-weight:600;font-size:var(--font-size-md);">The quick brown fox</span>
       </div>
     </div>
 
@@ -570,32 +544,32 @@
       <div class="sg-type-row" style="padding:var(--space-sm);">
         <span class="sg-type-label">--tracking-tighter</span>
         <span class="sg-type-meta">-0.02em</span>
-        <span style="letter-spacing:-0.02em;font-size:var(--font-size-md);">Display name</span>
+        <span style="font-family:'Exo',sans-serif;letter-spacing:-0.02em;font-size:var(--font-size-md);">Display name</span>
       </div>
       <div class="sg-type-row" style="padding:var(--space-sm);">
         <span class="sg-type-label">--tracking-tight</span>
         <span class="sg-type-meta">-0.01em</span>
-        <span style="letter-spacing:-0.01em;font-size:var(--font-size-md);">Section titles, wordmark</span>
+        <span style="font-family:'Exo',sans-serif;letter-spacing:-0.01em;font-size:var(--font-size-md);">Section titles, wordmark</span>
       </div>
       <div class="sg-type-row" style="padding:var(--space-sm);">
         <span class="sg-type-label">--tracking-normal</span>
         <span class="sg-type-meta">0.01em</span>
-        <span style="letter-spacing:0.01em;font-size:var(--font-size-md);">Default slight open</span>
+        <span style="font-family:'Exo',sans-serif;letter-spacing:0.01em;font-size:var(--font-size-md);">Default slight open</span>
       </div>
       <div class="sg-type-row" style="padding:var(--space-sm);">
         <span class="sg-type-label">--tracking-wide</span>
         <span class="sg-type-meta">0.06em</span>
-        <span style="letter-spacing:0.06em;font-size:var(--font-size-md);">Hero title, uppercase tags</span>
+        <span style="font-family:'Exo',sans-serif;letter-spacing:0.06em;font-size:var(--font-size-md);">Hero title, uppercase tags</span>
       </div>
       <div class="sg-type-row" style="padding:var(--space-sm);">
         <span class="sg-type-label">--tracking-wider</span>
         <span class="sg-type-meta">0.1em</span>
-        <span style="letter-spacing:0.1em;font-size:var(--font-size-md);">Org labels, col titles</span>
+        <span style="font-family:'Exo',sans-serif;letter-spacing:0.1em;font-size:var(--font-size-md);">Org labels, col titles</span>
       </div>
       <div class="sg-type-row" style="padding:var(--space-sm);">
         <span class="sg-type-label">--tracking-widest</span>
         <span class="sg-type-meta">0.12em</span>
-        <span style="letter-spacing:0.12em;font-size:var(--font-size-md);">Section eyebrow</span>
+        <span style="font-family:'Exo',sans-serif;letter-spacing:0.12em;font-size:var(--font-size-md);">Section eyebrow</span>
       </div>
     </div>
 
@@ -612,7 +586,7 @@
 
     <div class="sg-component-demo">
       <div class="sg-demo">
-        <span class="text--overline">Overline Label</span>
+        <span class="text--overline" style="font-family:'Exo',sans-serif">Overline Label</span>
       </div>
       <pre class="sg-code">&lt;p class="section__eyebrow text--overline"&gt;Overline Label&lt;/p&gt;</pre>
       <p class="sg-note"><strong>font-weight: --weight-semibold</strong>, uppercase. Used for section eyebrows and case study org names / column titles.</p>
@@ -620,7 +594,7 @@
 
     <div class="sg-component-demo">
       <div class="sg-demo">
-        <span class="text--tag">Tag Label</span>
+        <span class="text--tag" style="font-family:'Exo',sans-serif">Tag Label</span>
       </div>
       <pre class="sg-code">&lt;span class="text--tag"&gt;Tag Label&lt;/span&gt;</pre>
       <p class="sg-note"><strong>font-weight: --weight-medium</strong>, uppercase, <strong>--tracking-wide</strong>. Used on hero subtitle and case study category tags.</p>
@@ -628,7 +602,7 @@
 
     <div class="sg-component-demo">
       <div class="sg-demo">
-        <p class="text--body">This is body text styled with the text--body utility. It sets font-size to --font-size-base and color to --text-secondary.</p>
+        <p class="text--body" style="font-family:'Exo',sans-serif">This is body text styled with the text--body utility. It sets font-size to --font-size-base and color to --text-secondary.</p>
       </div>
       <pre class="sg-code">&lt;p class="text--body"&gt;Body text here.&lt;/p&gt;</pre>
       <p class="sg-note"><strong>--font-size-base</strong> (15px), <strong>--text-secondary</strong>. Used on pillar bodies and case study teasers.</p>
