@@ -514,54 +514,8 @@
     gap: var(--space-sm);
   }
 
-  /* Scroll hint — the little line below the hero */
-  .hero__scroll-hint {
-    position: absolute;
-    bottom: 2.5rem;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: var(--space-xs);
-    opacity: 0.35;
-  }
-
-  .hero__scroll-line {
-    display: block;
-    width: 1px;
-    height: 4rem;
-    background: linear-gradient(to bottom, transparent, var(--text-secondary));
-    animation: scrollPulse 2.2s var(--ease-out) infinite;
-    animation-play-state: paused;
-  }
-
-  .hero__scroll-line.playing,
   .lets-talk__glyph.playing {
     animation-play-state: running;
-  }
-
-  @keyframes scrollPulse {
-    0% {
-      transform: scaleY(0);
-      transform-origin: top;
-      opacity: 0;
-    }
-    40% {
-      transform: scaleY(1);
-      transform-origin: top;
-      opacity: 1;
-    }
-    60% {
-      transform: scaleY(1);
-      transform-origin: bottom;
-      opacity: 1;
-    }
-    100% {
-      transform: scaleY(0);
-      transform-origin: bottom;
-      opacity: 0;
-    }
   }
 
   /* ----- Philosophy Pillars ----- */
@@ -1078,9 +1032,6 @@
       font-size: clamp(4.5rem, 22vw, 8rem);
     }
 
-    .hero__scroll-hint {
-      display: none;
-    }
 
     .case-study__trigger {
       padding: var(--space-sm-plus);

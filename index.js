@@ -275,9 +275,6 @@
       ).observe(el);
     }
 
-    // scrollPulse — only animate when the scroll hint is visible
-    observeVisibility($(".hero__scroll-line"), "playing");
-
     // glyphSpin — only run when the glyph is visible
     observeVisibility($(".lets-talk__glyph"), "playing");
   }
