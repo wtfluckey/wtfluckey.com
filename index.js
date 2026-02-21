@@ -63,15 +63,15 @@
   }
 
   /* ============================================================
-     ACCORDION — case studies
+     ACCORDION
   ============================================================ */
 
   function initAccordion() {
-    var triggers = $$(".case-study__trigger");
+    var triggers = $$(".accordion__trigger");
 
     triggers.forEach(function (trigger) {
       trigger.addEventListener("click", function () {
-        var article = trigger.closest(".case-study");
+        var article = trigger.closest(".accordion__item");
         var bodyId = trigger.getAttribute("aria-controls");
         var body = bodyId ? document.getElementById(bodyId) : null;
 
@@ -84,8 +84,8 @@
           collapse(article, trigger, body);
         } else {
           // Close any other open ones first (one-open-at-a-time)
-          $$(".case-study.is-open").forEach(function (openArticle) {
-            var openTrigger = $(".case-study__trigger", openArticle);
+          $$(".accordion__item.is-open").forEach(function (openArticle) {
+            var openTrigger = $(".accordion__trigger", openArticle);
             var openBodyId =
               openTrigger && openTrigger.getAttribute("aria-controls");
             var openBody = openBodyId
@@ -196,7 +196,7 @@
     if (!("IntersectionObserver" in window)) return;
 
     var targets = $$(
-      ".pillar, .case-study, .section__header, .lets-talk__content",
+      ".pillar, .accordion__item, .section__header, .lets-talk__content",
     );
 
     // Set initial hidden state via inline style so CSS isn't required
@@ -233,7 +233,7 @@
   ============================================================ */
 
   function initStagger() {
-    var groups = [".pillars", ".case-studies"];
+    var groups = [".pillars", ".accordion"];
 
     groups.forEach(function (selector) {
       var parent = $(selector);

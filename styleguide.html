@@ -291,7 +291,7 @@
 
   <a href="#components" class="sg-nav__section">Components</a>
   <a href="#components-card" class="sg-nav__sub">Card</a>
-  <a href="#components-case-study" class="sg-nav__sub">Case Study</a>
+  <a href="#components-accordion" class="sg-nav__sub">Accordion</a>
   <a href="#components-nav" class="sg-nav__sub">Nav</a>
   <a href="#components-footer" class="sg-nav__sub">Footer</a>
 
@@ -790,36 +790,36 @@
     <p class="sg-note">In rainbow mode, card borders become a full-spectrum gradient via <code>background-clip: border-box</code>.</p>
 
     <!-- CASE STUDY ACCORDION -->
-    <h2 class="sg-subheading" id="components-case-study">Case Study Accordion</h2>
+    <h2 class="sg-subheading" id="components-accordion">Accordion</h2>
     <p class="sg-desc">An accessible accordion. Each item is a <code>&lt;button&gt;</code> trigger with <code>aria-expanded</code> and <code>aria-controls</code>. The body uses the <code>hidden</code> attribute; JS toggles <code>is-open</code> on the wrapper and removes <code>hidden</code>. The title gets a gradient on hover/open. The chevron rotates on open.</p>
     <div class="sg-demo">
-      <div class="case-studies">
-        <article class="case-study is-open" id="sg-cs-demo">
-          <button class="case-study__trigger" aria-expanded="true" aria-controls="sg-cs-demo-body">
-            <div class="case-study__meta">
-              <span class="case-study__org text--overline">Organisation Name</span>
-              <span class="case-study__tag text--tag">Category Tag</span>
+      <div class="accordion">
+        <article class="accordion__item is-open" id="sg-cs-demo">
+          <button class="accordion__trigger" aria-expanded="true" aria-controls="sg-cs-demo-body">
+            <div class="accordion__meta">
+              <span class="accordion__org text--overline">Organisation Name</span>
+              <span class="accordion__tag text--tag">Category Tag</span>
             </div>
-            <h3 class="case-study__title">Case Study Title — Open State</h3>
-            <p class="case-study__teaser text--body">A short teaser description of the work done and the outcome achieved.</p>
-            <span class="case-study__chevron" aria-hidden="true"></span>
+            <h3 class="accordion__title">Case Study Title — Open State</h3>
+            <p class="accordion__teaser text--body">A short teaser description of the work done and the outcome achieved.</p>
+            <span class="accordion__chevron" aria-hidden="true"></span>
           </button>
-          <div class="case-study__body" id="sg-cs-demo-body">
-            <div class="case-study__grid">
-              <div class="case-study__col">
-                <h4 class="case-study__col-title text--overline">Context</h4>
+          <div class="accordion__body" id="sg-cs-demo-body">
+            <div class="accordion__grid">
+              <div class="accordion__col">
+                <h4 class="accordion__col-title text--overline">Context</h4>
                 <p>Background prose about the problem space and situation.</p>
               </div>
-              <div class="case-study__col">
-                <h4 class="case-study__col-title text--overline">Goals</h4>
+              <div class="accordion__col">
+                <h4 class="accordion__col-title text--overline">Goals</h4>
                 <ul class="arrow-list">
                   <li>Deliver the feature on schedule</li>
                   <li>Improve team collaboration rituals</li>
                   <li>Increase engagement metrics</li>
                 </ul>
               </div>
-              <div class="case-study__col">
-                <h4 class="case-study__col-title text--overline">What I Learned</h4>
+              <div class="accordion__col">
+                <h4 class="accordion__col-title text--overline">What I Learned</h4>
                 <p>Reflective prose about key takeaways from the engagement.</p>
               </div>
             </div>
@@ -827,25 +827,25 @@
         </article>
       </div>
     </div>
-    <pre class="sg-code">&lt;div class="case-studies"&gt;
-  &lt;article class="case-study" id="cs-id"&gt;
-    &lt;button class="case-study__trigger" aria-expanded="false" aria-controls="cs-id-body"&gt;
-      &lt;div class="case-study__meta"&gt;
-        &lt;span class="case-study__org text--overline"&gt;Org&lt;/span&gt;
-        &lt;span class="case-study__tag text--tag"&gt;Category&lt;/span&gt;
+    <pre class="sg-code">&lt;div class="accordion"&gt;
+  &lt;article class="accordion__item" id="cs-id"&gt;
+    &lt;button class="accordion__trigger" aria-expanded="false" aria-controls="cs-id-body"&gt;
+      &lt;div class="accordion__meta"&gt;
+        &lt;span class="accordion__org text--overline"&gt;Org&lt;/span&gt;
+        &lt;span class="accordion__tag text--tag"&gt;Category&lt;/span&gt;
       &lt;/div&gt;
-      &lt;h3 class="case-study__title"&gt;Title&lt;/h3&gt;
-      &lt;p class="case-study__teaser text--body"&gt;Teaser.&lt;/p&gt;
-      &lt;span class="case-study__chevron" aria-hidden="true"&gt;&lt;/span&gt;
+      &lt;h3 class="accordion__title"&gt;Title&lt;/h3&gt;
+      &lt;p class="accordion__teaser text--body"&gt;Teaser.&lt;/p&gt;
+      &lt;span class="accordion__chevron" aria-hidden="true"&gt;&lt;/span&gt;
     &lt;/button&gt;
-    &lt;div class="case-study__body" id="cs-id-body" hidden&gt;
-      &lt;div class="case-study__grid"&gt;
-        &lt;div class="case-study__col"&gt;
-          &lt;h4 class="case-study__col-title text--overline"&gt;Context&lt;/h4&gt;
+    &lt;div class="accordion__body" id="cs-id-body" hidden&gt;
+      &lt;div class="accordion__grid"&gt;
+        &lt;div class="accordion__col"&gt;
+          &lt;h4 class="accordion__col-title text--overline"&gt;Context&lt;/h4&gt;
           &lt;p&gt;Prose.&lt;/p&gt;
         &lt;/div&gt;
-        &lt;div class="case-study__col"&gt;
-          &lt;h4 class="case-study__col-title text--overline"&gt;Goals&lt;/h4&gt;
+        &lt;div class="accordion__col"&gt;
+          &lt;h4 class="accordion__col-title text--overline"&gt;Goals&lt;/h4&gt;
           &lt;ul class="arrow-list"&gt;
             &lt;li&gt;Goal one&lt;/li&gt;
           &lt;/ul&gt;
