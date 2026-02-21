@@ -63,15 +63,15 @@
   }
 
   /* ============================================================
-     ACCORDION — case studies
+     ACCORDION
   ============================================================ */
 
   function initAccordion() {
-    var triggers = $$(".case-study__trigger");
+    var triggers = $$(".accordion__trigger");
 
     triggers.forEach(function (trigger) {
       trigger.addEventListener("click", function () {
-        var article = trigger.closest(".case-study");
+        var article = trigger.closest(".accordion__item");
         var bodyId = trigger.getAttribute("aria-controls");
         var body = bodyId ? document.getElementById(bodyId) : null;
 
@@ -84,8 +84,8 @@
           collapse(article, trigger, body);
         } else {
           // Close any other open ones first (one-open-at-a-time)
-          $$(".case-study.is-open").forEach(function (openArticle) {
-            var openTrigger = $(".case-study__trigger", openArticle);
+          $$(".accordion__item.is-open").forEach(function (openArticle) {
+            var openTrigger = $(".accordion__trigger", openArticle);
             var openBodyId =
               openTrigger && openTrigger.getAttribute("aria-controls");
             var openBody = openBodyId
@@ -145,7 +145,7 @@
   var RAINBOW_KEY = "af-rainbow-mode";
 
   function initRainbow() {
-    var toggles = $$("#rainbowToggle, #rainbowToggleFooter, .rainbow-toggle");
+    var toggles = $$("#rainbowToggle, #rainbowToggleFooter");
 
     // Restore preference
     var saved = localStorage.getItem(RAINBOW_KEY);
@@ -175,7 +175,6 @@
         localStorage.setItem(RAINBOW_KEY, "true");
       } catch (e) {}
     }
-    spawnRainbowBurst();
   }
 
   function disableRainbow(toggles) {
@@ -189,81 +188,6 @@
   }
 
   /* ============================================================
-     RAINBOW BURST — a tiny playful particle effect on toggle
-  ============================================================ */
-
-  function spawnRainbowBurst() {
-    var colors = [
-      "#ff0080",
-      "#ff8c00",
-      "#ffe600",
-      "#00ff88",
-      "#00c6ff",
-      "#7928ca",
-      "#fc00ff",
-      "#00dbde",
-    ];
-    var count = 18;
-
-    for (var i = 0; i < count; i++) {
-      (function (index) {
-        setTimeout(function () {
-          var dot = document.createElement("span");
-          dot.setAttribute("aria-hidden", "true");
-
-          var angle = (360 / count) * index;
-          var distance = 60 + Math.random() * 40;
-          var size = 6 + Math.random() * 6;
-          var color = colors[index % colors.length];
-
-          // Starting position — center of viewport
-          var cx = window.innerWidth / 2;
-          var cy = window.innerHeight / 2;
-
-          Object.assign(dot.style, {
-            position: "fixed",
-            left: cx + "px",
-            top: cy + "px",
-            width: size + "px",
-            height: size + "px",
-            borderRadius: "50%",
-            background: color,
-            pointerEvents: "none",
-            zIndex: "9999",
-            transform: "translate(-50%, -50%)",
-            transition:
-              "transform 0.6s cubic-bezier(0.22,1,0.36,1), opacity 0.6s ease",
-            opacity: "1",
-            willChange: "transform, opacity",
-          });
-
-          document.body.appendChild(dot);
-
-          // Trigger paint before animating
-          requestAnimationFrame(function () {
-            requestAnimationFrame(function () {
-              var rad = (angle * Math.PI) / 180;
-              var dx = Math.cos(rad) * distance;
-              var dy = Math.sin(rad) * distance;
-              dot.style.transform =
-                "translate(calc(-50% + " +
-                dx +
-                "px), calc(-50% + " +
-                dy +
-                "px)) scale(0)";
-              dot.style.opacity = "0";
-            });
-          });
-
-          setTimeout(function () {
-            if (dot.parentNode) dot.parentNode.removeChild(dot);
-          }, 700);
-        }, index * 18);
-      })(i);
-    }
-  }
-
-  /* ============================================================
      SCROLL REVEAL — fade + lift sections in as they enter view
   ============================================================ */
 
@@ -272,7 +196,7 @@
     if (!("IntersectionObserver" in window)) return;
 
     var targets = $$(
-      ".pillar, .case-study, .seeking-card, .seeking-note, .section__header, .lets-talk__content",
+      ".card, .accordion__item, .section__header, .lets-talk__content",
     );
 
     // Set initial hidden state via inline style so CSS isn't required
@@ -309,7 +233,7 @@
   ============================================================ */
 
   function initStagger() {
-    var groups = [".pillars", ".seeking-grid", ".case-studies"];
+    var groups = [".cards", ".accordion"];
 
     groups.forEach(function (selector) {
       var parent = $(selector);
@@ -351,11 +275,8 @@
       ).observe(el);
     }
 
-    // scrollPulse — only animate when the scroll hint is visible
-    observeVisibility($(".hero__scroll-line"), "playing");
-
     // glyphSpin — only run when the glyph is visible
-    observeVisibility($(".lets-talk__glyph"), "spinning");
+    observeVisibility($(".lets-talk__glyph"), "playing");
   }
 
   /* ============================================================

@@ -24,36 +24,28 @@
       href="https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
-    >
-
     <link rel="stylesheet" href="index.css" />
   </head>
   <body>
-    <!-- ============================================================
-       NAV
-  ============================================================ -->
     <nav class="nav" aria-label="Site navigation">
       <a href="#" class="nav__wordmark" aria-label="Back to top">
         <span class="gradient-text">Aly Fluckey</span>
       </a>
       <div class="nav__actions">
         <button
-          class="rainbow-toggle"
+          class="btn btn--sm btn--rainbow"
           id="rainbowToggle"
           aria-pressed="false"
           aria-label="Toggle Rainbow Time mode"
           title="Toggle Rainbow Time"
         >
-          <span class="rainbow-toggle__icon" aria-hidden="true">🌈</span>
-          <span class="rainbow-toggle__label">Rainbow Time</span>
+          <span class="btn__icon" aria-hidden="true">🌈</span>
+          <span>Rainbow Time</span>
         </button>
       </div>
     </nav>
 
     <main>
-      <!-- ============================================================
-         HERO
-    ============================================================ -->
       <section class="hero" aria-labelledby="hero-name">
         <div class="hero__inner container">
           <div class="hero__name-wrap">
@@ -63,8 +55,8 @@
             </h1>
           </div>
 
-          <div class="hero__content">
-            <p class="hero__title">
+          <div>
+            <p class="hero__title text--tag">
               Engineering Leader
               <span class="hero__title-sep" aria-hidden="true"> · </span>
               Product-Aligned Execution
@@ -86,14 +78,9 @@
           </div>
         </div>
 
-        <div class="hero__scroll-hint" aria-hidden="true">
-          <span class="hero__scroll-line"></span>
-        </div>
+
       </section>
 
-      <!-- ============================================================
-         PHILOSOPHY
-    ============================================================ -->
       <section
         class="section philosophy"
         id="philosophy"
@@ -112,21 +99,21 @@
             </p>
           </header>
 
-          <div class="pillars">
-            <article class="pillar">
-              <div class="pillar__icon" aria-hidden="true">⚙️</div>
-              <h3 class="pillar__title">Systems Over Heroics</h3>
-              <p class="pillar__body">
+          <div class="cards">
+            <article class="card">
+              <div class="card__icon" aria-hidden="true">⚙️</div>
+              <h3 class="card__title">Systems Over Heroics</h3>
+              <p class="card__body text--body">
                 Sustainable delivery comes from strong planning rituals, clear
                 sequencing, and shared ownership — not from burning people out
                 in sprints. I design the systems that make heroics unnecessary.
               </p>
             </article>
 
-            <article class="pillar">
-              <div class="pillar__icon" aria-hidden="true">🛡️</div>
-              <h3 class="pillar__title">Safety With Accountability</h3>
-              <p class="pillar__body">
+            <article class="card">
+              <div class="card__icon" aria-hidden="true">🛡️</div>
+              <h3 class="card__title">Safety With Accountability</h3>
+              <p class="card__body text--body">
                 Psychological safety isn't softness — it's the precondition for
                 honest feedback, genuine risk-taking, and real ownership. I hold
                 both: a team where people feel safe <em>and</em> one where
@@ -134,10 +121,10 @@
               </p>
             </article>
 
-            <article class="pillar">
-              <div class="pillar__icon" aria-hidden="true">🔍</div>
-              <h3 class="pillar__title">Clarity in Ambiguity</h3>
-              <p class="pillar__body">
+            <article class="card">
+              <div class="card__icon" aria-hidden="true">🔍</div>
+              <h3 class="card__title">Clarity in Ambiguity</h3>
+              <p class="card__body text--body">
                 Ambiguity is the norm in product engineering. My job is to
                 translate fuzzy goals into concrete plans — surfacing tradeoffs,
                 aligning stakeholders, and making sure engineers have what they
@@ -145,10 +132,10 @@
               </p>
             </article>
 
-            <article class="pillar">
-              <div class="pillar__icon" aria-hidden="true">📈</div>
-              <h3 class="pillar__title">Data-Informed, Human-Centered</h3>
-              <p class="pillar__body">
+            <article class="card">
+              <div class="card__icon" aria-hidden="true">📈</div>
+              <h3 class="card__title">Data-Informed, Human-Centered</h3>
+              <p class="card__body text--body">
                 Metrics matter — but they're a compass, not a command. I build
                 experimentation frameworks and analytics integration so teams
                 can learn fast, while keeping the human on the other end of the
@@ -159,9 +146,6 @@
         </div>
       </section>
 
-      <!-- ============================================================
-         IMPACT
-    ============================================================ -->
       <section
         class="section impact"
         id="impact"
@@ -177,32 +161,36 @@
             </p>
           </header>
 
-          <div class="case-studies">
-            <!-- CASE STUDY 1 -->
-            <article class="case-study" id="cs-lists">
+          <div class="accordion">
+            <!-- ACCORDION ITEM 1 -->
+            <article class="accordion__item" id="cs-lists">
               <button
-                class="case-study__trigger"
+                class="accordion__trigger"
                 aria-expanded="false"
                 aria-controls="cs-lists-body"
               >
-                <div class="case-study__meta">
-                  <span class="case-study__org">Mozilla Pocket</span>
-                  <span class="case-study__tag"
+                <div class="accordion__meta">
+                  <span class="section__eyebrow"
+                    >Mozilla Pocket</span
+                  >
+                  <span class="badge"
                     >Cross-Functional Leadership</span
                   >
                 </div>
-                <h3 class="case-study__title">Pocket Lists — Feature Launch</h3>
-                <p class="case-study__teaser">
+                <h3 class="accordion__title">Pocket Lists — Feature Launch</h3>
+                <p class="accordion__teaser text--body">
                   Led a cross-functional team through the full lifecycle of
                   Pocket Lists, from discovery through post-launch iteration.
                 </p>
-                <span class="case-study__chevron" aria-hidden="true"></span>
+                <span class="accordion__chevron" aria-hidden="true"></span>
               </button>
 
-              <div class="case-study__body" id="cs-lists-body" hidden>
-                <div class="case-study__grid">
-                  <div class="case-study__col">
-                    <h4 class="case-study__col-title">Context</h4>
+              <div class="accordion__body" id="cs-lists-body" hidden>
+                <div class="accordion__grid">
+                  <div class="accordion__col">
+                    <h4 class="text--overline">
+                      Context
+                    </h4>
                     <p>
                       Pocket's core save-and-read loop was strong, but user
                       organization features had stagnated. Lists represented a
@@ -212,9 +200,9 @@
                       backend, product, design, QA, and data.
                     </p>
                   </div>
-                  <div class="case-study__col">
-                    <h4 class="case-study__col-title">Goals</h4>
-                    <ul class="case-study__list">
+                  <div class="accordion__col">
+                    <h4 class="text--overline">Goals</h4>
+                    <ul class="arrow-list">
                       <li>
                         Ship a production-quality Lists feature on schedule
                       </li>
@@ -228,17 +216,21 @@
                       </li>
                     </ul>
                   </div>
-                  <div class="case-study__col">
-                    <h4 class="case-study__col-title">Who I Worked With</h4>
+                  <div class="accordion__col">
+                    <h4 class="text--overline">
+                      Who I Worked With
+                    </h4>
                     <p>
                       Frontend engineers, backend engineers, a product manager,
                       UX designer, QA engineers, and the data team. Stakeholder
                       alignment across multiple time zones.
                     </p>
                   </div>
-                  <div class="case-study__col">
-                    <h4 class="case-study__col-title">What I Led</h4>
-                    <ul class="case-study__list">
+                  <div class="accordion__col">
+                    <h4 class="text--overline">
+                      What I Led
+                    </h4>
+                    <ul class="arrow-list">
                       <li>Owned planning, sequencing, and delivery tracking</li>
                       <li>
                         Ran cross-functional syncs and unblocked dependencies
@@ -253,9 +245,11 @@
                       </li>
                     </ul>
                   </div>
-                  <div class="case-study__col">
-                    <h4 class="case-study__col-title">Results</h4>
-                    <ul class="case-study__list">
+                  <div class="accordion__col">
+                    <h4 class="text--overline">
+                      Results
+                    </h4>
+                    <ul class="arrow-list">
                       <li>Feature shipped on target timeline</li>
                       <li>
                         Measurable lift in content engagement metrics
@@ -266,8 +260,10 @@
                       </li>
                     </ul>
                   </div>
-                  <div class="case-study__col">
-                    <h4 class="case-study__col-title">What I Learned</h4>
+                  <div class="accordion__col">
+                    <h4 class="text--overline">
+                      What I Learned
+                    </h4>
                     <p>
                       Sequencing is often more valuable than speed. Getting the
                       order of work right — and making that order visible to
@@ -279,32 +275,38 @@
               </div>
             </article>
 
-            <!-- CASE STUDY 2 -->
-            <article class="case-study" id="cs-design-system">
+            <!-- ACCORDION ITEM 2 -->
+            <article class="accordion__item" id="cs-design-system">
               <button
-                class="case-study__trigger"
+                class="accordion__trigger"
                 aria-expanded="false"
                 aria-controls="cs-design-system-body"
               >
-                <div class="case-study__meta">
-                  <span class="case-study__org">Mozilla Pocket</span>
-                  <span class="case-study__tag">Frontend Systems</span>
+                <div class="accordion__meta">
+                  <span class="section__eyebrow"
+                    >Mozilla Pocket</span
+                  >
+                  <span class="badge"
+                    >Frontend Systems</span
+                  >
                 </div>
-                <h3 class="case-study__title">
+                <h3 class="accordion__title">
                   Card Anatomy & Design System Modernization
                 </h3>
-                <p class="case-study__teaser">
+                <p class="accordion__teaser text--body">
                   Drove the modernization of Pocket's core card components and
                   underlying design system to reduce friction for every team
                   touching the UI.
                 </p>
-                <span class="case-study__chevron" aria-hidden="true"></span>
+                <span class="accordion__chevron" aria-hidden="true"></span>
               </button>
 
-              <div class="case-study__body" id="cs-design-system-body" hidden>
-                <div class="case-study__grid">
-                  <div class="case-study__col">
-                    <h4 class="case-study__col-title">Context</h4>
+              <div class="accordion__body" id="cs-design-system-body" hidden>
+                <div class="accordion__grid">
+                  <div class="accordion__col">
+                    <h4 class="text--overline">
+                      Context
+                    </h4>
                     <p>
                       Pocket's card components — the core UI unit across the
                       product — had accumulated significant inconsistency and
@@ -313,16 +315,18 @@
                       down feature work and made design changes expensive.
                     </p>
                   </div>
-                  <div class="case-study__col">
-                    <h4 class="case-study__col-title">Goals</h4>
-                    <ul class="case-study__list">
+                  <div class="accordion__col">
+                    <h4 class="text--overline">Goals</h4>
+                    <ul class="arrow-list">
                       <li>Establish a consistent, composable card anatomy</li>
                       <li>Reduce time-to-ship for UI changes across teams</li>
                       <li>Improve design-to-engineering handoff quality</li>
                     </ul>
                   </div>
-                  <div class="case-study__col">
-                    <h4 class="case-study__col-title">Who I Worked With</h4>
+                  <div class="accordion__col">
+                    <h4 class="text--overline">
+                      Who I Worked With
+                    </h4>
                     <p>
                       Frontend engineers across multiple teams, the design
                       system team, and UX designers. Required alignment with
@@ -330,9 +334,11 @@
                       infrastructure work.
                     </p>
                   </div>
-                  <div class="case-study__col">
-                    <h4 class="case-study__col-title">What I Led</h4>
-                    <ul class="case-study__list">
+                  <div class="accordion__col">
+                    <h4 class="text--overline">
+                      What I Led
+                    </h4>
+                    <ul class="arrow-list">
                       <li>
                         Built the case for prioritizing design system work
                         alongside feature delivery
@@ -347,9 +353,11 @@
                       </li>
                     </ul>
                   </div>
-                  <div class="case-study__col">
-                    <h4 class="case-study__col-title">Results</h4>
-                    <ul class="case-study__list">
+                  <div class="accordion__col">
+                    <h4 class="text--overline">
+                      Results
+                    </h4>
+                    <ul class="arrow-list">
                       <li>
                         Significantly reduced UI inconsistency across the
                         product
@@ -363,8 +371,10 @@
                       </li>
                     </ul>
                   </div>
-                  <div class="case-study__col">
-                    <h4 class="case-study__col-title">What I Learned</h4>
+                  <div class="accordion__col">
+                    <h4 class="text--overline">
+                      What I Learned
+                    </h4>
                     <p>
                       Infrastructure work lives or dies on stakeholder buy-in.
                       Framing system improvements in terms of future feature
@@ -376,33 +386,37 @@
               </div>
             </article>
 
-            <!-- CASE STUDY 3 -->
-            <article class="case-study" id="cs-experiments">
+            <!-- ACCORDION ITEM 3 -->
+            <article class="accordion__item" id="cs-experiments">
               <button
-                class="case-study__trigger"
+                class="accordion__trigger"
                 aria-expanded="false"
                 aria-controls="cs-experiments-body"
               >
-                <div class="case-study__meta">
-                  <span class="case-study__org">Mozilla Pocket</span>
-                  <span class="case-study__tag"
+                <div class="accordion__meta">
+                  <span class="section__eyebrow"
+                    >Mozilla Pocket</span
+                  >
+                  <span class="badge"
                     >Experimentation & Analytics</span
                   >
                 </div>
-                <h3 class="case-study__title">
+                <h3 class="accordion__title">
                   A/B Testing & Experimentation Enablement
                 </h3>
-                <p class="case-study__teaser">
+                <p class="accordion__teaser text--body">
                   Built the frameworks and culture needed for product teams to
                   run meaningful experiments and make data-informed decisions.
                 </p>
-                <span class="case-study__chevron" aria-hidden="true"></span>
+                <span class="accordion__chevron" aria-hidden="true"></span>
               </button>
 
-              <div class="case-study__body" id="cs-experiments-body" hidden>
-                <div class="case-study__grid">
-                  <div class="case-study__col">
-                    <h4 class="case-study__col-title">Context</h4>
+              <div class="accordion__body" id="cs-experiments-body" hidden>
+                <div class="accordion__grid">
+                  <div class="accordion__col">
+                    <h4 class="text--overline">
+                      Context
+                    </h4>
                     <p>
                       Product teams wanted to test more, but the experimentation
                       infrastructure was inconsistent and the process for
@@ -411,9 +425,9 @@
                       evidence.
                     </p>
                   </div>
-                  <div class="case-study__col">
-                    <h4 class="case-study__col-title">Goals</h4>
-                    <ul class="case-study__list">
+                  <div class="accordion__col">
+                    <h4 class="text--overline">Goals</h4>
+                    <ul class="arrow-list">
                       <li>
                         Establish a reliable, repeatable experimentation process
                       </li>
@@ -424,17 +438,21 @@
                       <li>Increase the rate of data-informed decisions</li>
                     </ul>
                   </div>
-                  <div class="case-study__col">
-                    <h4 class="case-study__col-title">Who I Worked With</h4>
+                  <div class="accordion__col">
+                    <h4 class="text--overline">
+                      Who I Worked With
+                    </h4>
                     <p>
                       Data engineers, product managers, frontend engineers, and
                       QA. Close collaboration with analytics to ensure
                       instrumentation was accurate and consistent.
                     </p>
                   </div>
-                  <div class="case-study__col">
-                    <h4 class="case-study__col-title">What I Led</h4>
-                    <ul class="case-study__list">
+                  <div class="accordion__col">
+                    <h4 class="text--overline">
+                      What I Led
+                    </h4>
+                    <ul class="arrow-list">
                       <li>Defined experiment design and review standards</li>
                       <li>
                         Oversaw analytics integration across feature surfaces
@@ -448,9 +466,11 @@
                       </li>
                     </ul>
                   </div>
-                  <div class="case-study__col">
-                    <h4 class="case-study__col-title">Results</h4>
-                    <ul class="case-study__list">
+                  <div class="accordion__col">
+                    <h4 class="text--overline">
+                      Results
+                    </h4>
+                    <ul class="arrow-list">
                       <li>
                         Teams moved from ad hoc testing to structured
                         experimentation
@@ -465,8 +485,10 @@
                       </li>
                     </ul>
                   </div>
-                  <div class="case-study__col">
-                    <h4 class="case-study__col-title">What I Learned</h4>
+                  <div class="accordion__col">
+                    <h4 class="text--overline">
+                      What I Learned
+                    </h4>
                     <p>
                       Experimentation is as much a cultural shift as a technical
                       one. Getting teams to slow down enough to design a good
@@ -478,33 +500,37 @@
               </div>
             </article>
 
-            <!-- CASE STUDY 4 -->
-            <article class="case-study" id="cs-social">
+            <!-- ACCORDION ITEM 4 -->
+            <article class="accordion__item" id="cs-social">
               <button
-                class="case-study__trigger"
+                class="accordion__trigger"
                 aria-expanded="false"
                 aria-controls="cs-social-body"
               >
-                <div class="case-study__meta">
-                  <span class="case-study__org">Mozilla Social</span>
-                  <span class="case-study__tag"
+                <div class="accordion__meta">
+                  <span class="section__eyebrow"
+                    >Mozilla Social</span
+                  >
+                  <span class="badge"
                     >Analytics · Invite Systems</span
                   >
                 </div>
-                <h3 class="case-study__title">
+                <h3 class="accordion__title">
                   Mozilla Social — Analytics & Invite Flow
                 </h3>
-                <p class="case-study__teaser">
+                <p class="accordion__teaser text--body">
                   Owned analytics infrastructure and the user invite flow during
                   Mozilla's entry into the federated social space.
                 </p>
-                <span class="case-study__chevron" aria-hidden="true"></span>
+                <span class="accordion__chevron" aria-hidden="true"></span>
               </button>
 
-              <div class="case-study__body" id="cs-social-body" hidden>
-                <div class="case-study__grid">
-                  <div class="case-study__col">
-                    <h4 class="case-study__col-title">Context</h4>
+              <div class="accordion__body" id="cs-social-body" hidden>
+                <div class="accordion__grid">
+                  <div class="accordion__col">
+                    <h4 class="text--overline">
+                      Context
+                    </h4>
                     <p>
                       Mozilla launched a Mastodon-based social instance during
                       the broader Fediverse growth period. As a new product with
@@ -513,9 +539,9 @@
                       from day one.
                     </p>
                   </div>
-                  <div class="case-study__col">
-                    <h4 class="case-study__col-title">Goals</h4>
-                    <ul class="case-study__list">
+                  <div class="accordion__col">
+                    <h4 class="text--overline">Goals</h4>
+                    <ul class="arrow-list">
                       <li>
                         Build a controlled, trust-based invite and onboarding
                         flow
@@ -530,17 +556,21 @@
                       </li>
                     </ul>
                   </div>
-                  <div class="case-study__col">
-                    <h4 class="case-study__col-title">Who I Worked With</h4>
+                  <div class="accordion__col">
+                    <h4 class="text--overline">
+                      Who I Worked With
+                    </h4>
                     <p>
                       Small, cross-functional team including product,
                       engineering, and trust & safety. Close alignment with
                       Mozilla's privacy and data governance teams.
                     </p>
                   </div>
-                  <div class="case-study__col">
-                    <h4 class="case-study__col-title">What I Led</h4>
-                    <ul class="case-study__list">
+                  <div class="accordion__col">
+                    <h4 class="text--overline">
+                      What I Led
+                    </h4>
+                    <ul class="arrow-list">
                       <li>Designed and owned the invite flow architecture</li>
                       <li>Built out analytics instrumentation from scratch</li>
                       <li>
@@ -552,9 +582,11 @@
                       </li>
                     </ul>
                   </div>
-                  <div class="case-study__col">
-                    <h4 class="case-study__col-title">Results</h4>
-                    <ul class="case-study__list">
+                  <div class="accordion__col">
+                    <h4 class="text--overline">
+                      Results
+                    </h4>
+                    <ul class="arrow-list">
                       <li>
                         Invite system launched with controlled onboarding that
                         matched server capacity
@@ -569,8 +601,10 @@
                       </li>
                     </ul>
                   </div>
-                  <div class="case-study__col">
-                    <h4 class="case-study__col-title">What I Learned</h4>
+                  <div class="accordion__col">
+                    <h4 class="text--overline">
+                      What I Learned
+                    </h4>
                     <p>
                       Launching a new product — even inside a large org —
                       requires treating ambiguity as the default state and
@@ -583,33 +617,37 @@
               </div>
             </article>
 
-            <!-- CASE STUDY 5 -->
-            <article class="case-study" id="cs-consulting">
+            <!-- ACCORDION ITEM 5 -->
+            <article class="accordion__item" id="cs-consulting">
               <button
-                class="case-study__trigger"
+                class="accordion__trigger"
                 aria-expanded="false"
                 aria-controls="cs-consulting-body"
               >
-                <div class="case-study__meta">
-                  <span class="case-study__org">Consulting</span>
-                  <span class="case-study__tag"
+                <div class="accordion__meta">
+                  <span class="section__eyebrow"
+                    >Consulting</span
+                  >
+                  <span class="badge"
                     >Architecture · Internationalization</span
                   >
                 </div>
-                <h3 class="case-study__title">
+                <h3 class="accordion__title">
                   Multilingual Architecture in Webflow
                 </h3>
-                <p class="case-study__teaser">
+                <p class="accordion__teaser text--body">
                   Designed and built a multilingual content architecture for a
                   client operating across multiple language markets.
                 </p>
-                <span class="case-study__chevron" aria-hidden="true"></span>
+                <span class="accordion__chevron" aria-hidden="true"></span>
               </button>
 
-              <div class="case-study__body" id="cs-consulting-body" hidden>
-                <div class="case-study__grid">
-                  <div class="case-study__col">
-                    <h4 class="case-study__col-title">Context</h4>
+              <div class="accordion__body" id="cs-consulting-body" hidden>
+                <div class="accordion__grid">
+                  <div class="accordion__col">
+                    <h4 class="text--overline">
+                      Context
+                    </h4>
                     <p>
                       A client needed to expand their Webflow-based site to
                       support multiple language markets — without rebuilding
@@ -618,9 +656,9 @@
                       the platform was immature.
                     </p>
                   </div>
-                  <div class="case-study__col">
-                    <h4 class="case-study__col-title">Goals</h4>
-                    <ul class="case-study__list">
+                  <div class="accordion__col">
+                    <h4 class="text--overline">Goals</h4>
+                    <ul class="arrow-list">
                       <li>
                         Enable multilingual content delivery within platform
                         constraints
@@ -632,8 +670,10 @@
                       <li>Avoid full platform migration</li>
                     </ul>
                   </div>
-                  <div class="case-study__col">
-                    <h4 class="case-study__col-title">Who I Worked With</h4>
+                  <div class="accordion__col">
+                    <h4 class="text--overline">
+                      Who I Worked With
+                    </h4>
                     <p>
                       Client stakeholders, content editors, and a small
                       development team. Required close collaboration with
@@ -641,9 +681,11 @@
                       their actual workflows.
                     </p>
                   </div>
-                  <div class="case-study__col">
-                    <h4 class="case-study__col-title">What I Led</h4>
-                    <ul class="case-study__list">
+                  <div class="accordion__col">
+                    <h4 class="text--overline">
+                      What I Led
+                    </h4>
+                    <ul class="arrow-list">
                       <li>
                         Designed the content architecture and routing strategy
                       </li>
@@ -658,9 +700,11 @@
                       </li>
                     </ul>
                   </div>
-                  <div class="case-study__col">
-                    <h4 class="case-study__col-title">Results</h4>
-                    <ul class="case-study__list">
+                  <div class="accordion__col">
+                    <h4 class="text--overline">
+                      Results
+                    </h4>
+                    <ul class="arrow-list">
                       <li>
                         Multilingual content delivery live across target markets
                       </li>
@@ -671,8 +715,10 @@
                       <li>No platform migration required</li>
                     </ul>
                   </div>
-                  <div class="case-study__col">
-                    <h4 class="case-study__col-title">What I Learned</h4>
+                  <div class="accordion__col">
+                    <h4 class="text--overline">
+                      What I Learned
+                    </h4>
                     <p>
                       Constraints imposed by platform limitations often force
                       more creative, maintainable solutions than a greenfield
@@ -685,12 +731,10 @@
               </div>
             </article>
           </div>
-          <!-- /.case-studies -->
+          <!-- /.accordion -->
         </div>
       </section>
-      <!-- ============================================================
-           LETS TALK
-      ============================================================ -->
+
       <section
         class="section lets-talk"
         id="lets-talk"
@@ -703,13 +747,13 @@
               <h2 class="section__title" id="lets-talk-heading">
                 Interested in all this?<br />Let's talk.
               </h2>
-              <p class="lets-talk__body">
+              <p class="section__subtitle">
                 I'm looking for an Engineering Manager or leadership role on a
                 product-driven team that values clarity, sustainable pace, and
                 doing the work well. If that sounds like your team, I'd love to
                 hear about it.
               </p>
-              <p class="lets-talk__body">
+              <p class="section__subtitle">
                 Not hiring right now? That's fine too — I'm always happy to
                 connect with people thinking seriously about engineering
                 culture, team health, and how organizations actually ship.
@@ -737,12 +781,9 @@
       </section>
     </main>
 
-    <!-- ============================================================
-       FOOTER
-  ============================================================ -->
     <footer class="footer" role="contentinfo">
       <div class="container footer__inner">
-        <div class="footer__brand">
+        <div>
           <span class="footer__name gradient-text">Aly Fluckey</span>
           <p class="footer__tagline">
             Engineering Leader. Team builder. Forever rainbow enthusiast.
@@ -814,14 +855,15 @@
 
         <div class="footer__bottom">
           <span class="footer__copy">
-            Just HTML, CSS, and strong opinions.
+            Just HTML, CSS, and <a href="styleguide.html" class="footer__link--inline">strong opinions</a>.
           </span>
           <button
-            class="rainbow-toggle rainbow-toggle--sm"
+            class="btn btn--sm btn--rainbow"
             id="rainbowToggleFooter"
+            aria-pressed="false"
             aria-label="Toggle Rainbow Time mode"
           >
-            <span aria-hidden="true">🌈</span> Rainbow Time
+            <span class="btn__icon" aria-hidden="true">🌈</span> Rainbow Time
           </button>
         </div>
       </div>

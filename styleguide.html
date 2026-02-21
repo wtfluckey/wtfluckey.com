@@ -1,0 +1,1108 @@
+<!-- style guide — generated, do not edit by hand -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Style Guide — alyfluckey.com</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg'><text y='32' font-size='32'>🎨</text></svg>" />
+  <!-- Fonts: Exo (project font) + Inter (styleguide chrome) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100..900;1,100..900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="index.css" />
+  <style>
+    /* Style guide chrome — uses project tokens, not inline values */
+
+    /* Override body font to Inter for chrome; Exo still renders via
+       var(--font-display) on .sg-heading and all component demos */
+    body {
+      font-family: "Inter", system-ui, sans-serif;
+    }
+
+    .sg-layout {
+      display: grid;
+      grid-template-columns: 13rem 1fr;
+      min-height: 100vh;
+      max-width: 1300px;
+      margin-inline: auto;
+    }
+
+    .sg-nav {
+      position: sticky;
+      top: 0;
+      align-self: start;
+      height: 100vh;
+      overflow-y: auto;
+      border-right: 1px solid var(--navy-border);
+      padding: var(--space-lg) var(--space-md);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-xs);
+    }
+
+    .sg-nav__section {
+      font-size: var(--font-size-sm);
+      letter-spacing: var(--tracking-wide);
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      transition: color var(--duration);
+      white-space: nowrap;
+      margin-top: var(--space-sm);
+    }
+
+    .sg-nav__section:first-child { margin-top: 0; }
+
+    .sg-nav__sub {
+      font-size: var(--font-size-xs);
+      color: var(--text-secondary);
+      transition: color var(--duration);
+      white-space: nowrap;
+      padding-left: var(--space-sm);
+    }
+
+    .sg-nav__section:hover,
+    .sg-nav__sub:hover { color: var(--accent-cyan); }
+
+    .sg-page {
+      padding: var(--space-xl) var(--space-lg);
+      min-width: 0;
+    }
+
+    .sg-section {
+      padding-block: var(--space-xl);
+      border-top: 1px solid var(--navy-border);
+    }
+
+    .sg-section:first-of-type { border-top: none; }
+
+    .sg-heading {
+      font-family: var(--font-display);
+      font-size: var(--font-size-xl);
+      letter-spacing: var(--tracking-tight);
+      color: var(--text-primary);
+      margin-bottom: var(--space-sm);
+    }
+
+    .sg-subheading {
+      font-size: var(--font-size-sm);
+      letter-spacing: var(--tracking-widest);
+      text-transform: uppercase;
+      color: var(--accent-cyan);
+      margin-bottom: var(--space-sm);
+      margin-top: var(--space-md);
+    }
+
+    .sg-desc {
+      font-size: var(--font-size-base);
+      color: var(--text-secondary);
+      line-height: var(--leading-relaxed);
+      margin-bottom: var(--space-md);
+      max-width: var(--measure);
+    }
+
+    /* Token grids */
+    .sg-token-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: var(--space-sm);
+      margin-bottom: var(--space-md);
+    }
+
+    .sg-token {
+      background: var(--navy-card);
+      border: 1px solid var(--navy-border);
+      border-radius: var(--radius-md);
+      padding: var(--space-sm);
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .sg-token__name {
+      font-size: var(--font-size-xs);
+      letter-spacing: var(--tracking-wider);
+      color: var(--accent-pink);
+      font-family: monospace;
+    }
+
+    .sg-token__value {
+      font-size: var(--font-size-xs);
+      color: var(--text-secondary);
+      font-family: monospace;
+    }
+
+    /* Color swatches */
+    .sg-swatch {
+      width: 100%;
+      height: 3rem;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--navy-border);
+      margin-bottom: 0.4rem;
+    }
+
+    /* Spacing bars */
+    .sg-space-bar {
+      height: 1rem;
+      background: linear-gradient(to right, var(--accent-cyan), var(--accent-pink));
+      border-radius: var(--radius-sm);
+      opacity: 0.7;
+      margin-bottom: 0.4rem;
+    }
+
+    /* Radius demo boxes */
+    .sg-radius-box {
+      width: 100%;
+      height: 3rem;
+      background: var(--surface-hover-md);
+      border: 1px solid var(--navy-border);
+      margin-bottom: 0.4rem;
+    }
+
+    /* Typography samples */
+    .sg-type-row {
+      display: flex;
+      align-items: baseline;
+      gap: var(--space-sm);
+      padding: var(--space-sm) 0;
+      border-bottom: 1px solid var(--navy-border);
+    }
+
+    .sg-type-row:last-child { border-bottom: none; }
+
+    .sg-type-label {
+      font-family: monospace;
+      font-size: var(--font-size-xs);
+      color: var(--accent-pink);
+      min-width: 18ch;
+      flex-shrink: 0;
+    }
+
+    .sg-type-meta {
+      font-family: monospace;
+      font-size: var(--font-size-xs);
+      color: var(--text-secondary);
+      min-width: 8ch;
+      flex-shrink: 0;
+    }
+
+    /* Demo stage */
+    .sg-demo {
+      background: var(--navy-card);
+      border: 1px solid var(--navy-border);
+      border-radius: var(--radius-md);
+      padding: var(--space-md);
+      margin-bottom: var(--space-sm);
+    }
+
+    .sg-demo--row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: var(--space-sm);
+    }
+
+    /* Code snippets */
+    .sg-code {
+      background: var(--navy);
+      border: 1px solid var(--navy-border);
+      border-radius: var(--radius-sm);
+      padding: var(--space-sm) var(--space-sm-plus);
+      font-family: monospace;
+      font-size: var(--font-size-sm);
+      color: var(--text-secondary);
+      white-space: pre;
+      overflow-x: auto;
+      margin-bottom: var(--space-md);
+      line-height: var(--leading-relaxed);
+    }
+
+    /* Component demo wrapper */
+    .sg-component-demo {
+      margin-bottom: var(--space-lg);
+    }
+
+    /* Note callout */
+    .sg-note {
+      font-size: var(--font-size-sm);
+      color: var(--text-secondary);
+      border-left: 2px solid var(--navy-border);
+      padding-left: var(--space-sm);
+      margin-bottom: var(--space-sm);
+      line-height: var(--leading-relaxed);
+    }
+
+    .sg-note strong { color: var(--accent-cyan); }
+
+    /* Motion demo */
+    .sg-motion-row {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm-plus);
+      padding: var(--space-sm) 0;
+      border-bottom: 1px solid var(--navy-border);
+    }
+
+    .sg-motion-row:last-child { border-bottom: none; }
+
+    /* Isolated card demo — override grid */
+    .sg-card-wrap {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: var(--space-sm-plus);
+    }
+
+  </style>
+</head>
+<body>
+
+<div class="sg-layout">
+
+<!-- ============================================================
+     SIDEBAR NAV
+============================================================ -->
+<nav class="sg-nav" aria-label="Style guide sections">
+  <a href="#tokens" class="sg-nav__section">Tokens</a>
+  <a href="#tokens-color-base" class="sg-nav__sub">Color — Base</a>
+  <a href="#tokens-color-text" class="sg-nav__sub">Color — Text</a>
+  <a href="#tokens-color-accents" class="sg-nav__sub">Color — Accents</a>
+  <a href="#tokens-color-alpha" class="sg-nav__sub">Color — Alpha</a>
+  <a href="#tokens-shadows" class="sg-nav__sub">Shadows</a>
+  <a href="#tokens-spacing" class="sg-nav__sub">Spacing</a>
+  <a href="#tokens-radius" class="sg-nav__sub">Radius</a>
+  <a href="#tokens-measure" class="sg-nav__sub">Measure</a>
+
+  <a href="#typography" class="sg-nav__section">Typography</a>
+  <a href="#type-families" class="sg-nav__sub">Families</a>
+  <a href="#type-size" class="sg-nav__sub">Size Scale</a>
+  <a href="#type-weight" class="sg-nav__sub">Weight</a>
+  <a href="#type-tracking" class="sg-nav__sub">Letter Spacing</a>
+  <a href="#type-utilities" class="sg-nav__sub">Utilities</a>
+
+  <a href="#buttons" class="sg-nav__section">Buttons</a>
+  <a href="#buttons-default" class="sg-nav__sub">Default</a>
+  <a href="#buttons-sm" class="sg-nav__sub">Small</a>
+  <a href="#buttons-rainbow" class="sg-nav__sub">Rainbow</a>
+
+  <a href="#layout" class="sg-nav__section">Layout</a>
+  <a href="#layout-container" class="sg-nav__sub">Container</a>
+  <a href="#layout-section" class="sg-nav__sub">Section</a>
+  <a href="#layout-section-header" class="sg-nav__sub">Section Header</a>
+
+  <a href="#components" class="sg-nav__section">Components</a>
+  <a href="#components-card" class="sg-nav__sub">Card</a>
+  <a href="#components-accordion" class="sg-nav__sub">Accordion</a>
+  <a href="#components-nav" class="sg-nav__sub">Nav</a>
+  <a href="#components-footer" class="sg-nav__sub">Footer</a>
+
+  <a href="#motion" class="sg-nav__section">Motion</a>
+  <a href="#motion-tokens" class="sg-nav__sub">Tokens</a>
+  <a href="#motion-keyframes" class="sg-nav__sub">Keyframes</a>
+  <a href="#motion-transitions" class="sg-nav__sub">Transitions</a>
+
+  <a href="#rainbow" class="sg-nav__section">Rainbow Mode</a>
+  <a href="#rainbow-tokens" class="sg-nav__sub">Tokens</a>
+  <a href="#rainbow-components" class="sg-nav__sub">Components</a>
+</nav>
+
+<main class="sg-page">
+
+  <!-- ============================================================
+       DESIGN TOKENS
+  ============================================================ -->
+  <section class="sg-section" id="tokens">
+    <h1 class="sg-heading">Design Tokens</h1>
+    <p class="sg-desc">All tokens are CSS custom properties defined in <code>@layer tokens</code> on <code>:root</code>. Reference them with <code>var(--token-name)</code>.</p>
+
+    <!-- COLOR -->
+    <h2 class="sg-subheading" id="tokens-color-base">Color — Base Palette</h2>
+    <div class="sg-token-grid">
+      <div class="sg-token">
+        <div class="sg-swatch" style="background:#080818;"></div>
+        <span class="sg-token__name">--navy</span>
+        <span class="sg-token__value">#080818</span>
+      </div>
+      <div class="sg-token">
+        <div class="sg-swatch" style="background:#0e0e24;"></div>
+        <span class="sg-token__name">--navy-2</span>
+        <span class="sg-token__value">#0e0e24 — philosophy/lets-talk bg</span>
+      </div>
+      <div class="sg-token">
+        <div class="sg-swatch" style="background:#14143a;"></div>
+        <span class="sg-token__name">--navy-3</span>
+        <span class="sg-token__value">#14143a — case study open state</span>
+      </div>
+      <div class="sg-token">
+        <div class="sg-swatch" style="background:#121230;"></div>
+        <span class="sg-token__name">--navy-card</span>
+        <span class="sg-token__value">#121230 — card/panel bg</span>
+      </div>
+      <div class="sg-token">
+        <div class="sg-swatch" style="background:rgba(255,255,255,0.08);border:none;"></div>
+        <span class="sg-token__name">--navy-border</span>
+        <span class="sg-token__value">rgba(255,255,255,0.08) — default dividers &amp; card borders</span>
+      </div>
+    </div>
+
+    <h2 class="sg-subheading" id="tokens-color-text">Color — Text</h2>
+    <div class="sg-token-grid">
+      <div class="sg-token">
+        <div class="sg-swatch" style="background:#f0f0ff;"></div>
+        <span class="sg-token__name">--text-primary</span>
+        <span class="sg-token__value">#f0f0ff</span>
+      </div>
+      <div class="sg-token">
+        <div class="sg-swatch" style="background:#9090b8;"></div>
+        <span class="sg-token__name">--text-secondary</span>
+        <span class="sg-token__value">#9090b8</span>
+      </div>
+    </div>
+
+    <h2 class="sg-subheading" id="tokens-color-accents">Color — Accents &amp; Gradient</h2>
+    <div class="sg-token-grid">
+      <div class="sg-token">
+        <div class="sg-swatch" style="background:#00dbde;"></div>
+        <span class="sg-token__name">--accent-cyan</span>
+        <span class="sg-token__value">#00dbde</span>
+      </div>
+      <div class="sg-token">
+        <div class="sg-swatch" style="background:#fc00ff;"></div>
+        <span class="sg-token__name">--accent-pink</span>
+        <span class="sg-token__value">#fc00ff</span>
+      </div>
+      <div class="sg-token">
+        <div class="sg-swatch" style="background:linear-gradient(to right,#00dbde,#fc00ff);"></div>
+        <span class="sg-token__name">--gradient</span>
+        <span class="sg-token__value">cyan → pink</span>
+      </div>
+      <div class="sg-token">
+        <div class="sg-swatch" style="background:rgba(252,0,255,0.18);"></div>
+        <span class="sg-token__name">--accent-glow</span>
+        <span class="sg-token__value">rgba(252,0,255,0.18)</span>
+      </div>
+    </div>
+
+    <h2 class="sg-subheading" id="tokens-color-alpha">Color — Alpha / Surface Variants</h2>
+    <div class="sg-token-grid">
+      <div class="sg-token">
+        <div class="sg-swatch" style="background:rgba(0,219,222,0.07);"></div>
+        <span class="sg-token__name">--accent-cyan-subtle</span>
+        <span class="sg-token__value">rgba(0,219,222,0.07) — hero bg glow</span>
+      </div>
+      <div class="sg-token">
+        <div class="sg-swatch" style="background:rgba(252,0,255,0.07);"></div>
+        <span class="sg-token__name">--accent-pink-subtle</span>
+        <span class="sg-token__value">rgba(252,0,255,0.07) — hero bg glow</span>
+      </div>
+      <div class="sg-token">
+        <div class="sg-swatch" style="background:rgba(8,8,24,0.7);"></div>
+        <span class="sg-token__name">--navy-overlay</span>
+        <span class="sg-token__value">rgba(8,8,24,0.7) — nav desktop backdrop</span>
+      </div>
+      <div class="sg-token">
+        <div class="sg-swatch" style="background:rgba(8,8,24,0.96);"></div>
+        <span class="sg-token__name">--navy-overlay-solid</span>
+        <span class="sg-token__value">rgba(8,8,24,0.96) — nav mobile (no blur)</span>
+      </div>
+      <div class="sg-token">
+        <div class="sg-swatch" style="background:rgba(255,255,255,0.04);"></div>
+        <span class="sg-token__name">--surface-hover-md</span>
+        <span class="sg-token__value">rgba(255,255,255,0.04) — subtle hover/tag bg</span>
+      </div>
+      <div class="sg-token">
+        <div class="sg-swatch" style="background:rgba(255,255,255,0.2);"></div>
+        <span class="sg-token__name">--border-hover</span>
+        <span class="sg-token__value">rgba(255,255,255,0.2) — btn/input hover border</span>
+      </div>
+    </div>
+
+    <h2 class="sg-subheading" id="tokens-shadows">Color — Shadows</h2>
+    <div class="sg-token-grid">
+      <div class="sg-token">
+        <div class="sg-swatch" style="background:var(--navy-card);box-shadow:0 1px 24px rgba(0,0,0,0.4);"></div>
+        <span class="sg-token__name">--shadow-sm</span>
+        <span class="sg-token__value">nav scroll shadow</span>
+      </div>
+      <div class="sg-token">
+        <div class="sg-swatch" style="background:var(--navy-card);box-shadow:0 12px 40px rgba(0,0,0,0.4);"></div>
+        <span class="sg-token__name">--shadow-lg</span>
+        <span class="sg-token__value">card lift shadow</span>
+      </div>
+    </div>
+
+    <!-- SPACING -->
+    <h2 class="sg-subheading" id="tokens-spacing">Spacing Scale</h2>
+    <div class="sg-token-grid" style="grid-template-columns:1fr;">
+      <div class="sg-token">
+        <div class="sg-space-bar" style="width:0.5rem;"></div>
+        <span class="sg-token__name">--space-xs</span>
+        <span class="sg-token__value">0.5rem — 8px</span>
+      </div>
+      <div class="sg-token">
+        <div class="sg-space-bar" style="width:1rem;"></div>
+        <span class="sg-token__name">--space-sm</span>
+        <span class="sg-token__value">1rem — 16px</span>
+      </div>
+      <div class="sg-token">
+        <div class="sg-space-bar" style="width:1.5rem;"></div>
+        <span class="sg-token__name">--space-sm-plus</span>
+        <span class="sg-token__value">1.5rem — 24px — component gaps</span>
+      </div>
+      <div class="sg-token">
+        <div class="sg-space-bar" style="width:2rem;"></div>
+        <span class="sg-token__name">--space-md</span>
+        <span class="sg-token__value">2rem — 32px</span>
+      </div>
+      <div class="sg-token">
+        <div class="sg-space-bar" style="width:4rem;"></div>
+        <span class="sg-token__name">--space-lg</span>
+        <span class="sg-token__value">4rem — 64px</span>
+      </div>
+      <div class="sg-token">
+        <div class="sg-space-bar" style="width:8rem;"></div>
+        <span class="sg-token__name">--space-xl</span>
+        <span class="sg-token__value">8rem — 128px</span>
+      </div>
+    </div>
+
+    <!-- RADIUS -->
+    <h2 class="sg-subheading" id="tokens-radius">Border Radius</h2>
+    <div class="sg-token-grid">
+      <div class="sg-token">
+        <div class="sg-radius-box" style="border-radius:6px;"></div>
+        <span class="sg-token__name">--radius-sm</span>
+        <span class="sg-token__value">6px — buttons, inputs</span>
+      </div>
+      <div class="sg-token">
+        <div class="sg-radius-box" style="border-radius:12px;"></div>
+        <span class="sg-token__name">--radius-md</span>
+        <span class="sg-token__value">12px — cards, panels</span>
+      </div>
+      <div class="sg-token">
+        <div class="sg-radius-box" style="border-radius:20px;"></div>
+        <span class="sg-token__name">--radius-lg</span>
+        <span class="sg-token__value">20px — case studies wrapper</span>
+      </div>
+      <div class="sg-token">
+        <div class="sg-radius-box" style="border-radius:100px;"></div>
+        <span class="sg-token__name">--radius-pill</span>
+        <span class="sg-token__value">100px — tags</span>
+      </div>
+    </div>
+
+    <!-- MEASURE -->
+    <h2 class="sg-subheading" id="tokens-measure">Measure</h2>
+    <div class="sg-token">
+      <span class="sg-token__name">--measure</span>
+      <span class="sg-token__value">60ch — max line length for text containers</span>
+      <p style="max-width:60ch;font-size:var(--font-size-base);color:var(--text-secondary);line-height:var(--leading-relaxed);margin-top:0.5rem;border-left:2px solid var(--accent-cyan);padding-left:var(--space-sm);">This paragraph is constrained to <code>max-width: var(--measure)</code>. Used on <code>.section__header</code> and <code>.lets-talk__content</code> to cap comfortable reading width.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       TYPOGRAPHY
+  ============================================================ -->
+  <section class="sg-section" id="typography">
+    <h1 class="sg-heading">Typography</h1>
+
+    <!-- FONT FAMILIES -->
+    <h2 class="sg-subheading" id="type-families">Font Families</h2>
+    <div class="sg-token-grid">
+      <div class="sg-token">
+        <span style="font-family:'Exo',sans-serif;font-size:var(--font-size-xl);color:var(--text-primary);">Exo</span>
+        <span class="sg-token__name">--font-display</span>
+        <span class="sg-token__value">"Exo", sans-serif — headings, wordmark</span>
+      </div>
+      <div class="sg-token">
+        <span style="font-family:'Exo','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:var(--font-size-xl);color:var(--text-primary);">Exo</span>
+        <span class="sg-token__name">--font-body</span>
+        <span class="sg-token__value">"Exo" + system fallbacks — body text, UI</span>
+      </div>
+    </div>
+
+    <!-- FONT SIZE -->
+    <h2 class="sg-subheading" id="type-size">Font Size Scale</h2>
+    <div class="sg-token" style="padding:0;overflow:hidden;">
+      <div class="sg-type-row" style="padding:var(--space-sm);">
+        <span class="sg-type-label">--font-size-xs</span>
+        <span class="sg-type-meta">0.6875rem / 11px</span>
+        <span style="font-family:'Exo',sans-serif;font-size:0.6875rem;color:var(--text-secondary);">Tag labels, marker arrows</span>
+      </div>
+      <div class="sg-type-row" style="padding:var(--space-sm);">
+        <span class="sg-type-label">--font-size-sm</span>
+        <span class="sg-type-meta">0.75rem / 12px</span>
+        <span style="font-family:'Exo',sans-serif;font-size:0.75rem;color:var(--text-secondary);">Eyebrows, overlines, small labels, btn--sm</span>
+      </div>
+      <div class="sg-type-row" style="padding:var(--space-sm);">
+        <span class="sg-type-label">--font-size-ui</span>
+        <span class="sg-type-meta">0.875rem / 14px</span>
+        <span style="font-family:'Exo',sans-serif;font-size:0.875rem;color:var(--text-secondary);">UI chrome — toggles, footer copy, links &amp; tagline</span>
+      </div>
+      <div class="sg-type-row" style="padding:var(--space-sm);">
+        <span class="sg-type-label">--font-size-base</span>
+        <span class="sg-type-meta">0.9375rem / 15px</span>
+        <span style="font-family:'Exo',sans-serif;font-size:0.9375rem;color:var(--text-secondary);">Primary body text</span>
+      </div>
+      <div class="sg-type-row" style="padding:var(--space-sm);">
+        <span class="sg-type-label">--font-size-md</span>
+        <span class="sg-type-meta">1.0625rem / 17px</span>
+        <span style="font-family:'Exo',sans-serif;font-size:1.0625rem;color:var(--text-secondary);">Lead text, section subtitle</span>
+      </div>
+      <div class="sg-type-row" style="padding:var(--space-sm);">
+        <span class="sg-type-label">--font-size-lg</span>
+        <span class="sg-type-meta">1.125rem / 18px</span>
+        <span style="font-family:'Exo',sans-serif;font-size:1.125rem;color:var(--text-secondary);">Component headings</span>
+      </div>
+      <div class="sg-type-row" style="padding:var(--space-sm);">
+        <span class="sg-type-label">--font-size-xl</span>
+        <span class="sg-type-meta">1.375rem / 22px</span>
+        <span style="font-family:'Exo',sans-serif;font-size:1.375rem;color:var(--text-secondary);">Nav wordmark, case study title</span>
+      </div>
+      <div class="sg-type-row" style="padding:var(--space-sm);">
+        <span class="sg-type-label">--font-size-2xl</span>
+        <span class="sg-type-meta">1.75rem / 28px</span>
+        <span style="font-family:'Exo',sans-serif;font-size:1.75rem;color:var(--text-secondary);">Footer name, card icon</span>
+      </div>
+    </div>
+
+    <!-- FONT WEIGHT -->
+    <h2 class="sg-subheading" id="type-weight">Font Weight</h2>
+    <div class="sg-token" style="padding:0;overflow:hidden;">
+      <div class="sg-type-row" style="padding:var(--space-sm);">
+        <span class="sg-type-label">--weight-normal</span>
+        <span class="sg-type-meta">400</span>
+        <span style="font-family:'Exo',sans-serif;font-weight:400;font-size:var(--font-size-md);">The quick brown fox</span>
+      </div>
+      <div class="sg-type-row" style="padding:var(--space-sm);">
+        <span class="sg-type-label">--weight-medium</span>
+        <span class="sg-type-meta">500</span>
+        <span style="font-family:'Exo',sans-serif;font-weight:500;font-size:var(--font-size-md);">The quick brown fox</span>
+      </div>
+      <div class="sg-type-row" style="padding:var(--space-sm);">
+        <span class="sg-type-label">--weight-semibold</span>
+        <span class="sg-type-meta">600</span>
+        <span style="font-family:'Exo',sans-serif;font-weight:600;font-size:var(--font-size-md);">The quick brown fox</span>
+      </div>
+    </div>
+
+    <!-- LETTER SPACING -->
+    <h2 class="sg-subheading" id="type-tracking">Letter Spacing</h2>
+    <div class="sg-token" style="padding:0;overflow:hidden;">
+      <div class="sg-type-row" style="padding:var(--space-sm);">
+        <span class="sg-type-label">--tracking-tighter</span>
+        <span class="sg-type-meta">-0.02em</span>
+        <span style="font-family:'Exo',sans-serif;letter-spacing:-0.02em;font-size:var(--font-size-md);">Display name</span>
+      </div>
+      <div class="sg-type-row" style="padding:var(--space-sm);">
+        <span class="sg-type-label">--tracking-tight</span>
+        <span class="sg-type-meta">-0.01em</span>
+        <span style="font-family:'Exo',sans-serif;letter-spacing:-0.01em;font-size:var(--font-size-md);">Section titles, wordmark</span>
+      </div>
+      <div class="sg-type-row" style="padding:var(--space-sm);">
+        <span class="sg-type-label">--tracking-normal</span>
+        <span class="sg-type-meta">0.01em</span>
+        <span style="font-family:'Exo',sans-serif;letter-spacing:0.01em;font-size:var(--font-size-md);">Default slight open</span>
+      </div>
+      <div class="sg-type-row" style="padding:var(--space-sm);">
+        <span class="sg-type-label">--tracking-wide</span>
+        <span class="sg-type-meta">0.06em</span>
+        <span style="font-family:'Exo',sans-serif;letter-spacing:0.06em;font-size:var(--font-size-md);">Hero title, uppercase tags</span>
+      </div>
+      <div class="sg-type-row" style="padding:var(--space-sm);">
+        <span class="sg-type-label">--tracking-wider</span>
+        <span class="sg-type-meta">0.1em</span>
+        <span style="font-family:'Exo',sans-serif;letter-spacing:0.1em;font-size:var(--font-size-md);">Org labels, col titles</span>
+      </div>
+      <div class="sg-type-row" style="padding:var(--space-sm);">
+        <span class="sg-type-label">--tracking-widest</span>
+        <span class="sg-type-meta">0.12em</span>
+        <span style="font-family:'Exo',sans-serif;letter-spacing:0.12em;font-size:var(--font-size-md);">Section eyebrow</span>
+      </div>
+    </div>
+
+    <!-- TYPOGRAPHY UTILITIES -->
+    <h2 class="sg-subheading" id="type-utilities">Typography Utility Classes</h2>
+
+    <div class="sg-component-demo">
+      <div class="sg-demo">
+        <span class="gradient-text" style="font-size:var(--font-size-xl);font-family:var(--font-display);">Gradient Text</span>
+      </div>
+      <pre class="sg-code">&lt;span class="gradient-text"&gt;Gradient Text&lt;/span&gt;</pre>
+      <p class="sg-note">Applies the <strong>--gradient</strong> as a clipped background. Used on the hero name, nav wordmark, footer name, and the ✦ glyph. Transitions to <strong>--rainbow-gradient</strong> in rainbow mode.</p>
+    </div>
+
+    <div class="sg-component-demo">
+      <div class="sg-demo">
+        <span class="text--overline" style="font-family:'Exo',sans-serif">Overline Label</span>
+      </div>
+      <pre class="sg-code">&lt;p class="section__eyebrow"&gt;Overline Label&lt;/p&gt;</pre>
+      <p class="sg-note"><strong>font-weight: --weight-semibold</strong>, uppercase. Used for section eyebrows and accordion org labels.</p>
+    </div>
+
+    <div class="sg-component-demo">
+      <div class="sg-demo">
+        <span class="text--tag" style="font-family:'Exo',sans-serif">Tag Label</span>
+      </div>
+      <pre class="sg-code">&lt;span class="text--tag"&gt;Tag Label&lt;/span&gt;</pre>
+      <p class="sg-note"><strong>font-weight: --weight-medium</strong>, uppercase, <strong>--tracking-wide</strong>. Used on hero subtitle and case study category tags.</p>
+    </div>
+
+    <div class="sg-component-demo">
+      <div class="sg-demo">
+        <p class="text--body" style="font-family:'Exo',sans-serif">This is body text styled with the text--body utility. It sets font-size to --font-size-base and color to --text-secondary.</p>
+      </div>
+      <pre class="sg-code">&lt;p class="text--body"&gt;Body text here.&lt;/p&gt;</pre>
+      <p class="sg-note"><strong>--font-size-base</strong> (15px), <strong>--text-secondary</strong>. Used on card bodies and case study teasers.</p>
+    </div>
+
+    <div class="sg-component-demo">
+      <div class="sg-demo">
+        <ul class="arrow-list" style="font-family:'Exo',sans-serif">
+          <li>First item in the list</li>
+          <li>Second item in the list</li>
+          <li>Third item in the list</li>
+        </ul>
+      </div>
+      <pre class="sg-code">&lt;ul class="arrow-list"&gt;
+  &lt;li&gt;First item&lt;/li&gt;
+  &lt;li&gt;Second item&lt;/li&gt;
+&lt;/ul&gt;</pre>
+      <p class="sg-note">Arrow-bulleted list. Each <code>&lt;li&gt;</code> gets a <strong>→</strong> in <strong>--accent-cyan</strong> via <code>::before</code>. Items are spaced with <code>li + li { margin-top }</code> — no flex wrapper needed. Used in case study columns for goals, outcomes, and learnings.</p>
+    </div>
+
+    <div class="sg-component-demo">
+      <div class="sg-demo">
+        <span class="badge" style="font-family:'Exo',sans-serif">Category Tag</span>
+      </div>
+      <pre class="sg-code">&lt;span class="badge"&gt;Category Tag&lt;/span&gt;</pre>
+      <p class="sg-note">Pill-shaped label. <strong>--font-size-xs</strong>, <strong>--text-secondary</strong>, <strong>--surface-hover-md</strong> background, <strong>--navy-border</strong> border, <strong>--radius-pill</strong>. Pair with <code>.text--tag</code> for uppercase tracking. Used on accordion items to label content type.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       BUTTONS
+  ============================================================ -->
+  <section class="sg-section" id="buttons">
+    <h1 class="sg-heading">Buttons</h1>
+    <p class="sg-desc">All buttons share the <code>.btn</code> base class. Variants and size modifiers are additive. Hover states lift and brighten; <code>:focus-visible</code> shows a cyan outline ring.</p>
+
+    <h2 class="sg-subheading" id="buttons-default">Default Size</h2>
+    <div class="sg-demo sg-demo--row">
+      <a href="#" class="btn btn--primary">Primary</a>
+      <a href="#" class="btn btn--ghost">Ghost</a>
+      <button class="btn btn--sm btn--rainbow" aria-pressed="false"><span class="btn__icon" aria-hidden="true">🌈</span> Rainbow Time</button>
+    </div>
+    <pre class="sg-code">&lt;a href="#" class="btn btn--primary"&gt;Primary&lt;/a&gt;
+&lt;a href="#" class="btn btn--ghost"&gt;Ghost&lt;/a&gt;
+&lt;button class="btn btn--sm btn--rainbow" aria-pressed="false"&gt;
+  &lt;span class="btn__icon" aria-hidden="true"&gt;🌈&lt;/span&gt; Rainbow Time
+&lt;/button&gt;</pre>
+
+    <h2 class="sg-subheading" id="buttons-sm">Small — <code>.btn--sm</code></h2>
+    <div class="sg-demo sg-demo--row">
+      <a href="#" class="btn btn--sm btn--primary">Primary</a>
+      <a href="#" class="btn btn--sm btn--ghost">Ghost</a>
+      <button class="btn btn--sm btn--rainbow" aria-pressed="false"><span class="btn__icon" aria-hidden="true">🌈</span> Rainbow Time</button>
+    </div>
+    <pre class="sg-code">&lt;a href="#" class="btn btn--sm btn--primary"&gt;Primary&lt;/a&gt;
+&lt;a href="#" class="btn btn--sm btn--ghost"&gt;Ghost&lt;/a&gt;
+&lt;button class="btn btn--sm btn--rainbow" aria-pressed="false"&gt;
+  &lt;span class="btn__icon" aria-hidden="true"&gt;🌈</span> Rainbow Time
+&lt;/button&gt;</pre>
+
+    <h2 class="sg-subheading" id="buttons-rainbow">Rainbow — pressed state</h2>
+    <div class="sg-demo sg-demo--row">
+      <button class="btn btn--sm btn--rainbow" aria-pressed="true"><span class="btn__icon" aria-hidden="true">🌈</span> Rainbow Time</button>
+    </div>
+    <pre class="sg-code">&lt;button class="btn btn--sm btn--rainbow" aria-pressed="true"&gt;
+  &lt;span class="btn__icon" aria-hidden="true"&gt;🌈&lt;/span&gt; Rainbow Time
+&lt;/button&gt;</pre>
+    <p class="sg-note"><strong>Hover:</strong> btn--primary lifts (translateY -2px) + glow shadow, border brightens. btn--ghost border brightens, text becomes primary. btn--rainbow border brightens, subtle background appears, icon rotates 20° and scales. <strong>Note:</strong> btn--rainbow uses <code>aria-pressed</code> to reflect toggle state — JS sets this on interaction.</p>
+  </section>
+
+  <!-- ============================================================
+       LAYOUT
+  ============================================================ -->
+  <section class="sg-section" id="layout">
+    <h1 class="sg-heading">Layout</h1>
+
+    <h2 class="sg-subheading" id="layout-container">Container</h2>
+    <p class="sg-desc">The global page column. Centers content and applies consistent horizontal padding.</p>
+    <div class="sg-token" style="margin-bottom:var(--space-sm);">
+      <span class="sg-token__name">max-width</span><span class="sg-token__value">1100px</span>
+      <span class="sg-token__name">padding-inline</span><span class="sg-token__value">var(--space-md) — 32px</span>
+      <span class="sg-token__name">margin-inline</span><span class="sg-token__value">auto — horizontally centered</span>
+    </div>
+    <pre class="sg-code">&lt;div class="container"&gt;
+  &lt;!-- page content --&gt;
+&lt;/div&gt;</pre>
+
+    <h2 class="sg-subheading" id="layout-section">Section</h2>
+    <p class="sg-desc">Shared wrapper for every page section. Adds vertical rhythm and a top border separator between adjacent sections.</p>
+    <div class="sg-token" style="margin-bottom:var(--space-sm);">
+      <span class="sg-token__name">padding-block</span><span class="sg-token__value">var(--space-xl) — 128px (var(--space-lg) on mobile)</span>
+      <span class="sg-token__name">.section + .section</span><span class="sg-token__value">border-top: 1px solid var(--navy-border)</span>
+    </div>
+    <pre class="sg-code">&lt;section class="section" id="my-section" aria-labelledby="my-heading"&gt;
+  &lt;div class="container"&gt;
+    &lt;header class="section__header"&gt;…&lt;/header&gt;
+    &lt;!-- section content --&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</pre>
+
+    <h2 class="sg-subheading" id="layout-section-header">Section Header</h2>
+    <p class="sg-desc">The standard header block used at the top of every content section. Constrained to <code>--measure</code> (60ch). Children use margin-bottom for spacing — no flex/gap.</p>
+    <div class="sg-demo">
+      <header class="section__header" style="margin-bottom:0;">
+        <p class="section__eyebrow">Eyebrow Label</p>
+        <h2 class="section__title">Section Title</h2>
+        <p class="section__subtitle">A subtitle or brief description that sits below the title and gives a little more context about what follows.</p>
+      </header>
+    </div>
+    <pre class="sg-code">&lt;header class="section__header"&gt;
+  &lt;p class="section__eyebrow"&gt;Eyebrow Label&lt;/p&gt;
+  &lt;h2 class="section__title" id="section-heading"&gt;Section Title&lt;/h2&gt;
+  &lt;p class="section__subtitle"&gt;Subtitle text here.&lt;/p&gt;
+&lt;/header&gt;</pre>
+    <p class="sg-note">Spacing: eyebrow <strong>margin-bottom: 0.75rem</strong>, title <strong>margin-bottom: 1rem</strong>, subtitle <strong>margin-bottom: var(--space-sm-plus)</strong>. Header itself: <strong>margin-bottom: var(--space-lg)</strong>.</p>
+  </section>
+
+  <!-- ============================================================
+       COMPONENTS
+  ============================================================ -->
+  <section class="sg-section" id="components">
+    <h1 class="sg-heading">Components</h1>
+
+    <!-- CARD -->
+    <h2 class="sg-subheading" id="components-card">Card</h2>
+    <p class="sg-desc">Used in the Philosophy section. A 4-column grid on desktop, 2-col on tablet, 1-col on mobile. Cards lift on hover with a pink glow.</p>
+    <div class="sg-demo">
+      <div class="sg-card-wrap">
+        <article class="card">
+          <div class="card__icon" aria-hidden="true">⚙️</div>
+          <h3 class="card__title">Systems Over Heroics</h3>
+          <p class="card__body text--body">Sustainable delivery comes from strong planning rituals, not individual heroics. Build the system, not the hero.</p>
+        </article>
+        <article class="card">
+          <div class="card__icon" aria-hidden="true">🛡️</div>
+          <h3 class="card__title">Safety With Accountability</h3>
+          <p class="card__body text--body">Psychological safety isn't softness — it's the foundation that lets people do their best work without fear.</p>
+        </article>
+      </div>
+    </div>
+    <pre class="sg-code">&lt;article class="card"&gt;
+  &lt;div class="card__icon" aria-hidden="true"&gt;⚙️&lt;/div&gt;
+  &lt;h3 class="card__title"&gt;Title&lt;/h3&gt;
+  &lt;p class="card__body text--body"&gt;Body text.&lt;/p&gt;
+&lt;/article&gt;</pre>
+    <p class="sg-note">In rainbow mode, card borders become a full-spectrum gradient via <code>background-clip: border-box</code>.</p>
+
+    <!-- CASE STUDY ACCORDION -->
+    <h2 class="sg-subheading" id="components-accordion">Accordion</h2>
+    <p class="sg-desc">An accessible accordion. Each item is a <code>&lt;button&gt;</code> trigger with <code>aria-expanded</code> and <code>aria-controls</code>. The body uses the <code>hidden</code> attribute; JS toggles <code>is-open</code> on the wrapper and removes <code>hidden</code>. The title gets a gradient on hover/open. The chevron rotates on open.</p>
+    <div class="sg-demo">
+      <div class="accordion">
+        <article class="accordion__item is-open" id="sg-cs-demo">
+          <button class="accordion__trigger" aria-expanded="true" aria-controls="sg-cs-demo-body">
+            <div class="accordion__meta">
+              <span class="section__eyebrow">Organisation Name</span>
+              <span class="badge">Category Tag</span>
+            </div>
+            <h3 class="accordion__title">Case Study Title — Open State</h3>
+            <p class="accordion__teaser text--body">A short teaser description of the work done and the outcome achieved.</p>
+            <span class="accordion__chevron" aria-hidden="true"></span>
+          </button>
+          <div class="accordion__body" id="sg-cs-demo-body">
+            <div class="accordion__grid">
+              <div class="accordion__col">
+                <h4 class="text--overline">Context</h4>
+                <p>Background prose about the problem space and situation.</p>
+              </div>
+              <div class="accordion__col">
+                <h4 class="text--overline">Goals</h4>
+                <ul class="arrow-list">
+                  <li>Deliver the feature on schedule</li>
+                  <li>Improve team collaboration rituals</li>
+                  <li>Increase engagement metrics</li>
+                </ul>
+              </div>
+              <div class="accordion__col">
+                <h4 class="text--overline">What I Learned</h4>
+                <p>Reflective prose about key takeaways from the engagement.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+    <pre class="sg-code">&lt;div class="accordion"&gt;
+  &lt;article class="accordion__item" id="cs-id"&gt;
+    &lt;button class="accordion__trigger" aria-expanded="false" aria-controls="cs-id-body"&gt;
+      &lt;div class="accordion__meta"&gt;
+        &lt;span class="section__eyebrow"&gt;Org&lt;/span&gt;
+        &lt;span class="badge"&gt;Category&lt;/span&gt;
+      &lt;/div&gt;
+      &lt;h3 class="accordion__title"&gt;Title&lt;/h3&gt;
+      &lt;p class="accordion__teaser text--body"&gt;Teaser.&lt;/p&gt;
+      &lt;span class="accordion__chevron" aria-hidden="true"&gt;&lt;/span&gt;
+    &lt;/button&gt;
+    &lt;div class="accordion__body" id="cs-id-body" hidden&gt;
+      &lt;div class="accordion__grid"&gt;
+        &lt;div class="accordion__col"&gt;
+          &lt;h4 class="text--overline"&gt;Context&lt;/h4&gt;
+          &lt;p&gt;Prose.&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div class="accordion__col"&gt;
+          &lt;h4 class="text--overline"&gt;Goals&lt;/h4&gt;
+          &lt;ul class="arrow-list"&gt;
+            &lt;li&gt;Goal one&lt;/li&gt;
+          &lt;/ul&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/article&gt;
+&lt;/div&gt;</pre>
+    <p class="sg-note">The <code>gap: 1px</code> between case study items is achieved by the flex container exposing its background through a 1px gap — not borders. <strong>JS</strong> toggles <code>.is-open</code> on the article and flips <code>aria-expanded</code>. The <code>expandIn</code> animation plays when the body is revealed.</p>
+
+    <!-- NAV -->
+    <h2 class="sg-subheading" id="components-nav">Nav</h2>
+    <p class="sg-desc">Fixed to the top. Glassmorphism backdrop blur on desktop (removed on mobile for performance). The wordmark fades in via JS once the hero name scrolls out of view. The rainbow toggle lives here.</p>
+    <pre class="sg-code">&lt;nav class="nav" aria-label="Main navigation"&gt;
+  &lt;a href="/" class="nav__wordmark"&gt;
+    &lt;span class="gradient-text"&gt;Aly Fluckey&lt;/span&gt;
+  &lt;/a&gt;
+  &lt;div&gt;
+    &lt;button class="btn btn--sm btn--rainbow" id="rainbowToggle"
+            aria-pressed="false" aria-label="Toggle Rainbow Time mode"&gt;
+      &lt;span class="btn__icon" aria-hidden="true"&gt;🌈&lt;/span&gt;
+      &lt;span&gt;Rainbow Time&lt;/span&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/nav&gt;</pre>
+    <p class="sg-note"><code>.nav.scrolled</code> adds a border and shadow — applied by JS on scroll. <code>.nav.name-visible</code> fades the wordmark in — applied by JS via IntersectionObserver on the hero name.</p>
+
+    <!-- FOOTER -->
+    <h2 class="sg-subheading" id="components-footer">Footer</h2>
+    <p class="sg-desc">2-column grid on desktop (brand left, links right), stacked on mobile. The bottom bar spans full width and holds copyright copy and a second rainbow toggle.</p>
+    <div class="sg-demo">
+      <footer class="footer" style="border-radius:var(--radius-md);">
+        <div class="container footer__inner">
+          <div>
+            <span class="footer__name gradient-text">Aly Fluckey</span>
+            <p class="footer__tagline">Engineering Leader. Team builder. Forever rainbow enthusiast.</p>
+          </div>
+          <nav class="footer__links" aria-label="Social and contact links">
+            <a href="#" class="footer__link">GitHub</a>
+            <a href="#" class="footer__link">LinkedIn</a>
+            <a href="#" class="footer__link">Email</a>
+          </nav>
+          <div class="footer__bottom">
+            <span class="footer__copy">Just HTML, CSS, and strong opinions.</span>
+            <button class="btn btn--sm btn--rainbow" aria-pressed="false" aria-label="Toggle Rainbow Time mode">
+              <span class="btn__icon" aria-hidden="true">🌈</span> Rainbow Time
+            </button>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <pre class="sg-code">&lt;footer class="footer"&gt;
+  &lt;div class="container footer__inner"&gt;
+    &lt;div&gt;
+      &lt;span class="footer__name gradient-text"&gt;Name&lt;/span&gt;
+      &lt;p class="footer__tagline"&gt;Tagline.&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;nav class="footer__links" aria-label="..."&gt;
+      &lt;a href="#" class="footer__link"&gt;Link&lt;/a&gt;
+    &lt;/nav&gt;
+    &lt;div class="footer__bottom"&gt;
+      &lt;span class="footer__copy"&gt;Copy text.&lt;/span&gt;
+      &lt;button class="btn btn--sm btn--rainbow" aria-pressed="false"&gt;
+        &lt;span class="btn__icon" aria-hidden="true"&gt;🌈&lt;/span&gt; Rainbow Time
+      &lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/footer&gt;</pre>
+  </section>
+
+  <!-- ============================================================
+       ANIMATIONS & MOTION
+  ============================================================ -->
+  <section class="sg-section" id="motion">
+    <h1 class="sg-heading">Animations &amp; Motion</h1>
+    <p class="sg-desc">All animations respect <code>prefers-reduced-motion: reduce</code> — durations are collapsed to 0.01ms and iteration counts to 1.</p>
+
+    <h2 class="sg-subheading" id="motion-tokens">Motion Tokens</h2>
+    <div class="sg-token-grid">
+      <div class="sg-token">
+        <span class="sg-token__name">--ease-out</span>
+        <span class="sg-token__value">cubic-bezier(0.22, 1, 0.36, 1) — snappy deceleration</span>
+      </div>
+      <div class="sg-token">
+        <span class="sg-token__name">--duration</span>
+        <span class="sg-token__value">0.3s — default: buttons, borders, colours</span>
+      </div>
+      <div class="sg-token">
+        <span class="sg-token__name">--duration-medium</span>
+        <span class="sg-token__value">0.4s — nav wordmark, toggle icon</span>
+      </div>
+      <div class="sg-token">
+        <span class="sg-token__name">--duration-slow</span>
+        <span class="sg-token__value">0.5s — body bg, gradient-text transitions</span>
+      </div>
+    </div>
+
+    <h2 class="sg-subheading" id="motion-keyframes">Keyframe Animations</h2>
+    <div class="sg-motion-row">
+      <span class="sg-type-label">glyphSpin</span>
+      <span class="sg-type-meta">18s linear infinite</span>
+      <span style="color:var(--text-secondary);font-size:var(--font-size-base);">Rotates the ✦ glyph in the Let's Talk section. Paused by default, runs only when the element is visible in the viewport (IntersectionObserver sets <code>.playing</code> class).</span>
+    </div>
+    <div class="sg-motion-row">
+      <span class="sg-type-label">expandIn</span>
+      <span class="sg-type-meta">var(--duration-medium) var(--ease-out)</span>
+      <span style="color:var(--text-secondary);font-size:var(--font-size-base);">Fades in and lifts up (translateY -8px → 0) the case study body panel when an accordion item is opened.</span>
+    </div>
+
+    <h2 class="sg-subheading" id="motion-transitions">Transition Patterns</h2>
+    <div class="sg-motion-row">
+      <span class="sg-type-label">btn--primary hover</span>
+      <span style="color:var(--text-secondary);font-size:var(--font-size-base);">translateY(-2px) + box-shadow glow. Gradient border <code>::before</code> opacity 0.7 → 1.</span>
+    </div>
+    <div class="sg-motion-row">
+      <span class="sg-type-label">btn--ghost hover</span>
+      <span style="color:var(--text-secondary);font-size:var(--font-size-base);">translateY(-2px), border brightens to <code>--border-hover</code>, text becomes <code>--text-primary</code>.</span>
+    </div>
+    <div class="sg-motion-row">
+      <span class="sg-type-label">btn--rainbow hover / pressed</span>
+      <span style="color:var(--text-secondary);font-size:var(--font-size-base);">Border brightens, subtle background appears, <code>.btn__icon</code> rotates 20° and scales 1.15×.</span>
+    </div>
+    <div class="sg-motion-row">
+      <span class="sg-type-label">card hover</span>
+      <span style="color:var(--text-secondary);font-size:var(--font-size-base);">translateY(-2px) + <code>--shadow-lg</code> lift shadow.</span>
+    </div>
+    <div class="sg-motion-row">
+      <span class="sg-type-label">nav wordmark</span>
+      <span style="color:var(--text-secondary);font-size:var(--font-size-base);">opacity 0 → 1 + translateY(-6px → 0) over <code>--duration-medium</code>. Triggered by IntersectionObserver when hero name leaves viewport.</span>
+    </div>
+    <div class="sg-motion-row">
+      <span class="sg-type-label">gradient-text</span>
+      <span style="color:var(--text-secondary);font-size:var(--font-size-base);"><code>background-image</code> transitions over <code>--duration-slow</code> when rainbow mode is toggled.</span>
+    </div>
+    <div class="sg-motion-row">
+      <span class="sg-type-label">body background</span>
+      <span style="color:var(--text-secondary);font-size:var(--font-size-base);"><code>background-color</code> transitions over <code>--duration-slow</code> when rainbow mode is toggled.</span>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       RAINBOW MODE
+  ============================================================ -->
+  <section class="sg-section" id="rainbow">
+    <h1 class="sg-heading">Rainbow Mode</h1>
+    <p class="sg-desc">Activated by toggling the Rainbow Time button. Applies <code>body.rainbow-mode</code> and overrides key color tokens + specific component styles. Preference is persisted to <code>localStorage</code> under the key <code>af-rainbow-mode</code>.</p>
+
+    <h2 class="sg-subheading" id="rainbow-tokens">Overridden Tokens</h2>
+    <div class="sg-token-grid">
+      <div class="sg-token">
+        <div class="sg-swatch" style="background:#05051a;"></div>
+        <span class="sg-token__name">--navy</span>
+        <span class="sg-token__value">#05051a (was #080818)</span>
+      </div>
+      <div class="sg-token">
+        <div class="sg-swatch" style="background:#0a0520;"></div>
+        <span class="sg-token__name">--navy-2</span>
+        <span class="sg-token__value">#0a0520 (was #0e0e24)</span>
+      </div>
+      <div class="sg-token">
+        <div class="sg-swatch" style="background:#0f0a2e;"></div>
+        <span class="sg-token__name">--navy-3</span>
+        <span class="sg-token__value">#0f0a2e (was #14143a)</span>
+      </div>
+      <div class="sg-token">
+        <div class="sg-swatch" style="background:#090520;"></div>
+        <span class="sg-token__name">--navy-card</span>
+        <span class="sg-token__value">#090520 (was #121230)</span>
+      </div>
+      <div class="sg-token">
+        <div class="sg-swatch" style="background:#ff0080;"></div>
+        <span class="sg-token__name">--grad-start</span>
+        <span class="sg-token__value">#ff0080 (was #00dbde)</span>
+      </div>
+      <div class="sg-token">
+        <div class="sg-swatch" style="background:#7928ca;"></div>
+        <span class="sg-token__name">--grad-end</span>
+        <span class="sg-token__value">#7928ca (was #fc00ff)</span>
+      </div>
+      <div class="sg-token">
+        <div class="sg-swatch" style="background:#0affef;"></div>
+        <span class="sg-token__name">--accent-cyan</span>
+        <span class="sg-token__value">#0affef (was #00dbde)</span>
+      </div>
+      <div class="sg-token">
+        <div class="sg-swatch" style="background:#ff6ec7;"></div>
+        <span class="sg-token__name">--accent-pink</span>
+        <span class="sg-token__value">#ff6ec7 (was #fc00ff)</span>
+      </div>
+      <div class="sg-token">
+        <div class="sg-swatch" style="background:rgba(121,40,202,0.25);"></div>
+        <span class="sg-token__name">--accent-glow</span>
+        <span class="sg-token__value">rgba(121,40,202,0.25) — purple glow</span>
+      </div>
+      <div class="sg-token">
+        <div class="sg-swatch" style="background:rgba(10,255,239,0.07);"></div>
+        <span class="sg-token__name">--accent-cyan-subtle</span>
+        <span class="sg-token__value">rgba(10,255,239,0.07) — hero bg glow</span>
+      </div>
+      <div class="sg-token">
+        <div class="sg-swatch" style="background:rgba(255,110,199,0.07);"></div>
+        <span class="sg-token__name">--accent-pink-subtle</span>
+        <span class="sg-token__value">rgba(255,110,199,0.07) — hero bg glow</span>
+      </div>
+      <div class="sg-token">
+        <div class="sg-swatch" style="background:rgba(5,5,26,0.7);"></div>
+        <span class="sg-token__name">--navy-overlay</span>
+        <span class="sg-token__value">rgba(5,5,26,0.7) — nav desktop backdrop</span>
+      </div>
+      <div class="sg-token">
+        <div class="sg-swatch" style="background:rgba(5,5,26,0.96);"></div>
+        <span class="sg-token__name">--navy-overlay-solid</span>
+        <span class="sg-token__value">rgba(5,5,26,0.96) — nav mobile</span>
+      </div>
+      <div class="sg-token">
+        <div class="sg-swatch" style="background:linear-gradient(to right,#ff0080,#ff8c00,#ffe600,#00ff88,#00c6ff,#7928ca);"></div>
+        <span class="sg-token__name">--rainbow-gradient</span>
+        <span class="sg-token__value">hot pink → orange → yellow → green → sky → purple</span>
+      </div>
+    </div>
+
+    <h2 class="sg-subheading" id="rainbow-components">Affected Components</h2>
+    <div class="sg-token" style="padding:0;overflow:hidden;">
+      <div class="sg-motion-row" style="padding:var(--space-sm);">
+        <span class="sg-type-label">.hero__name .gradient-text</span>
+        <span style="color:var(--text-secondary);">background-image → --rainbow-gradient</span>
+      </div>
+      <div class="sg-motion-row" style="padding:var(--space-sm);">
+        <span class="sg-type-label">.lets-talk__glyph</span>
+        <span style="color:var(--text-secondary);">background-image → --rainbow-gradient</span>
+      </div>
+      <div class="sg-motion-row" style="padding:var(--space-sm);">
+        <span class="sg-type-label">.footer__name</span>
+        <span style="color:var(--text-secondary);">Clipped gradient text using --rainbow-gradient</span>
+      </div>
+      <div class="sg-motion-row" style="padding:var(--space-sm);">
+        <span class="sg-type-label">.card</span>
+        <span style="color:var(--text-secondary);">Border replaced with full-spectrum gradient via background-clip: border-box trick</span>
+      </div>
+      <div class="sg-motion-row" style="padding:var(--space-sm);">
+        <span class="sg-type-label">.btn--primary::before</span>
+        <span style="color:var(--text-secondary);">Gradient border swaps from --gradient to --rainbow-gradient</span>
+      </div>
+    </div>
+    <p class="sg-note" style="margin-top:var(--space-sm);">The two rainbow toggle buttons (<code>#rainbowToggle</code> and <code>#rainbowToggleFooter</code>) both have their <code>aria-pressed</code> attribute managed by JS in <code>index.js → initRainbow()</code>.</p>
+  </section>
+
+</main>
+
+</div><!-- /.sg-layout -->
+</body>
+</html>
