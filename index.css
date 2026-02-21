@@ -512,6 +512,29 @@
     animation-play-state: running;
   }
 
+  /* ----- Arrow list ----- */
+
+  .arrow-list li {
+    font-size: var(--font-size-base);
+    color: var(--text-secondary);
+    line-height: var(--leading-snug);
+    padding-left: 1.1rem;
+    position: relative;
+  }
+
+  .arrow-list li + li {
+    margin-top: 0.4rem;
+  }
+
+  .arrow-list li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--accent-cyan);
+    font-size: var(--font-size-sm);
+    top: 0.2em;
+  }
+
   /* ----- Cards ----- */
 
   .cards {
@@ -738,29 +761,6 @@
     font-size: var(--font-size-base);
     color: var(--text-secondary);
     line-height: var(--leading-relaxed);
-  }
-
-  .case-study__list {
-    display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
-  }
-
-  .case-study__list li {
-    font-size: var(--font-size-base);
-    color: var(--text-secondary);
-    line-height: var(--leading-snug);
-    padding-left: 1.1rem;
-    position: relative;
-  }
-
-  .case-study__list li::before {
-    content: "→";
-    position: absolute;
-    left: 0;
-    color: var(--accent-cyan);
-    font-size: var(--font-size-sm);
-    top: 0.2em;
   }
 
   /* ----- Let's Talk ----- */
