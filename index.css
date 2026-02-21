@@ -39,7 +39,7 @@
     /* Alpha variants — semi-transparent color uses */
     --accent-cyan-subtle: rgba(0, 219, 222, 0.07); /* hero bg glow */
     --accent-pink-subtle: rgba(252, 0, 255, 0.07); /* hero bg glow */
---navy-overlay: rgba(8, 8, 24, 0.7); /* nav backdrop */
+    --navy-overlay: rgba(8, 8, 24, 0.7); /* nav backdrop */
     --navy-overlay-solid: rgba(8, 8, 24, 0.96); /* mobile nav */
     --surface-hover-md: rgba(255, 255, 255, 0.04); /* subtle hover bg */
     --border-hover: rgba(255, 255, 255, 0.2); /* btn hover border */
@@ -201,6 +201,19 @@
     font-size: var(--font-size-base);
     color: var(--text-secondary);
   }
+
+  /* ----- Pill badge (category / tag label) ----- */
+  .badge {
+    font-size: var(--font-size-xs);
+    font-weight: var(--weight-medium);
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    background: var(--surface-hover-md);
+    border: 1px solid var(--navy-border);
+    padding: 0.2em 0.6em;
+    border-radius: var(--radius-pill);
+  }
 } /* end @layer typography */
 
 /* ============================================================
@@ -232,7 +245,9 @@
 
   .section__eyebrow {
     font-size: var(--font-size-sm);
+    font-weight: var(--weight-semibold);
     letter-spacing: var(--tracking-widest);
+    text-transform: uppercase;
     color: var(--accent-cyan);
     margin-bottom: 0.75rem;
   }
@@ -648,21 +663,6 @@
     flex-wrap: wrap;
   }
 
-  .accordion__org {
-    font-size: var(--font-size-sm);
-    letter-spacing: var(--tracking-wider);
-    color: var(--accent-cyan);
-  }
-
-  .accordion__tag {
-    font-size: var(--font-size-xs);
-    color: var(--text-secondary);
-    background: var(--surface-hover-md);
-    border: 1px solid var(--navy-border);
-    padding: 0.2em 0.6em;
-    border-radius: var(--radius-pill);
-  }
-
   .accordion__title {
     grid-area: title;
     font-family: var(--font-display);
@@ -750,7 +750,7 @@
     }
   }
 
-  .accordion__col-title {
+  .accordion__col h4 {
     font-size: var(--font-size-xs);
     letter-spacing: var(--tracking-wider);
     color: var(--accent-pink);
@@ -758,7 +758,6 @@
   }
 
   .accordion__col p {
-    font-size: var(--font-size-base);
     color: var(--text-secondary);
     line-height: var(--leading-relaxed);
   }
@@ -933,7 +932,7 @@
     /* Alpha variants — re-derived for rainbow palette */
     --accent-cyan-subtle: rgba(10, 255, 239, 0.07);
     --accent-pink-subtle: rgba(255, 110, 199, 0.07);
---navy-overlay: rgba(5, 5, 26, 0.7);
+    --navy-overlay: rgba(5, 5, 26, 0.7);
     --navy-overlay-solid: rgba(5, 5, 26, 0.96);
 
     /* Rainbow spectrum — defined once, referenced below */

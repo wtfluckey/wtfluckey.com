@@ -635,8 +635,8 @@
       <div class="sg-demo">
         <span class="text--overline" style="font-family:'Exo',sans-serif">Overline Label</span>
       </div>
-      <pre class="sg-code">&lt;p class="section__eyebrow text--overline"&gt;Overline Label&lt;/p&gt;</pre>
-      <p class="sg-note"><strong>font-weight: --weight-semibold</strong>, uppercase. Used for section eyebrows and case study org names / column titles.</p>
+      <pre class="sg-code">&lt;p class="section__eyebrow"&gt;Overline Label&lt;/p&gt;</pre>
+      <p class="sg-note"><strong>font-weight: --weight-semibold</strong>, uppercase. Used for section eyebrows and accordion org labels.</p>
     </div>
 
     <div class="sg-component-demo">
@@ -668,6 +668,14 @@
   &lt;li&gt;Second item&lt;/li&gt;
 &lt;/ul&gt;</pre>
       <p class="sg-note">Arrow-bulleted list. Each <code>&lt;li&gt;</code> gets a <strong>→</strong> in <strong>--accent-cyan</strong> via <code>::before</code>. Items are spaced with <code>li + li { margin-top }</code> — no flex wrapper needed. Used in case study columns for goals, outcomes, and learnings.</p>
+    </div>
+
+    <div class="sg-component-demo">
+      <div class="sg-demo">
+        <span class="badge" style="font-family:'Exo',sans-serif">Category Tag</span>
+      </div>
+      <pre class="sg-code">&lt;span class="badge"&gt;Category Tag&lt;/span&gt;</pre>
+      <p class="sg-note">Pill-shaped label. <strong>--font-size-xs</strong>, <strong>--text-secondary</strong>, <strong>--surface-hover-md</strong> background, <strong>--navy-border</strong> border, <strong>--radius-pill</strong>. Pair with <code>.text--tag</code> for uppercase tracking. Used on accordion items to label content type.</p>
     </div>
   </section>
 
@@ -746,13 +754,13 @@
     <p class="sg-desc">The standard header block used at the top of every content section. Constrained to <code>--measure</code> (60ch). Children use margin-bottom for spacing — no flex/gap.</p>
     <div class="sg-demo">
       <header class="section__header" style="margin-bottom:0;">
-        <p class="section__eyebrow text--overline">Eyebrow Label</p>
+        <p class="section__eyebrow">Eyebrow Label</p>
         <h2 class="section__title">Section Title</h2>
         <p class="section__subtitle">A subtitle or brief description that sits below the title and gives a little more context about what follows.</p>
       </header>
     </div>
     <pre class="sg-code">&lt;header class="section__header"&gt;
-  &lt;p class="section__eyebrow text--overline"&gt;Eyebrow Label&lt;/p&gt;
+  &lt;p class="section__eyebrow"&gt;Eyebrow Label&lt;/p&gt;
   &lt;h2 class="section__title" id="section-heading"&gt;Section Title&lt;/h2&gt;
   &lt;p class="section__subtitle"&gt;Subtitle text here.&lt;/p&gt;
 &lt;/header&gt;</pre>
@@ -797,8 +805,8 @@
         <article class="accordion__item is-open" id="sg-cs-demo">
           <button class="accordion__trigger" aria-expanded="true" aria-controls="sg-cs-demo-body">
             <div class="accordion__meta">
-              <span class="accordion__org text--overline">Organisation Name</span>
-              <span class="accordion__tag text--tag">Category Tag</span>
+              <span class="section__eyebrow">Organisation Name</span>
+              <span class="badge">Category Tag</span>
             </div>
             <h3 class="accordion__title">Case Study Title — Open State</h3>
             <p class="accordion__teaser text--body">A short teaser description of the work done and the outcome achieved.</p>
@@ -807,11 +815,11 @@
           <div class="accordion__body" id="sg-cs-demo-body">
             <div class="accordion__grid">
               <div class="accordion__col">
-                <h4 class="accordion__col-title text--overline">Context</h4>
+                <h4 class="text--overline">Context</h4>
                 <p>Background prose about the problem space and situation.</p>
               </div>
               <div class="accordion__col">
-                <h4 class="accordion__col-title text--overline">Goals</h4>
+                <h4 class="text--overline">Goals</h4>
                 <ul class="arrow-list">
                   <li>Deliver the feature on schedule</li>
                   <li>Improve team collaboration rituals</li>
@@ -819,7 +827,7 @@
                 </ul>
               </div>
               <div class="accordion__col">
-                <h4 class="accordion__col-title text--overline">What I Learned</h4>
+                <h4 class="text--overline">What I Learned</h4>
                 <p>Reflective prose about key takeaways from the engagement.</p>
               </div>
             </div>
@@ -831,8 +839,8 @@
   &lt;article class="accordion__item" id="cs-id"&gt;
     &lt;button class="accordion__trigger" aria-expanded="false" aria-controls="cs-id-body"&gt;
       &lt;div class="accordion__meta"&gt;
-        &lt;span class="accordion__org text--overline"&gt;Org&lt;/span&gt;
-        &lt;span class="accordion__tag text--tag"&gt;Category&lt;/span&gt;
+        &lt;span class="section__eyebrow"&gt;Org&lt;/span&gt;
+        &lt;span class="badge"&gt;Category&lt;/span&gt;
       &lt;/div&gt;
       &lt;h3 class="accordion__title"&gt;Title&lt;/h3&gt;
       &lt;p class="accordion__teaser text--body"&gt;Teaser.&lt;/p&gt;
@@ -841,11 +849,11 @@
     &lt;div class="accordion__body" id="cs-id-body" hidden&gt;
       &lt;div class="accordion__grid"&gt;
         &lt;div class="accordion__col"&gt;
-          &lt;h4 class="accordion__col-title text--overline"&gt;Context&lt;/h4&gt;
+          &lt;h4 class="text--overline"&gt;Context&lt;/h4&gt;
           &lt;p&gt;Prose.&lt;/p&gt;
         &lt;/div&gt;
         &lt;div class="accordion__col"&gt;
-          &lt;h4 class="accordion__col-title text--overline"&gt;Goals&lt;/h4&gt;
+          &lt;h4 class="text--overline"&gt;Goals&lt;/h4&gt;
           &lt;ul class="arrow-list"&gt;
             &lt;li&gt;Goal one&lt;/li&gt;
           &lt;/ul&gt;
