@@ -33,17 +33,19 @@ jobs:
           aws s3 sync . s3://alyfluckey.com \
             --delete \
             --exclude "*" \
-            --include "index.html" \
-            --include "index.css" \
-            --include "index.js" \
+            --include "*.html" \
+            --include "*.css" \
+            --include "*.js" \
             --cache-control "public, max-age=3600, s-maxage=86400"
 
       - name: Set HTML cache headers
         run: |
-          aws s3 cp s3://alyfluckey.com/index.html s3://alyfluckey.com/index.html \
-            --metadata-directive REPLACE \
-            --content-type "text/html" \
-            --cache-control "public, max-age=0, must-revalidate, s-maxage=86400"
+          for file in $(aws s3 ls s3://alyfluckey.com/ --recursive | awk '{print $4}' | grep '\.html$'); do
+            aws s3 cp "s3://alyfluckey.com/$file" "s3://alyfluckey.com/$file" \
+              --metadata-directive REPLACE \
+              --content-type "text/html" \
+              --cache-control "public, max-age=0, must-revalidate, s-maxage=86400"
+          done
 
       - name: Invalidate CloudFront cache
         run: |
