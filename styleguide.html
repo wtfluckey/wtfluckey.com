@@ -245,8 +245,8 @@
 
     .sg-motion-row:last-child { border-bottom: none; }
 
-    /* Isolated pillar demo — override grid */
-    .sg-pillar-wrap {
+    /* Isolated card demo — override grid */
+    .sg-card-wrap {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
       gap: var(--space-sm-plus);
@@ -289,7 +289,7 @@
   <a href="#layout-section-header" class="sg-nav__sub">Section Header</a>
 
   <a href="#components" class="sg-nav__section">Components</a>
-  <a href="#components-pillar" class="sg-nav__sub">Pillar Card</a>
+  <a href="#components-card" class="sg-nav__sub">Card</a>
   <a href="#components-case-study" class="sg-nav__sub">Case Study</a>
   <a href="#components-nav" class="sg-nav__sub">Nav</a>
   <a href="#components-footer" class="sg-nav__sub">Footer</a>
@@ -392,11 +392,6 @@
         <div class="sg-swatch" style="background:rgba(252,0,255,0.07);"></div>
         <span class="sg-token__name">--accent-pink-subtle</span>
         <span class="sg-token__value">rgba(252,0,255,0.07) — hero bg glow</span>
-      </div>
-      <div class="sg-token">
-        <div class="sg-swatch" style="background:rgba(0,219,222,0.3);"></div>
-        <span class="sg-token__name">--accent-cyan-border</span>
-        <span class="sg-token__value">rgba(0,219,222,0.3) — pillar hover border</span>
       </div>
       <div class="sg-token">
         <div class="sg-swatch" style="background:rgba(8,8,24,0.7);"></div>
@@ -565,7 +560,7 @@
       <div class="sg-type-row" style="padding:var(--space-sm);">
         <span class="sg-type-label">--font-size-2xl</span>
         <span class="sg-type-meta">1.75rem / 28px</span>
-        <span style="font-family:'Exo',sans-serif;font-size:1.75rem;color:var(--text-secondary);">Footer name, pillar icon</span>
+        <span style="font-family:'Exo',sans-serif;font-size:1.75rem;color:var(--text-secondary);">Footer name, card icon</span>
       </div>
     </div>
 
@@ -656,7 +651,7 @@
         <p class="text--body" style="font-family:'Exo',sans-serif">This is body text styled with the text--body utility. It sets font-size to --font-size-base and color to --text-secondary.</p>
       </div>
       <pre class="sg-code">&lt;p class="text--body"&gt;Body text here.&lt;/p&gt;</pre>
-      <p class="sg-note"><strong>--font-size-base</strong> (15px), <strong>--text-secondary</strong>. Used on pillar bodies and case study teasers.</p>
+      <p class="sg-note"><strong>--font-size-base</strong> (15px), <strong>--text-secondary</strong>. Used on card bodies and case study teasers.</p>
     </div>
   </section>
 
@@ -754,29 +749,29 @@
   <section class="sg-section" id="components">
     <h1 class="sg-heading">Components</h1>
 
-    <!-- PILLAR CARD -->
-    <h2 class="sg-subheading" id="components-pillar">Pillar Card</h2>
-    <p class="sg-desc">Used in the Philosophy section. A 4-column grid on desktop, 2-col on tablet, 1-col on mobile. Cards lift on hover with a cyan border glow.</p>
+    <!-- CARD -->
+    <h2 class="sg-subheading" id="components-card">Card</h2>
+    <p class="sg-desc">Used in the Philosophy section. A 4-column grid on desktop, 2-col on tablet, 1-col on mobile. Cards lift on hover with a pink glow.</p>
     <div class="sg-demo">
-      <div class="sg-pillar-wrap">
-        <article class="pillar">
-          <div class="pillar__icon" aria-hidden="true">⚙️</div>
-          <h3 class="pillar__title">Systems Over Heroics</h3>
-          <p class="pillar__body text--body">Sustainable delivery comes from strong planning rituals, not individual heroics. Build the system, not the hero.</p>
+      <div class="sg-card-wrap">
+        <article class="card">
+          <div class="card__icon" aria-hidden="true">⚙️</div>
+          <h3 class="card__title">Systems Over Heroics</h3>
+          <p class="card__body text--body">Sustainable delivery comes from strong planning rituals, not individual heroics. Build the system, not the hero.</p>
         </article>
-        <article class="pillar">
-          <div class="pillar__icon" aria-hidden="true">🛡️</div>
-          <h3 class="pillar__title">Safety With Accountability</h3>
-          <p class="pillar__body text--body">Psychological safety isn't softness — it's the foundation that lets people do their best work without fear.</p>
+        <article class="card">
+          <div class="card__icon" aria-hidden="true">🛡️</div>
+          <h3 class="card__title">Safety With Accountability</h3>
+          <p class="card__body text--body">Psychological safety isn't softness — it's the foundation that lets people do their best work without fear.</p>
         </article>
       </div>
     </div>
-    <pre class="sg-code">&lt;article class="pillar"&gt;
-  &lt;div class="pillar__icon" aria-hidden="true"&gt;⚙️&lt;/div&gt;
-  &lt;h3 class="pillar__title"&gt;Title&lt;/h3&gt;
-  &lt;p class="pillar__body text--body"&gt;Body text.&lt;/p&gt;
+    <pre class="sg-code">&lt;article class="card"&gt;
+  &lt;div class="card__icon" aria-hidden="true"&gt;⚙️&lt;/div&gt;
+  &lt;h3 class="card__title"&gt;Title&lt;/h3&gt;
+  &lt;p class="card__body text--body"&gt;Body text.&lt;/p&gt;
 &lt;/article&gt;</pre>
-    <p class="sg-note">In rainbow mode, pillar borders become a full-spectrum gradient via <code>background-clip: border-box</code>.</p>
+    <p class="sg-note">In rainbow mode, card borders become a full-spectrum gradient via <code>background-clip: border-box</code>.</p>
 
     <!-- CASE STUDY ACCORDION -->
     <h2 class="sg-subheading" id="components-case-study">Case Study Accordion</h2>
@@ -958,8 +953,8 @@
       <span style="color:var(--text-secondary);font-size:var(--font-size-base);">Border brightens, subtle background appears, <code>.btn__icon</code> rotates 20° and scales 1.15×.</span>
     </div>
     <div class="sg-motion-row">
-      <span class="sg-type-label">pillar hover</span>
-      <span style="color:var(--text-secondary);font-size:var(--font-size-base);">translateY(-4px) + shadow-lg + cyan border glow.</span>
+      <span class="sg-type-label">card hover</span>
+      <span style="color:var(--text-secondary);font-size:var(--font-size-base);">translateY(-2px) + pink accent glow.</span>
     </div>
     <div class="sg-motion-row">
       <span class="sg-type-label">nav wordmark</span>
@@ -1040,11 +1035,6 @@
         <span class="sg-token__value">rgba(255,110,199,0.07) — hero bg glow</span>
       </div>
       <div class="sg-token">
-        <div class="sg-swatch" style="background:rgba(10,255,239,0.3);"></div>
-        <span class="sg-token__name">--accent-cyan-border</span>
-        <span class="sg-token__value">rgba(10,255,239,0.3) — pillar hover border</span>
-      </div>
-      <div class="sg-token">
         <div class="sg-swatch" style="background:rgba(5,5,26,0.7);"></div>
         <span class="sg-token__name">--navy-overlay</span>
         <span class="sg-token__value">rgba(5,5,26,0.7) — nav desktop backdrop</span>
@@ -1076,7 +1066,7 @@
         <span style="color:var(--text-secondary);">Clipped gradient text using --rainbow-gradient</span>
       </div>
       <div class="sg-motion-row" style="padding:var(--space-sm);">
-        <span class="sg-type-label">.pillar</span>
+        <span class="sg-type-label">.card</span>
         <span style="color:var(--text-secondary);">Border replaced with full-spectrum gradient via background-clip: border-box trick</span>
       </div>
       <div class="sg-motion-row" style="padding:var(--space-sm);">

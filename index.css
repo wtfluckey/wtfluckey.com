@@ -39,8 +39,7 @@
     /* Alpha variants — semi-transparent color uses */
     --accent-cyan-subtle: rgba(0, 219, 222, 0.07); /* hero bg glow */
     --accent-pink-subtle: rgba(252, 0, 255, 0.07); /* hero bg glow */
-    --accent-cyan-border: rgba(0, 219, 222, 0.3); /* pillar hover border */
-    --navy-overlay: rgba(8, 8, 24, 0.7); /* nav backdrop */
+--navy-overlay: rgba(8, 8, 24, 0.7); /* nav backdrop */
     --navy-overlay-solid: rgba(8, 8, 24, 0.96); /* mobile nav */
     --surface-hover-md: rgba(255, 255, 255, 0.04); /* subtle hover bg */
     --border-hover: rgba(255, 255, 255, 0.2); /* btn hover border */
@@ -69,7 +68,7 @@
     --font-size-md: 1.0625rem; /* 17px — lead text, card body */
     --font-size-lg: 1.125rem; /* 18px — component headings */
     --font-size-xl: 1.375rem; /* 22px — nav wordmark, case-study title */
-    --font-size-2xl: 1.75rem; /* 28px — footer name, pillar icon */
+    --font-size-2xl: 1.75rem; /* 28px — footer name, card icon */
 
     /* Letter spacing scale */
     --tracking-tighter: -0.02em; /* display name */
@@ -513,27 +512,27 @@
     animation-play-state: running;
   }
 
-  /* ----- Philosophy Pillars ----- */
+  /* ----- Cards ----- */
 
-  .pillars {
+  .cards {
     display: grid;
     grid-template-columns: 1fr;
     gap: var(--space-sm-plus);
   }
 
   @media (min-width: 640px) {
-    .pillars {
+    .cards {
       grid-template-columns: repeat(2, 1fr);
     }
   }
 
   @media (min-width: 1024px) {
-    .pillars {
+    .cards {
       grid-template-columns: repeat(4, 1fr);
     }
   }
 
-  .pillar {
+  .card {
     background: var(--navy-card);
     border: 1px solid var(--navy-border);
     border-radius: var(--radius-md);
@@ -542,23 +541,21 @@
     flex-direction: column;
     gap: var(--space-sm);
     transition:
-      border-color var(--duration),
       transform var(--duration) var(--ease-out),
       box-shadow var(--duration) var(--ease-out);
   }
 
-  .pillar:hover {
-    border-color: var(--accent-cyan-border);
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-lg);
+  .card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 28px var(--accent-glow);
   }
 
-  .pillar__icon {
+  .card__icon {
     font-size: var(--font-size-2xl);
     line-height: var(--leading-none);
   }
 
-  .pillar__title {
+  .card__title {
     font-family: var(--font-display);
     font-size: var(--font-size-lg);
     letter-spacing: var(--tracking-normal);
@@ -566,7 +563,7 @@
     line-height: var(--leading-tight);
   }
 
-  .pillar__body {
+  .card__body {
     line-height: var(--leading-relaxed);
     flex: 1;
   }
@@ -936,8 +933,7 @@
     /* Alpha variants — re-derived for rainbow palette */
     --accent-cyan-subtle: rgba(10, 255, 239, 0.07);
     --accent-pink-subtle: rgba(255, 110, 199, 0.07);
-    --accent-cyan-border: rgba(10, 255, 239, 0.3);
-    --navy-overlay: rgba(5, 5, 26, 0.7);
+--navy-overlay: rgba(5, 5, 26, 0.7);
     --navy-overlay-solid: rgba(5, 5, 26, 0.96);
 
     /* Rainbow spectrum — defined once, referenced below */
@@ -966,7 +962,7 @@
     transition: none;
   }
 
-  body.rainbow-mode .pillar {
+  body.rainbow-mode .card {
     border-color: transparent;
     background-image:
       linear-gradient(var(--navy-card), var(--navy-card)),
