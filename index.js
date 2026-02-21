@@ -196,7 +196,7 @@
     if (!("IntersectionObserver" in window)) return;
 
     var targets = $$(
-      ".pillar, .accordion__item, .section__header, .lets-talk__content",
+      ".card, .accordion__item, .section__header, .lets-talk__content",
     );
 
     // Set initial hidden state via inline style so CSS isn't required
@@ -233,7 +233,7 @@
   ============================================================ */
 
   function initStagger() {
-    var groups = [".pillars", ".accordion"];
+    var groups = [".cards", ".accordion"];
 
     groups.forEach(function (selector) {
       var parent = $(selector);
