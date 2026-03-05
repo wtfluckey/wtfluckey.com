@@ -34,7 +34,7 @@
       align-self: start;
       height: 100vh;
       overflow-y: auto;
-      border-right: 1px solid var(--navy-border);
+      border-right: 1px solid var(--border-subtle);
       padding: var(--space-lg) var(--space-md);
       display: flex;
       flex-direction: column;
@@ -71,7 +71,7 @@
 
     .sg-section {
       padding-block: var(--space-xl);
-      border-top: 1px solid var(--navy-border);
+      border-top: 1px solid var(--border-subtle);
     }
 
     .sg-section:first-of-type { border-top: none; }
@@ -110,8 +110,8 @@
     }
 
     .sg-token {
-      background: var(--navy-card);
-      border: 1px solid var(--navy-border);
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
       border-radius: var(--radius-md);
       padding: var(--space-sm);
       display: flex;
@@ -137,7 +137,7 @@
       width: 100%;
       height: 3rem;
       border-radius: var(--radius-sm);
-      border: 1px solid var(--navy-border);
+      border: 1px solid var(--border-subtle);
       margin-bottom: 0.4rem;
     }
 
@@ -155,7 +155,7 @@
       width: 100%;
       height: 3rem;
       background: var(--surface-hover-md);
-      border: 1px solid var(--navy-border);
+      border: 1px solid var(--border-subtle);
       margin-bottom: 0.4rem;
     }
 
@@ -165,7 +165,7 @@
       align-items: baseline;
       gap: var(--space-sm);
       padding: var(--space-sm) 0;
-      border-bottom: 1px solid var(--navy-border);
+      border-bottom: 1px solid var(--border-subtle);
     }
 
     .sg-type-row:last-child { border-bottom: none; }
@@ -188,8 +188,8 @@
 
     /* Demo stage */
     .sg-demo {
-      background: var(--navy-card);
-      border: 1px solid var(--navy-border);
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
       border-radius: var(--radius-md);
       padding: var(--space-md);
       margin-bottom: var(--space-sm);
@@ -204,8 +204,8 @@
 
     /* Code snippets */
     .sg-code {
-      background: var(--navy);
-      border: 1px solid var(--navy-border);
+      background: var(--bg-base);
+      border: 1px solid var(--border-subtle);
       border-radius: var(--radius-sm);
       padding: var(--space-sm) var(--space-sm-plus);
       font-family: monospace;
@@ -226,7 +226,7 @@
     .sg-note {
       font-size: var(--font-size-sm);
       color: var(--text-secondary);
-      border-left: 2px solid var(--navy-border);
+      border-left: 2px solid var(--border-subtle);
       padding-left: var(--space-sm);
       margin-bottom: var(--space-sm);
       line-height: var(--leading-relaxed);
@@ -240,7 +240,7 @@
       align-items: center;
       gap: var(--space-sm-plus);
       padding: var(--space-sm) 0;
-      border-bottom: 1px solid var(--navy-border);
+      border-bottom: 1px solid var(--border-subtle);
     }
 
     .sg-motion-row:last-child { border-bottom: none; }
@@ -319,27 +319,27 @@
     <div class="sg-token-grid">
       <div class="sg-token">
         <div class="sg-swatch" style="background:#080818;"></div>
-        <span class="sg-token__name">--navy</span>
+        <span class="sg-token__name">--bg-base</span>
         <span class="sg-token__value">#080818</span>
       </div>
       <div class="sg-token">
         <div class="sg-swatch" style="background:#0e0e24;"></div>
-        <span class="sg-token__name">--navy-2</span>
-        <span class="sg-token__value">#0e0e24 — philosophy/lets-talk bg</span>
-      </div>
-      <div class="sg-token">
-        <div class="sg-swatch" style="background:#14143a;"></div>
-        <span class="sg-token__name">--navy-3</span>
-        <span class="sg-token__value">#14143a — case study open state</span>
+        <span class="sg-token__name">--bg-section</span>
+        <span class="sg-token__value">#0e0e24 — alternating section bg</span>
       </div>
       <div class="sg-token">
         <div class="sg-swatch" style="background:#121230;"></div>
-        <span class="sg-token__name">--navy-card</span>
-        <span class="sg-token__value">#121230 — card/panel bg</span>
+        <span class="sg-token__name">--bg-surface</span>
+        <span class="sg-token__value">#121230 — card/panel surface</span>
+      </div>
+      <div class="sg-token">
+        <div class="sg-swatch" style="background:#14143a;"></div>
+        <span class="sg-token__name">--bg-surface-active</span>
+        <span class="sg-token__value">#14143a — active/open surface state</span>
       </div>
       <div class="sg-token">
         <div class="sg-swatch" style="background:rgba(255,255,255,0.08);border:none;"></div>
-        <span class="sg-token__name">--navy-border</span>
+        <span class="sg-token__name">--border-subtle</span>
         <span class="sg-token__value">rgba(255,255,255,0.08) — default dividers &amp; card borders</span>
       </div>
     </div>
@@ -396,12 +396,12 @@
       </div>
       <div class="sg-token">
         <div class="sg-swatch" style="background:rgba(8,8,24,0.7);"></div>
-        <span class="sg-token__name">--navy-overlay</span>
+        <span class="sg-token__name">--bg-nav</span>
         <span class="sg-token__value">rgba(8,8,24,0.7) — nav desktop backdrop</span>
       </div>
       <div class="sg-token">
         <div class="sg-swatch" style="background:rgba(8,8,24,0.96);"></div>
-        <span class="sg-token__name">--navy-overlay-solid</span>
+        <span class="sg-token__name">--bg-nav-solid</span>
         <span class="sg-token__value">rgba(8,8,24,0.96) — nav mobile (no blur)</span>
       </div>
       <div class="sg-token">
@@ -419,12 +419,12 @@
     <h2 class="sg-subheading" id="tokens-shadows">Color — Shadows</h2>
     <div class="sg-token-grid">
       <div class="sg-token">
-        <div class="sg-swatch" style="background:var(--navy-card);box-shadow:0 1px 24px rgba(0,0,0,0.4);"></div>
+        <div class="sg-swatch" style="background:var(--bg-surface);box-shadow:0 1px 24px rgba(0,0,0,0.4);"></div>
         <span class="sg-token__name">--shadow-sm</span>
         <span class="sg-token__value">nav scroll shadow</span>
       </div>
       <div class="sg-token">
-        <div class="sg-swatch" style="background:var(--navy-card);box-shadow:0 12px 40px rgba(0,0,0,0.4);"></div>
+        <div class="sg-swatch" style="background:var(--bg-surface);box-shadow:0 12px 40px rgba(0,0,0,0.4);"></div>
         <span class="sg-token__name">--shadow-lg</span>
         <span class="sg-token__value">card lift shadow</span>
       </div>
@@ -675,7 +675,7 @@
         <span class="badge" style="font-family:'Exo',sans-serif">Category Tag</span>
       </div>
       <pre class="sg-code">&lt;span class="badge"&gt;Category Tag&lt;/span&gt;</pre>
-      <p class="sg-note">Pill-shaped label. <strong>--font-size-xs</strong>, <strong>--text-secondary</strong>, <strong>--surface-hover-md</strong> background, <strong>--navy-border</strong> border, <strong>--radius-pill</strong>. Pair with <code>.text--tag</code> for uppercase tracking. Used on accordion items to label content type.</p>
+      <p class="sg-note">Pill-shaped label. <strong>--font-size-xs</strong>, <strong>--text-secondary</strong>, <strong>--surface-hover-md</strong> background, <strong>--border-subtle</strong> border, <strong>--radius-pill</strong>. Pair with <code>.text--tag</code> for uppercase tracking. Used on accordion items to label content type.</p>
     </div>
   </section>
 
@@ -741,7 +741,7 @@
     <p class="sg-desc">Shared wrapper for every page section. Adds vertical rhythm and a top border separator between adjacent sections.</p>
     <div class="sg-token" style="margin-bottom:var(--space-sm);">
       <span class="sg-token__name">padding-block</span><span class="sg-token__value">var(--space-xl) — 128px (var(--space-lg) on mobile)</span>
-      <span class="sg-token__name">.section + .section</span><span class="sg-token__value">border-top: 1px solid var(--navy-border)</span>
+      <span class="sg-token__name">.section + .section</span><span class="sg-token__value">border-top: 1px solid var(--border-subtle)</span>
     </div>
     <pre class="sg-code">&lt;section class="section" id="my-section" aria-labelledby="my-heading"&gt;
   &lt;div class="container"&gt;
@@ -1004,26 +1004,6 @@
     <h2 class="sg-subheading" id="rainbow-tokens">Overridden Tokens</h2>
     <div class="sg-token-grid">
       <div class="sg-token">
-        <div class="sg-swatch" style="background:#05051a;"></div>
-        <span class="sg-token__name">--navy</span>
-        <span class="sg-token__value">#05051a (was #080818)</span>
-      </div>
-      <div class="sg-token">
-        <div class="sg-swatch" style="background:#0a0520;"></div>
-        <span class="sg-token__name">--navy-2</span>
-        <span class="sg-token__value">#0a0520 (was #0e0e24)</span>
-      </div>
-      <div class="sg-token">
-        <div class="sg-swatch" style="background:#0f0a2e;"></div>
-        <span class="sg-token__name">--navy-3</span>
-        <span class="sg-token__value">#0f0a2e (was #14143a)</span>
-      </div>
-      <div class="sg-token">
-        <div class="sg-swatch" style="background:#090520;"></div>
-        <span class="sg-token__name">--navy-card</span>
-        <span class="sg-token__value">#090520 (was #121230)</span>
-      </div>
-      <div class="sg-token">
         <div class="sg-swatch" style="background:#ff0080;"></div>
         <span class="sg-token__name">--grad-start</span>
         <span class="sg-token__value">#ff0080 (was #00dbde)</span>
@@ -1060,12 +1040,12 @@
       </div>
       <div class="sg-token">
         <div class="sg-swatch" style="background:rgba(5,5,26,0.7);"></div>
-        <span class="sg-token__name">--navy-overlay</span>
+        <span class="sg-token__name">--bg-nav</span>
         <span class="sg-token__value">rgba(5,5,26,0.7) — nav desktop backdrop</span>
       </div>
       <div class="sg-token">
         <div class="sg-swatch" style="background:rgba(5,5,26,0.96);"></div>
-        <span class="sg-token__name">--navy-overlay-solid</span>
+        <span class="sg-token__name">--bg-nav-solid</span>
         <span class="sg-token__value">rgba(5,5,26,0.96) — nav mobile</span>
       </div>
       <div class="sg-token">

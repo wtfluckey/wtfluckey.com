@@ -86,7 +86,7 @@
       </section>
 
       <section
-        class="section philosophy"
+        class="section bg--section"
         id="philosophy"
         aria-labelledby="philosophy-heading"
       >
@@ -94,7 +94,7 @@
           <header class="section__header">
             <p class="section__eyebrow">How I Work</p>
             <h2 class="section__title" id="philosophy-heading">
-              Technical Leadership Philosophy
+              Engineering Principles
             </h2>
             <p class="section__subtitle">
               Good engineering teams don't happen by accident. They're built
@@ -102,7 +102,7 @@
             </p>
           </header>
 
-          <div class="cards">
+          <div class="cards grid--3col gap--sm-plus">
             <article class="card">
               <div class="card__icon" aria-hidden="true">⚙️</div>
               <h3 class="card__title">Systems Over Heroics</h3>
@@ -173,7 +173,7 @@
       </section>
 
       <section
-        class="section impact"
+        class="section bg--base"
         id="impact"
         aria-labelledby="impact-heading"
       >
@@ -666,7 +666,58 @@
       </section>
 
       <section
-        class="section lets-talk"
+        class="section bg--section"
+        id="tech"
+        aria-labelledby="tech-heading"
+      >
+        <div class="container">
+          <header class="section__header">
+            <p class="section__eyebrow">The Stack</p>
+            <h2 class="section__title" id="tech-heading">Technical Scope</h2>
+          </header>
+          <div class="tech__groups grid--3col gap--lg">
+            <div class="tech__group">
+              <h3 class="text--overline">Languages & Frameworks</h3>
+              <div class="tech__chips">
+                <span class="badge">React</span>
+                <span class="badge">TypeScript</span>
+                <span class="badge">JavaScript</span>
+                <span class="badge">CSS / SCSS</span>
+                <span class="badge">HTML</span>
+                <span class="badge">GraphQL</span>
+                <span class="badge">React Native</span>
+                <span class="badge">Node.js</span>
+                <span class="badge">Webflow CMS</span>
+              </div>
+            </div>
+            <div class="tech__group">
+              <h3 class="text--overline">Tooling & Systems</h3>
+              <div class="tech__chips">
+                <span class="badge">Storybook</span>
+                <span class="badge">Git / GitHub</span>
+                <span class="badge">CI/CD</span>
+                <span class="badge">Sentry</span>
+                <span class="badge">Fathom</span>
+                <span class="badge">Snowplow</span>
+              </div>
+            </div>
+            <div class="tech__group">
+              <h3 class="text--overline">Practices</h3>
+              <div class="tech__chips">
+                <span class="badge">Design Systems</span>
+                <span class="badge">Frontend Architecture</span>
+                <span class="badge">A/B Experimentation</span>
+                <span class="badge">Analytics</span>
+                <span class="badge">Accessibility</span>
+                <span class="badge">AI-assisted Workflows</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="section bg--base"
         id="lets-talk"
         aria-labelledby="lets-talk-heading"
       >
@@ -711,7 +762,7 @@
       </section>
     </main>
 
-    <footer class="footer" role="contentinfo">
+    <footer class="footer bg--section" role="contentinfo">
       <div class="container footer__inner">
         <div>
           <span class="footer__name gradient-text">Aly Fluckey</span>
@@ -787,7 +838,7 @@
         <div class="footer__bottom">
           <span class="footer__copy">
             Just HTML, CSS, and
-            <a href="/styleguide.html" class="footer__link--inline"
+            <a href="./styleguide.html" class="footer__link--inline"
               >strong opinions</a
             >.
           </span>
