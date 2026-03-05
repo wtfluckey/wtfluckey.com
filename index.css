@@ -517,6 +517,13 @@
     margin-bottom: var(--space-sm-plus);
   }
 
+  .hero__credibility {
+    font-size: var(--font-size-ui);
+    color: var(--text-secondary);
+    line-height: var(--leading-loose);
+    margin-bottom: var(--space-sm-plus);
+  }
+
   .hero__cta-group {
     display: flex;
     flex-wrap: wrap;
@@ -566,7 +573,7 @@
 
   @media (min-width: 1024px) {
     .cards {
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(3, 1fr);
     }
   }
 
