@@ -234,6 +234,7 @@
     padding-block: var(--space-xl);
   }
 
+  .hero + .section,
   .section + .section {
     border-top: 1px solid var(--border-subtle);
   }
@@ -769,11 +770,31 @@
     line-height: var(--leading-relaxed);
   }
 
-  /* ----- Let's Talk ----- */
+  /* ----- Technical Experience ----- */
 
-  .lets-talk {
-    background-color: var(--navy-2);
+  .tech__groups {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
   }
+
+  @media (min-width: 640px) {
+    .tech__groups {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .tech__group .text--overline {
+    margin-bottom: var(--space-sm);
+  }
+
+  .tech__chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+  }
+
+  /* ----- Let's Talk ----- */
 
   .lets-talk__inner {
     display: grid;
