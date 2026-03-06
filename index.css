@@ -707,16 +707,8 @@
     letter-spacing: var(--tracking-normal);
     color: var(--text-primary);
     line-height: var(--leading-tight);
-    transition: color var(--duration);
   }
 
-  .accordion__trigger:hover .accordion__title,
-  .accordion__item.is-open .accordion__title {
-    background-image: var(--gradient);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-  }
 
   .accordion__teaser {
     grid-area: teaser;
