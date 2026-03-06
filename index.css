@@ -957,34 +957,43 @@
     --grad-end: #6366f1;
     --accent-cyan: #22d3ee;
     --accent-pink: #ff3cac;
-    --accent-glow: rgba(147, 51, 234, 0.25);
 
-    /* Alpha variants — re-derived for rainbow palette */
-    --accent-cyan-subtle: rgba(34, 211, 238, 0.07);
-    --accent-pink-subtle: rgba(255, 60, 172, 0.07);
-    --bg-nav: rgba(5, 5, 26, 0.7);
-    --bg-nav-solid: rgba(5, 5, 26, 0.96);
+    /* Rainbow stop tokens — change palette here only */
+    --rainbow-orange: #ff7a18;
+    --rainbow-magenta: #ff00cc;
+    --rainbow-purple: #9333ea;
+    --rainbow-blue: #3b82f6;
 
     /* Rainbow spectrum — defined once, referenced below */
     --rainbow-gradient: linear-gradient(
       to right,
-      #ff7a18,
-      #ff3cac,
-      #ff00cc,
-      #9333ea,
-      #6366f1,
-      #3b82f6,
-      #22d3ee
+      var(--rainbow-orange),
+      var(--accent-pink),
+      var(--rainbow-magenta),
+      var(--rainbow-purple),
+      var(--grad-end),
+      var(--rainbow-blue),
+      var(--accent-cyan)
     );
     --rainbow-gradient-diagonal: linear-gradient(
       135deg,
-      #ff7a18,
-      #ff3cac,
-      #ff00cc,
-      #9333ea,
-      #6366f1,
-      #3b82f6,
-      #22d3ee
+      var(--rainbow-orange),
+      var(--accent-pink),
+      var(--rainbow-magenta),
+      var(--rainbow-purple),
+      var(--grad-end),
+      var(--rainbow-blue),
+      var(--accent-cyan)
+    );
+    --rainbow-gradient-diagonal-reverse: linear-gradient(
+      -135deg,
+      var(--accent-cyan),
+      var(--rainbow-blue),
+      var(--grad-end),
+      var(--rainbow-purple),
+      var(--rainbow-magenta),
+      var(--accent-pink),
+      var(--rainbow-orange)
     );
   }
 
@@ -1003,13 +1012,18 @@
   }
 
   body.rainbow-mode .card {
-    border-color: transparent;
+    border: 1px solid transparent;
     background-image:
       linear-gradient(var(--bg-surface), var(--bg-surface)),
       var(--rainbow-gradient-diagonal);
     background-origin: border-box;
     background-clip: padding-box, border-box;
-    border: 1.5px solid transparent;
+  }
+
+  body.rainbow-mode .card:nth-child(even) {
+    background-image:
+      linear-gradient(var(--bg-surface), var(--bg-surface)),
+      var(--rainbow-gradient-diagonal-reverse);
   }
 
   body.rainbow-mode .btn--primary::before {
