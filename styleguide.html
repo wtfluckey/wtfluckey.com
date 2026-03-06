@@ -690,34 +690,34 @@
     <div class="sg-demo sg-demo--row">
       <a href="#" class="btn btn--primary">Primary</a>
       <a href="#" class="btn btn--ghost">Ghost</a>
-      <button class="btn btn--sm btn--rainbow" aria-pressed="false"><span class="btn__icon" aria-hidden="true">🌈</span> Rainbow Time</button>
+      <button class="btn btn--sm btn--rainbow" aria-pressed="false"><span class="btn__icon" aria-hidden="true">🌈</span></button>
     </div>
     <pre class="sg-code">&lt;a href="#" class="btn btn--primary"&gt;Primary&lt;/a&gt;
 &lt;a href="#" class="btn btn--ghost"&gt;Ghost&lt;/a&gt;
 &lt;button class="btn btn--sm btn--rainbow" aria-pressed="false"&gt;
-  &lt;span class="btn__icon" aria-hidden="true"&gt;🌈&lt;/span&gt; Rainbow Time
+  &lt;span class="btn__icon" aria-hidden="true"&gt;🌈&lt;/span&gt;
 &lt;/button&gt;</pre>
 
     <h2 class="sg-subheading" id="buttons-sm">Small — <code>.btn--sm</code></h2>
     <div class="sg-demo sg-demo--row">
       <a href="#" class="btn btn--sm btn--primary">Primary</a>
       <a href="#" class="btn btn--sm btn--ghost">Ghost</a>
-      <button class="btn btn--sm btn--rainbow" aria-pressed="false"><span class="btn__icon" aria-hidden="true">🌈</span> Rainbow Time</button>
+      <button class="btn btn--sm btn--rainbow" aria-pressed="false"><span class="btn__icon" aria-hidden="true">🌈</span></button>
     </div>
     <pre class="sg-code">&lt;a href="#" class="btn btn--sm btn--primary"&gt;Primary&lt;/a&gt;
 &lt;a href="#" class="btn btn--sm btn--ghost"&gt;Ghost&lt;/a&gt;
 &lt;button class="btn btn--sm btn--rainbow" aria-pressed="false"&gt;
-  &lt;span class="btn__icon" aria-hidden="true"&gt;🌈</span> Rainbow Time
+  &lt;span class="btn__icon" aria-hidden="true"&gt;🌈&lt;/span&gt;
 &lt;/button&gt;</pre>
 
     <h2 class="sg-subheading" id="buttons-rainbow">Rainbow — pressed state</h2>
     <div class="sg-demo sg-demo--row">
-      <button class="btn btn--sm btn--rainbow" aria-pressed="true"><span class="btn__icon" aria-hidden="true">🌈</span> Rainbow Time</button>
+      <button class="btn btn--sm btn--rainbow" aria-pressed="true"><span class="btn__icon" aria-hidden="true">🌈</span></button>
     </div>
     <pre class="sg-code">&lt;button class="btn btn--sm btn--rainbow" aria-pressed="true"&gt;
-  &lt;span class="btn__icon" aria-hidden="true"&gt;🌈&lt;/span&gt; Rainbow Time
+  &lt;span class="btn__icon" aria-hidden="true"&gt;🌈&lt;/span&gt;
 &lt;/button&gt;</pre>
-    <p class="sg-note"><strong>Hover:</strong> btn--primary lifts (translateY -2px) + glow shadow, border brightens. btn--ghost border brightens, text becomes primary. btn--rainbow border brightens, subtle background appears, icon rotates 20° and scales. <strong>Note:</strong> btn--rainbow uses <code>aria-pressed</code> to reflect toggle state — JS sets this on interaction.</p>
+    <p class="sg-note"><strong>Hover:</strong> All buttons lift (translateY -2px) via <code>.btn:hover</code>. btn--primary also gains a glow shadow and the gradient border brightens to full opacity. btn--ghost border brightens, text becomes primary. btn--rainbow border brightens, subtle background appears, icon rotates 20° and scales. <strong>Note:</strong> btn--rainbow uses <code>aria-pressed</code> to reflect toggle state — JS sets this on interaction.</p>
   </section>
 
   <!-- ============================================================
@@ -875,7 +875,6 @@
     &lt;button class="btn btn--sm btn--rainbow" id="rainbowToggle"
             aria-pressed="false" aria-label="Toggle Rainbow Time mode"&gt;
       &lt;span class="btn__icon" aria-hidden="true"&gt;🌈&lt;/span&gt;
-      &lt;span&gt;Rainbow Time&lt;/span&gt;
     &lt;/button&gt;
   &lt;/div&gt;
 &lt;/nav&gt;</pre>
@@ -899,7 +898,7 @@
           <div class="footer__bottom">
             <span class="footer__copy">Just HTML, CSS, and strong opinions.</span>
             <button class="btn btn--sm btn--rainbow" aria-pressed="false" aria-label="Toggle Rainbow Time mode">
-              <span class="btn__icon" aria-hidden="true">🌈</span> Rainbow Time
+              <span class="btn__icon" aria-hidden="true">🌈</span>
             </button>
           </div>
         </div>
@@ -917,7 +916,7 @@
     &lt;div class="footer__bottom"&gt;
       &lt;span class="footer__copy"&gt;Copy text.&lt;/span&gt;
       &lt;button class="btn btn--sm btn--rainbow" aria-pressed="false"&gt;
-        &lt;span class="btn__icon" aria-hidden="true"&gt;🌈&lt;/span&gt; Rainbow Time
+        &lt;span class="btn__icon" aria-hidden="true"&gt;🌈&lt;/span&gt;
       &lt;/button&gt;
     &lt;/div&gt;
   &lt;/div&gt;
@@ -966,11 +965,11 @@
     <h2 class="sg-subheading" id="motion-transitions">Transition Patterns</h2>
     <div class="sg-motion-row">
       <span class="sg-type-label">btn--primary hover</span>
-      <span style="color:var(--text-secondary);font-size:var(--font-size-base);">translateY(-2px) + box-shadow glow. Gradient border <code>::before</code> opacity 0.7 → 1.</span>
+      <span style="color:var(--text-secondary);font-size:var(--font-size-base);">Gradient border <code>::before</code> opacity 0.7 → 1, plus box-shadow glow. Lift (translateY -2px) is inherited from <code>.btn:hover</code>.</span>
     </div>
     <div class="sg-motion-row">
       <span class="sg-type-label">btn--ghost hover</span>
-      <span style="color:var(--text-secondary);font-size:var(--font-size-base);">translateY(-2px), border brightens to <code>--border-hover</code>, text becomes <code>--text-primary</code>.</span>
+      <span style="color:var(--text-secondary);font-size:var(--font-size-base);">Border brightens to <code>--border-hover</code>, text becomes <code>--text-primary</code>. Lift inherited from <code>.btn:hover</code>.</span>
     </div>
     <div class="sg-motion-row">
       <span class="sg-type-label">btn--rainbow hover / pressed</span>
@@ -1004,54 +1003,59 @@
     <h2 class="sg-subheading" id="rainbow-tokens">Overridden Tokens</h2>
     <div class="sg-token-grid">
       <div class="sg-token">
-        <div class="sg-swatch" style="background:#ff0080;"></div>
+        <div class="sg-swatch" style="background:#ff3cac;"></div>
         <span class="sg-token__name">--grad-start</span>
-        <span class="sg-token__value">#ff0080 (was #00dbde)</span>
+        <span class="sg-token__value">#ff3cac (was #00dbde)</span>
       </div>
       <div class="sg-token">
-        <div class="sg-swatch" style="background:#7928ca;"></div>
+        <div class="sg-swatch" style="background:#6366f1;"></div>
         <span class="sg-token__name">--grad-end</span>
-        <span class="sg-token__value">#7928ca (was #fc00ff)</span>
+        <span class="sg-token__value">#6366f1 (was #fc00ff)</span>
       </div>
       <div class="sg-token">
-        <div class="sg-swatch" style="background:#0affef;"></div>
+        <div class="sg-swatch" style="background:#22d3ee;"></div>
         <span class="sg-token__name">--accent-cyan</span>
-        <span class="sg-token__value">#0affef (was #00dbde)</span>
+        <span class="sg-token__value">#22d3ee (was #00dbde)</span>
       </div>
       <div class="sg-token">
-        <div class="sg-swatch" style="background:#ff6ec7;"></div>
+        <div class="sg-swatch" style="background:#ff3cac;"></div>
         <span class="sg-token__name">--accent-pink</span>
-        <span class="sg-token__value">#ff6ec7 (was #fc00ff)</span>
+        <span class="sg-token__value">#ff3cac (was #fc00ff)</span>
       </div>
       <div class="sg-token">
-        <div class="sg-swatch" style="background:rgba(121,40,202,0.25);"></div>
-        <span class="sg-token__name">--accent-glow</span>
-        <span class="sg-token__value">rgba(121,40,202,0.25) — purple glow</span>
+        <div class="sg-swatch" style="background:#ff7a18;"></div>
+        <span class="sg-token__name">--rainbow-orange</span>
+        <span class="sg-token__value">#ff7a18 — rainbow spectrum stop</span>
       </div>
       <div class="sg-token">
-        <div class="sg-swatch" style="background:rgba(10,255,239,0.07);"></div>
-        <span class="sg-token__name">--accent-cyan-subtle</span>
-        <span class="sg-token__value">rgba(10,255,239,0.07) — hero bg glow</span>
+        <div class="sg-swatch" style="background:#ff00cc;"></div>
+        <span class="sg-token__name">--rainbow-magenta</span>
+        <span class="sg-token__value">#ff00cc — rainbow spectrum stop</span>
       </div>
       <div class="sg-token">
-        <div class="sg-swatch" style="background:rgba(255,110,199,0.07);"></div>
-        <span class="sg-token__name">--accent-pink-subtle</span>
-        <span class="sg-token__value">rgba(255,110,199,0.07) — hero bg glow</span>
+        <div class="sg-swatch" style="background:#9333ea;"></div>
+        <span class="sg-token__name">--rainbow-purple</span>
+        <span class="sg-token__value">#9333ea — rainbow spectrum stop</span>
       </div>
       <div class="sg-token">
-        <div class="sg-swatch" style="background:rgba(5,5,26,0.7);"></div>
-        <span class="sg-token__name">--bg-nav</span>
-        <span class="sg-token__value">rgba(5,5,26,0.7) — nav desktop backdrop</span>
+        <div class="sg-swatch" style="background:#3b82f6;"></div>
+        <span class="sg-token__name">--rainbow-blue</span>
+        <span class="sg-token__value">#3b82f6 — rainbow spectrum stop</span>
       </div>
       <div class="sg-token">
-        <div class="sg-swatch" style="background:rgba(5,5,26,0.96);"></div>
-        <span class="sg-token__name">--bg-nav-solid</span>
-        <span class="sg-token__value">rgba(5,5,26,0.96) — nav mobile</span>
-      </div>
-      <div class="sg-token">
-        <div class="sg-swatch" style="background:linear-gradient(to right,#ff0080,#ff8c00,#ffe600,#00ff88,#00c6ff,#7928ca);"></div>
+        <div class="sg-swatch" style="background:linear-gradient(to right,#ff7a18,#ff3cac,#ff00cc,#9333ea,#6366f1,#3b82f6,#22d3ee);"></div>
         <span class="sg-token__name">--rainbow-gradient</span>
-        <span class="sg-token__value">hot pink → orange → yellow → green → sky → purple</span>
+        <span class="sg-token__value">orange → pink → magenta → purple → indigo → blue → cyan (horizontal)</span>
+      </div>
+      <div class="sg-token">
+        <div class="sg-swatch" style="background:linear-gradient(135deg,#ff7a18,#ff3cac,#ff00cc,#9333ea,#6366f1,#3b82f6,#22d3ee);"></div>
+        <span class="sg-token__name">--rainbow-gradient-diagonal</span>
+        <span class="sg-token__value">same spectrum at 135° — used for odd card borders and btn--primary border</span>
+      </div>
+      <div class="sg-token">
+        <div class="sg-swatch" style="background:linear-gradient(-135deg,#22d3ee,#3b82f6,#6366f1,#9333ea,#ff00cc,#ff3cac,#ff7a18);"></div>
+        <span class="sg-token__name">--rainbow-gradient-diagonal-reverse</span>
+        <span class="sg-token__value">reversed spectrum at -135° — used for even card borders</span>
       </div>
     </div>
 
@@ -1071,11 +1075,11 @@
       </div>
       <div class="sg-motion-row" style="padding:var(--space-sm);">
         <span class="sg-type-label">.card</span>
-        <span style="color:var(--text-secondary);">Border replaced with full-spectrum gradient via background-clip: border-box trick</span>
+        <span style="color:var(--text-secondary);">Border replaced with full-spectrum gradient via background-clip: border-box. Odd cards use --rainbow-gradient-diagonal; even cards use --rainbow-gradient-diagonal-reverse</span>
       </div>
       <div class="sg-motion-row" style="padding:var(--space-sm);">
         <span class="sg-type-label">.btn--primary::before</span>
-        <span style="color:var(--text-secondary);">Gradient border swaps from --gradient to --rainbow-gradient</span>
+        <span style="color:var(--text-secondary);">Gradient border swaps from --gradient to --rainbow-gradient-diagonal</span>
       </div>
     </div>
     <p class="sg-note" style="margin-top:var(--space-sm);">The two rainbow toggle buttons (<code>#rainbowToggle</code> and <code>#rainbowToggleFooter</code>) both have their <code>aria-pressed</code> attribute managed by JS in <code>index.js → initRainbow()</code>.</p>
