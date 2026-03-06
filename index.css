@@ -953,27 +953,38 @@
   /* ----- Rainbow Mode ----- */
 
   body.rainbow-mode {
-    --grad-start: #ff0080;
-    --grad-end: #7928ca;
-    --accent-cyan: #0affef;
-    --accent-pink: #ff6ec7;
-    --accent-glow: rgba(121, 40, 202, 0.25);
+    --grad-start: #ff3cac;
+    --grad-end: #6366f1;
+    --accent-cyan: #22d3ee;
+    --accent-pink: #ff3cac;
+    --accent-glow: rgba(147, 51, 234, 0.25);
 
     /* Alpha variants — re-derived for rainbow palette */
-    --accent-cyan-subtle: rgba(10, 255, 239, 0.07);
-    --accent-pink-subtle: rgba(255, 110, 199, 0.07);
+    --accent-cyan-subtle: rgba(34, 211, 238, 0.07);
+    --accent-pink-subtle: rgba(255, 60, 172, 0.07);
     --bg-nav: rgba(5, 5, 26, 0.7);
     --bg-nav-solid: rgba(5, 5, 26, 0.96);
 
     /* Rainbow spectrum — defined once, referenced below */
     --rainbow-gradient: linear-gradient(
       to right,
-      #ff0080 0%,
-      #ff8c00 20%,
-      #ffe600 40%,
-      #00ff88 60%,
-      #00c6ff 80%,
-      #7928ca 100%
+      #ff7a18,
+      #ff3cac,
+      #ff00cc,
+      #9333ea,
+      #6366f1,
+      #3b82f6,
+      #22d3ee
+    );
+    --rainbow-gradient-diagonal: linear-gradient(
+      135deg,
+      #ff7a18,
+      #ff3cac,
+      #ff00cc,
+      #9333ea,
+      #6366f1,
+      #3b82f6,
+      #22d3ee
     );
   }
 
@@ -995,14 +1006,14 @@
     border-color: transparent;
     background-image:
       linear-gradient(var(--bg-surface), var(--bg-surface)),
-      var(--rainbow-gradient);
+      var(--rainbow-gradient-diagonal);
     background-origin: border-box;
     background-clip: padding-box, border-box;
     border: 1.5px solid transparent;
   }
 
   body.rainbow-mode .btn--primary::before {
-    background: var(--rainbow-gradient);
+    background: var(--rainbow-gradient-diagonal);
   }
 
   /* ----- Reduced Motion ----- */
