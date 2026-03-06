@@ -288,11 +288,15 @@
   <a href="#layout-container" class="sg-nav__sub">Container</a>
   <a href="#layout-section" class="sg-nav__sub">Section</a>
   <a href="#layout-section-header" class="sg-nav__sub">Section Header</a>
+  <a href="#layout-bg" class="sg-nav__sub">Background Utils</a>
+  <a href="#layout-grid" class="sg-nav__sub">Grid — 3col</a>
+  <a href="#layout-gap" class="sg-nav__sub">Gap Utils</a>
 
   <a href="#components" class="sg-nav__section">Components</a>
   <a href="#components-card" class="sg-nav__sub">Card</a>
   <a href="#components-accordion" class="sg-nav__sub">Accordion</a>
   <a href="#components-nav" class="sg-nav__sub">Nav</a>
+  <a href="#components-tech" class="sg-nav__sub">Tech Experience</a>
   <a href="#components-footer" class="sg-nav__sub">Footer</a>
 
   <a href="#motion" class="sg-nav__section">Motion</a>
@@ -765,6 +769,40 @@
   &lt;p class="section__subtitle"&gt;Subtitle text here.&lt;/p&gt;
 &lt;/header&gt;</pre>
     <p class="sg-note">Spacing: eyebrow <strong>margin-bottom: 0.75rem</strong>, title <strong>margin-bottom: 1rem</strong>, subtitle <strong>margin-bottom: var(--space-sm-plus)</strong>. Header itself: <strong>margin-bottom: var(--space-lg)</strong>.</p>
+
+    <h2 class="sg-subheading" id="layout-bg">Background Utilities</h2>
+    <p class="sg-desc">Semantic background color classes. Use these instead of inlining token values so section backgrounds stay in sync with the palette.</p>
+    <div class="sg-token-grid">
+      <div class="sg-token">
+        <div class="sg-swatch" style="background:#080818;"></div>
+        <span class="sg-token__name">.bg--base</span>
+        <span class="sg-token__value">var(--bg-base) — default page background</span>
+      </div>
+      <div class="sg-token">
+        <div class="sg-swatch" style="background:#0e0e24;"></div>
+        <span class="sg-token__name">.bg--section</span>
+        <span class="sg-token__value">var(--bg-section) — alternating section background</span>
+      </div>
+    </div>
+    <pre class="sg-code">&lt;section class="section bg--section"&gt;…&lt;/section&gt;</pre>
+
+    <h2 class="sg-subheading" id="layout-grid">Grid — 3 Column</h2>
+    <p class="sg-desc">Responsive 3-column grid. 1-col on mobile, 2-col at 640px, 3-col at 960px. Used for cards, tech chips, and any uniform-item layouts.</p>
+    <pre class="sg-code">&lt;div class="grid--3col gap--sm-plus"&gt;
+  &lt;!-- items --&gt;
+&lt;/div&gt;</pre>
+    <p class="sg-note">Pair with a <strong>gap--*</strong> utility to control spacing. <code>gap--sm-plus</code> is the standard card grid gap.</p>
+
+    <h2 class="sg-subheading" id="layout-gap">Gap Utilities</h2>
+    <p class="sg-desc">Composable gap classes that map directly to the spacing scale. Apply to any flex or grid container.</p>
+    <div class="sg-token-grid" style="grid-template-columns:1fr;">
+      <div class="sg-token"><span class="sg-token__name">.gap--xs</span><span class="sg-token__value">var(--space-xs) — 8px</span></div>
+      <div class="sg-token"><span class="sg-token__name">.gap--sm</span><span class="sg-token__value">var(--space-sm) — 16px</span></div>
+      <div class="sg-token"><span class="sg-token__name">.gap--sm-plus</span><span class="sg-token__value">var(--space-sm-plus) — 24px — standard card/chip gap</span></div>
+      <div class="sg-token"><span class="sg-token__name">.gap--md</span><span class="sg-token__value">var(--space-md) — 32px</span></div>
+      <div class="sg-token"><span class="sg-token__name">.gap--lg</span><span class="sg-token__value">var(--space-lg) — 64px</span></div>
+      <div class="sg-token"><span class="sg-token__name">.gap--xl</span><span class="sg-token__value">var(--space-xl) — 128px</span></div>
+    </div>
   </section>
 
   <!-- ============================================================
@@ -775,7 +813,7 @@
 
     <!-- CARD -->
     <h2 class="sg-subheading" id="components-card">Card</h2>
-    <p class="sg-desc">Used in the Philosophy section. A 4-column grid on desktop, 2-col on tablet, 1-col on mobile. Cards lift on hover with a pink glow.</p>
+    <p class="sg-desc">Used in the Philosophy section inside a <code>.grid--3col</code> wrapper. 3-col on desktop, 2-col on tablet, 1-col on mobile. Cards lift on hover with a pink glow.</p>
     <div class="sg-demo">
       <div class="sg-card-wrap">
         <article class="card">
@@ -879,6 +917,29 @@
   &lt;/div&gt;
 &lt;/nav&gt;</pre>
     <p class="sg-note"><code>.nav.scrolled</code> adds a border and shadow — applied by JS on scroll. <code>.nav.name-visible</code> fades the wordmark in — applied by JS via IntersectionObserver on the hero name.</p>
+
+    <!-- TECHNICAL EXPERIENCE -->
+    <h2 class="sg-subheading" id="components-tech">Technical Experience</h2>
+    <p class="sg-desc">Displays grouped technology stacks as labeled chip clusters. Each group has an overline heading and a flex-wrapped chip row using <code>.badge</code> elements.</p>
+    <div class="sg-demo">
+      <div class="tech__group">
+        <p class="text--overline" style="font-family:'Exo',sans-serif;font-size:var(--font-size-xs);letter-spacing:var(--tracking-wider);margin-bottom:var(--space-sm);">Frontend</p>
+        <div class="tech__chips">
+          <span class="badge">React</span>
+          <span class="badge">TypeScript</span>
+          <span class="badge">CSS</span>
+          <span class="badge">Next.js</span>
+        </div>
+      </div>
+    </div>
+    <pre class="sg-code">&lt;div class="tech__group"&gt;
+  &lt;p class="text--overline"&gt;Group Label&lt;/p&gt;
+  &lt;div class="tech__chips"&gt;
+    &lt;span class="badge"&gt;Chip&lt;/span&gt;
+    &lt;span class="badge"&gt;Chip&lt;/span&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+    <p class="sg-note"><code>.tech__chips</code> is <code>display: flex; flex-wrap: wrap; gap: var(--space-xs)</code>. Uses <code>.badge</code> for the individual chips. Groups are placed inside a <code>.grid--3col</code> wrapper in the page.</p>
 
     <!-- FOOTER -->
     <h2 class="sg-subheading" id="components-footer">Footer</h2>
