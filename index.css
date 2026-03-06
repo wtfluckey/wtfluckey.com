@@ -17,6 +17,7 @@
     --bg-surface: #121230;
     --bg-surface-active: #14143a;
     --border-subtle: rgba(255, 255, 255, 0.08);
+    --border-width: 1px;
 
     /* Gradient — cyan → pink/magenta (brand DNA) */
     --grad-start: #00dbde;
@@ -210,7 +211,7 @@
     text-transform: uppercase;
     color: var(--text-secondary);
     background: var(--surface-hover-md);
-    border: 1px solid var(--border-subtle);
+    border: var(--border-width) solid var(--border-subtle);
     padding: 0.2em 0.6em;
     border-radius: var(--radius-pill);
   }
@@ -236,7 +237,7 @@
 
   .hero + .section,
   .section + .section {
-    border-top: 1px solid var(--border-subtle);
+    border-top: var(--border-width) solid var(--border-subtle);
   }
 
   .section__header {
@@ -380,7 +381,7 @@
   }
 
   .btn--ghost {
-    border: 1px solid var(--border-subtle);
+    border: var(--border-width) solid var(--border-subtle);
     color: var(--text-secondary);
     background: transparent;
   }
@@ -402,7 +403,7 @@
   /* ----- Rainbow variant ----- */
 
   .btn--rainbow {
-    border: 1px solid var(--border-subtle);
+    border: var(--border-width) solid var(--border-subtle);
     color: var(--text-secondary);
     background: transparent;
     transition:
@@ -472,7 +473,7 @@
     background: var(--bg-nav);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid transparent;
+    border-bottom: var(--border-width) solid transparent;
     transition: border-color var(--duration);
   }
 
@@ -599,7 +600,7 @@
 
   .card {
     background: var(--bg-surface);
-    border: 1px solid var(--border-subtle);
+    border: var(--border-width) solid var(--border-subtle);
     border-radius: var(--radius-md);
     padding: 2rem 1.75rem;
     display: flex;
@@ -639,7 +640,7 @@
     display: flex;
     flex-direction: column;
     gap: 1px;
-    border: 1px solid var(--border-subtle);
+    border: var(--border-width) solid var(--border-subtle);
     border-radius: var(--radius-lg);
     overflow: hidden;
   }
@@ -670,7 +671,7 @@
     align-items: start;
     cursor: pointer;
     transition: background-color var(--duration);
-    border-bottom: 1px solid var(--border-subtle);
+    border-bottom: var(--border-width) solid var(--border-subtle);
     position: relative;
   }
 
@@ -762,7 +763,7 @@
     grid-template-columns: 1fr;
     gap: var(--space-md);
     padding-top: var(--space-sm-plus);
-    border-top: 1px solid var(--border-subtle);
+    border-top: var(--border-width) solid var(--border-subtle);
   }
 
   @media (min-width: 640px) {
@@ -861,7 +862,7 @@
   /* ----- Footer ----- */
 
   .footer {
-    border-top: 1px solid var(--border-subtle);
+    border-top: var(--border-width) solid var(--border-subtle);
     padding-block: var(--space-lg);
   }
 
@@ -925,7 +926,7 @@
     flex-wrap: wrap;
     gap: var(--space-sm);
     padding-top: var(--space-md);
-    border-top: 1px solid var(--border-subtle);
+    border-top: var(--border-width) solid var(--border-subtle);
   }
 
   .footer__copy {
@@ -1012,7 +1013,7 @@
   }
 
   body.rainbow-mode .card {
-    border: 1px solid transparent;
+    border: var(--border-width) solid transparent;
     background-image:
       linear-gradient(var(--bg-surface), var(--bg-surface)),
       var(--rainbow-gradient-diagonal);
