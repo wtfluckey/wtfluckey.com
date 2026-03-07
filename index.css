@@ -190,6 +190,7 @@
   .text--body {
     font-size: var(--font-size-base);
     color: var(--text-secondary);
+    line-height: var(--leading-relaxed);
   }
 
   /* ----- Column label (accordion body col heading pattern) ----- */
@@ -787,11 +788,6 @@
     .accordion__grid {
       grid-template-columns: repeat(3, 1fr);
     }
-  }
-
-  .accordion__col p {
-    color: var(--text-secondary);
-    line-height: var(--leading-relaxed);
   }
 
   /* ----- Badge Group ----- */
