@@ -19,9 +19,9 @@
     --border-subtle: rgba(255, 255, 255, 0.08);
     --border-width: 1px;
 
-    /* Gradient — cyan → pink/magenta (brand DNA) */
-    --grad-start: #00dbde;
-    --grad-end: #fc00ff;
+    /* Gradient — pink/hot → indigo (brand DNA) */
+    --grad-start: #ff3cac;
+    --grad-end: #6366f1;
     --gradient: linear-gradient(
       to right,
       var(--grad-start) 0%,
@@ -33,13 +33,51 @@
     --text-secondary: #9090b8;
 
     /* Accents */
-    --accent-cyan: #00dbde;
-    --accent-pink: #fc00ff;
-    --accent-glow: rgba(252, 0, 255, 0.18);
+    --accent-cyan: #22d3ee;
+    --accent-pink: #ff3cac;
+    --accent-glow: rgba(255, 60, 172, 0.18);
 
     /* Alpha variants — semi-transparent color uses */
-    --accent-cyan-subtle: rgba(0, 219, 222, 0.07); /* hero bg glow */
-    --accent-pink-subtle: rgba(252, 0, 255, 0.07); /* hero bg glow */
+    --accent-cyan-subtle: rgba(34, 211, 238, 0.07); /* hero bg glow */
+    --accent-pink-subtle: rgba(255, 60, 172, 0.07); /* hero bg glow */
+
+    /* Rainbow spectrum tokens */
+    --rainbow-orange: #ff7a18;
+    --rainbow-magenta: #ff00cc;
+    --rainbow-purple: #9333ea;
+    --rainbow-blue: #3b82f6;
+
+    /* Rainbow gradients — defined once, referenced across components */
+    --rainbow-gradient: linear-gradient(
+      to right,
+      var(--rainbow-orange),
+      var(--accent-pink),
+      var(--rainbow-magenta),
+      var(--rainbow-purple),
+      var(--grad-end),
+      var(--rainbow-blue),
+      var(--accent-cyan)
+    );
+    --rainbow-gradient-diagonal: linear-gradient(
+      135deg,
+      var(--rainbow-orange),
+      var(--accent-pink),
+      var(--rainbow-magenta),
+      var(--rainbow-purple),
+      var(--grad-end),
+      var(--rainbow-blue),
+      var(--accent-cyan)
+    );
+    --rainbow-gradient-diagonal-reverse: linear-gradient(
+      -135deg,
+      var(--accent-cyan),
+      var(--rainbow-blue),
+      var(--grad-end),
+      var(--rainbow-purple),
+      var(--rainbow-magenta),
+      var(--accent-pink),
+      var(--rainbow-orange)
+    );
     --bg-nav: rgba(8, 8, 24, 0.7); /* nav backdrop */
     --bg-nav-solid: rgba(8, 8, 24, 0.96); /* mobile nav */
     --surface-hover-md: rgba(255, 255, 255, 0.04); /* subtle hover bg */
@@ -199,7 +237,7 @@
     font-weight: var(--weight-semibold);
     letter-spacing: var(--tracking-wider);
     text-transform: uppercase;
-    color: var(--accent-pink);
+    color: var(--rainbow-magenta);
   }
 
   /* ----- Pill badge (category / tag label) ----- */
@@ -367,7 +405,7 @@
     inset: -2px;
     border-radius: calc(var(--radius-sm) + 2px);
     padding: 2px;
-    background: var(--gradient);
+    background: var(--rainbow-gradient-diagonal);
     -webkit-mask:
       linear-gradient(#fff 0 0) content-box,
       linear-gradient(#fff 0 0);
@@ -613,6 +651,12 @@
     gap: var(--space-sm);
   }
 
+  /* Hero name and glyph use the full rainbow spectrum */
+  .hero__name .gradient-text,
+  .lets-talk__glyph {
+    background-image: var(--rainbow-gradient);
+  }
+
   .lets-talk__glyph.playing {
     animation-play-state: running;
   }
@@ -621,7 +665,12 @@
 
   .card {
     background: var(--bg-surface);
-    border: var(--border-width) solid var(--border-subtle);
+    border: var(--border-width) solid transparent;
+    background-image:
+      linear-gradient(var(--bg-surface), var(--bg-surface)),
+      var(--rainbow-gradient-diagonal);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
     border-radius: var(--radius-md);
     padding: 2rem 1.75rem;
     display: flex;
@@ -630,6 +679,12 @@
     transition:
       transform var(--duration) var(--ease-out),
       box-shadow var(--duration) var(--ease-out);
+  }
+
+  .card:nth-child(even) {
+    background-image:
+      linear-gradient(var(--bg-surface), var(--bg-surface)),
+      var(--rainbow-gradient-diagonal-reverse);
   }
 
   .card:hover {
@@ -880,6 +935,8 @@
     font-size: var(--font-size-2xl);
     letter-spacing: var(--tracking-tight);
     margin-bottom: var(--space-xs);
+    display: inline-block;
+    background-image: var(--rainbow-gradient);
   }
 
   .footer__tagline {
@@ -947,86 +1004,6 @@
 ============================================================ */
 
 @layer overrides {
-  /* ----- Rainbow Mode ----- */
-
-  body.rainbow-mode {
-    --grad-start: #ff3cac;
-    --grad-end: #6366f1;
-    --accent-cyan: #22d3ee;
-    --accent-pink: #ff3cac;
-
-    /* Rainbow stop tokens — change palette here only */
-    --rainbow-orange: #ff7a18;
-    --rainbow-magenta: #ff00cc;
-    --rainbow-purple: #9333ea;
-    --rainbow-blue: #3b82f6;
-
-    /* Rainbow spectrum — defined once, referenced below */
-    --rainbow-gradient: linear-gradient(
-      to right,
-      var(--rainbow-orange),
-      var(--accent-pink),
-      var(--rainbow-magenta),
-      var(--rainbow-purple),
-      var(--grad-end),
-      var(--rainbow-blue),
-      var(--accent-cyan)
-    );
-    --rainbow-gradient-diagonal: linear-gradient(
-      135deg,
-      var(--rainbow-orange),
-      var(--accent-pink),
-      var(--rainbow-magenta),
-      var(--rainbow-purple),
-      var(--grad-end),
-      var(--rainbow-blue),
-      var(--accent-cyan)
-    );
-    --rainbow-gradient-diagonal-reverse: linear-gradient(
-      -135deg,
-      var(--accent-cyan),
-      var(--rainbow-blue),
-      var(--grad-end),
-      var(--rainbow-purple),
-      var(--rainbow-magenta),
-      var(--accent-pink),
-      var(--rainbow-orange)
-    );
-  }
-
-  body.rainbow-mode .hero__name .gradient-text,
-  body.rainbow-mode .lets-talk__glyph {
-    background-image: var(--rainbow-gradient);
-  }
-
-  body.rainbow-mode .footer__name {
-    background-image: var(--rainbow-gradient);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    display: inline-block;
-    transition: none;
-  }
-
-  body.rainbow-mode .card {
-    border: var(--border-width) solid transparent;
-    background-image:
-      linear-gradient(var(--bg-surface), var(--bg-surface)),
-      var(--rainbow-gradient-diagonal);
-    background-origin: border-box;
-    background-clip: padding-box, border-box;
-  }
-
-  body.rainbow-mode .card:nth-child(even) {
-    background-image:
-      linear-gradient(var(--bg-surface), var(--bg-surface)),
-      var(--rainbow-gradient-diagonal-reverse);
-  }
-
-  body.rainbow-mode .btn--primary::before {
-    background: var(--rainbow-gradient-diagonal);
-  }
-
   /* ----- Reduced Motion ----- */
 
   @media (prefers-reduced-motion: reduce) {

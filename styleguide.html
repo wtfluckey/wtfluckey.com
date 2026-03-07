@@ -305,7 +305,7 @@
   <a href="#motion-keyframes" class="sg-nav__sub">Keyframes</a>
   <a href="#motion-transitions" class="sg-nav__sub">Transitions</a>
 
-  <a href="#rainbow" class="sg-nav__section">Rainbow Mode</a>
+  <a href="#rainbow" class="sg-nav__section">Rainbow Time</a>
   <a href="#rainbow-tokens" class="sg-nav__sub">Tokens</a>
   <a href="#rainbow-components" class="sg-nav__sub">Components</a>
 </nav>
@@ -366,38 +366,38 @@
     <h2 class="sg-subheading" id="tokens-color-accents">Color — Accents &amp; Gradient</h2>
     <div class="sg-token-grid">
       <div class="sg-token">
-        <div class="sg-swatch" style="background:#00dbde;"></div>
+        <div class="sg-swatch" style="background:#22d3ee;"></div>
         <span class="sg-token__name">--accent-cyan</span>
-        <span class="sg-token__value">#00dbde</span>
+        <span class="sg-token__value">#22d3ee</span>
       </div>
       <div class="sg-token">
-        <div class="sg-swatch" style="background:#fc00ff;"></div>
+        <div class="sg-swatch" style="background:#ff3cac;"></div>
         <span class="sg-token__name">--accent-pink</span>
-        <span class="sg-token__value">#fc00ff</span>
+        <span class="sg-token__value">#ff3cac</span>
       </div>
       <div class="sg-token">
-        <div class="sg-swatch" style="background:linear-gradient(to right,#00dbde,#fc00ff);"></div>
+        <div class="sg-swatch" style="background:linear-gradient(to right,#ff3cac,#6366f1);"></div>
         <span class="sg-token__name">--gradient</span>
-        <span class="sg-token__value">cyan → pink</span>
+        <span class="sg-token__value">pink → indigo — nav wordmark, focus ring</span>
       </div>
       <div class="sg-token">
-        <div class="sg-swatch" style="background:rgba(252,0,255,0.18);"></div>
+        <div class="sg-swatch" style="background:rgba(255,60,172,0.18);"></div>
         <span class="sg-token__name">--accent-glow</span>
-        <span class="sg-token__value">rgba(252,0,255,0.18)</span>
+        <span class="sg-token__value">rgba(255,60,172,0.18)</span>
       </div>
     </div>
 
     <h2 class="sg-subheading" id="tokens-color-alpha">Color — Alpha / Surface Variants</h2>
     <div class="sg-token-grid">
       <div class="sg-token">
-        <div class="sg-swatch" style="background:rgba(0,219,222,0.07);"></div>
+        <div class="sg-swatch" style="background:rgba(34,211,238,0.07);"></div>
         <span class="sg-token__name">--accent-cyan-subtle</span>
-        <span class="sg-token__value">rgba(0,219,222,0.07) — hero bg glow</span>
+        <span class="sg-token__value">rgba(34,211,238,0.07) — hero bg glow</span>
       </div>
       <div class="sg-token">
-        <div class="sg-swatch" style="background:rgba(252,0,255,0.07);"></div>
+        <div class="sg-swatch" style="background:rgba(255,60,172,0.07);"></div>
         <span class="sg-token__name">--accent-pink-subtle</span>
-        <span class="sg-token__value">rgba(252,0,255,0.07) — hero bg glow</span>
+        <span class="sg-token__value">rgba(255,60,172,0.07) — hero bg glow</span>
       </div>
       <div class="sg-token">
         <div class="sg-swatch" style="background:rgba(8,8,24,0.7);"></div>
@@ -613,7 +613,7 @@
         <span class="gradient-text" style="font-size:var(--font-size-xl);font-family:var(--font-body);">Gradient Text</span>
       </div>
       <pre class="sg-code">&lt;span class="gradient-text"&gt;Gradient Text&lt;/span&gt;</pre>
-      <p class="sg-note">Applies the <strong>--gradient</strong> as a clipped background. Used on the hero name, nav wordmark, footer name, and the ✦ glyph. Transitions to <strong>--rainbow-gradient</strong> in rainbow mode.</p>
+      <p class="sg-note">Applies <strong>--gradient</strong> as a clipped background by default. The hero name, footer name, and ✦ glyph override <code>background-image</code> to use <strong>--rainbow-gradient</strong> (7-stop spectrum). The nav wordmark uses the base <strong>--gradient</strong> (pink → indigo).</p>
     </div>
 
     <div class="sg-component-demo">
@@ -660,7 +660,7 @@
         <h4 class="text--col-label" style="font-family:'Exo',sans-serif;">Column Label</h4>
       </div>
       <pre class="sg-code">&lt;h4 class="text--col-label mb--xs"&gt;Column Label&lt;/h4&gt;</pre>
-      <p class="sg-note"><strong>--font-size-sm</strong>, <strong>--weight-semibold</strong>, uppercase, <strong>--tracking-wider</strong>, <strong>--accent-pink</strong>. Used for accordion body column headings (Context, Goals, Results, etc.). Pair with <code>.mb--xs</code> for spacing below.</p>
+      <p class="sg-note"><strong>--font-size-sm</strong>, <strong>--weight-semibold</strong>, uppercase, <strong>--tracking-wider</strong>, <strong>--rainbow-magenta</strong>. Used for accordion body column headings (Context, Goals, Results, etc.). Pair with <code>.mb--xs</code> for spacing below.</p>
     </div>
   </section>
 
@@ -1035,12 +1035,8 @@
       <span style="color:var(--text-secondary);font-size:var(--font-size-base);">opacity 0 → 1 + translateY(-6px → 0) over <code>--duration-medium</code>. Triggered by IntersectionObserver when hero name leaves viewport.</span>
     </div>
     <div class="sg-motion-row">
-      <span class="sg-type-label">gradient-text</span>
-      <span style="color:var(--text-secondary);font-size:var(--font-size-base);"><code>background-image</code> transitions over <code>--duration-slow</code> when rainbow mode is toggled.</span>
-    </div>
-    <div class="sg-motion-row">
       <span class="sg-type-label">body background</span>
-      <span style="color:var(--text-secondary);font-size:var(--font-size-base);"><code>background-color</code> transitions over <code>--duration-slow</code> when rainbow mode is toggled.</span>
+      <span style="color:var(--text-secondary);font-size:var(--font-size-base);"><code>background-color</code> transitions over <code>--duration-slow</code> on load.</span>
     </div>
   </section>
 
@@ -1048,50 +1044,30 @@
        RAINBOW MODE
   ============================================================ -->
   <section class="sg-section" id="rainbow">
-    <h1 class="sg-heading">Rainbow Mode</h1>
-    <p class="sg-desc">Activated by toggling the Rainbow Time button. Applies <code>body.rainbow-mode</code> and overrides key color tokens + specific component styles. Preference is persisted to <code>localStorage</code> under the key <code>af-rainbow-mode</code>.</p>
+    <h1 class="sg-heading">Rainbow Time</h1>
+    <p class="sg-desc">Rainbow Time is the default color scheme. The rainbow spectrum tokens live in <code>:root</code> and are applied directly to key components — no mode class required. The 🌈 toggle button (<code>#rainbowToggle</code>, <code>#rainbowToggleFooter</code>) is preserved for future use.</p>
 
-    <h2 class="sg-subheading" id="rainbow-tokens">Overridden Tokens</h2>
+    <h2 class="sg-subheading" id="rainbow-tokens">Spectrum Tokens</h2>
     <div class="sg-token-grid">
-      <div class="sg-token">
-        <div class="sg-swatch" style="background:#ff3cac;"></div>
-        <span class="sg-token__name">--grad-start</span>
-        <span class="sg-token__value">#ff3cac (was #00dbde)</span>
-      </div>
-      <div class="sg-token">
-        <div class="sg-swatch" style="background:#6366f1;"></div>
-        <span class="sg-token__name">--grad-end</span>
-        <span class="sg-token__value">#6366f1 (was #fc00ff)</span>
-      </div>
-      <div class="sg-token">
-        <div class="sg-swatch" style="background:#22d3ee;"></div>
-        <span class="sg-token__name">--accent-cyan</span>
-        <span class="sg-token__value">#22d3ee (was #00dbde)</span>
-      </div>
-      <div class="sg-token">
-        <div class="sg-swatch" style="background:#ff3cac;"></div>
-        <span class="sg-token__name">--accent-pink</span>
-        <span class="sg-token__value">#ff3cac (was #fc00ff)</span>
-      </div>
       <div class="sg-token">
         <div class="sg-swatch" style="background:#ff7a18;"></div>
         <span class="sg-token__name">--rainbow-orange</span>
-        <span class="sg-token__value">#ff7a18 — rainbow spectrum stop</span>
+        <span class="sg-token__value">#ff7a18 — spectrum stop</span>
       </div>
       <div class="sg-token">
         <div class="sg-swatch" style="background:#ff00cc;"></div>
         <span class="sg-token__name">--rainbow-magenta</span>
-        <span class="sg-token__value">#ff00cc — rainbow spectrum stop</span>
+        <span class="sg-token__value">#ff00cc — spectrum stop</span>
       </div>
       <div class="sg-token">
         <div class="sg-swatch" style="background:#9333ea;"></div>
         <span class="sg-token__name">--rainbow-purple</span>
-        <span class="sg-token__value">#9333ea — rainbow spectrum stop</span>
+        <span class="sg-token__value">#9333ea — spectrum stop</span>
       </div>
       <div class="sg-token">
         <div class="sg-swatch" style="background:#3b82f6;"></div>
         <span class="sg-token__name">--rainbow-blue</span>
-        <span class="sg-token__value">#3b82f6 — rainbow spectrum stop</span>
+        <span class="sg-token__value">#3b82f6 — spectrum stop</span>
       </div>
       <div class="sg-token">
         <div class="sg-swatch" style="background:linear-gradient(to right,#ff7a18,#ff3cac,#ff00cc,#9333ea,#6366f1,#3b82f6,#22d3ee);"></div>
@@ -1101,39 +1077,38 @@
       <div class="sg-token">
         <div class="sg-swatch" style="background:linear-gradient(135deg,#ff7a18,#ff3cac,#ff00cc,#9333ea,#6366f1,#3b82f6,#22d3ee);"></div>
         <span class="sg-token__name">--rainbow-gradient-diagonal</span>
-        <span class="sg-token__value">same spectrum at 135° — used for odd card borders and btn--primary border</span>
+        <span class="sg-token__value">same spectrum at 135° — odd card borders and btn--primary border</span>
       </div>
       <div class="sg-token">
         <div class="sg-swatch" style="background:linear-gradient(-135deg,#22d3ee,#3b82f6,#6366f1,#9333ea,#ff00cc,#ff3cac,#ff7a18);"></div>
         <span class="sg-token__name">--rainbow-gradient-diagonal-reverse</span>
-        <span class="sg-token__value">reversed spectrum at -135° — used for even card borders</span>
+        <span class="sg-token__value">reversed spectrum at -135° — even card borders</span>
       </div>
     </div>
 
-    <h2 class="sg-subheading" id="rainbow-components">Affected Components</h2>
+    <h2 class="sg-subheading" id="rainbow-components">Components Using Rainbow Spectrum</h2>
     <div class="sg-token" style="padding:0;overflow:hidden;">
       <div class="sg-motion-row" style="padding:var(--space-sm);">
         <span class="sg-type-label">.hero__name .gradient-text</span>
-        <span style="color:var(--text-secondary);">background-image → --rainbow-gradient</span>
+        <span style="color:var(--text-secondary);">background-image: --rainbow-gradient (7-stop horizontal spectrum)</span>
       </div>
       <div class="sg-motion-row" style="padding:var(--space-sm);">
         <span class="sg-type-label">.lets-talk__glyph</span>
-        <span style="color:var(--text-secondary);">background-image → --rainbow-gradient</span>
+        <span style="color:var(--text-secondary);">background-image: --rainbow-gradient</span>
       </div>
       <div class="sg-motion-row" style="padding:var(--space-sm);">
         <span class="sg-type-label">.footer__name</span>
-        <span style="color:var(--text-secondary);">Clipped gradient text using --rainbow-gradient</span>
+        <span style="color:var(--text-secondary);">background-image: --rainbow-gradient via .gradient-text; display: inline-block required for clip to work</span>
       </div>
       <div class="sg-motion-row" style="padding:var(--space-sm);">
         <span class="sg-type-label">.card</span>
-        <span style="color:var(--text-secondary);">Border replaced with full-spectrum gradient via background-clip: border-box. Odd cards use --rainbow-gradient-diagonal; even cards use --rainbow-gradient-diagonal-reverse</span>
+        <span style="color:var(--text-secondary);">Rainbow border via background-clip: border-box. Odd cards: --rainbow-gradient-diagonal; even cards: --rainbow-gradient-diagonal-reverse</span>
       </div>
       <div class="sg-motion-row" style="padding:var(--space-sm);">
         <span class="sg-type-label">.btn--primary::before</span>
-        <span style="color:var(--text-secondary);">Gradient border swaps from --gradient to --rainbow-gradient-diagonal</span>
+        <span style="color:var(--text-secondary);">Gradient border uses --rainbow-gradient-diagonal</span>
       </div>
     </div>
-    <p class="sg-note" style="margin-top:var(--space-sm);">The two rainbow toggle buttons (<code>#rainbowToggle</code> and <code>#rainbowToggleFooter</code>) both have their <code>aria-pressed</code> attribute managed by JS in <code>index.js → initRainbow()</code>.</p>
   </section>
 
 </main>
