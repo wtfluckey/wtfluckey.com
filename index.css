@@ -57,17 +57,13 @@
     --space-lg: 4rem; /* 64px */
     --space-xl: 8rem; /* 128px */
 
-    /* Font families */
-    --font-display: "Exo", sans-serif;
+    /* Font family — single token, Exo with system fallbacks */
     --font-body: "Exo", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
     /* Font size scale */
-    --font-size-xs: 0.6875rem; /* 11px — tag labels, marker arrows */
-    --font-size-sm: 0.75rem; /* 12px — eyebrows, overlines, small labels */
-    --font-size-ui: 0.875rem; /* 14px — UI chrome: toggles, footer copy, links & tagline */
-    --font-size-base: 0.9375rem; /* 15px — primary body text */
-    --font-size-md: 1.0625rem; /* 17px — lead text, card body */
-    --font-size-lg: 1.125rem; /* 18px — component headings */
+    --font-size-sm: 0.75rem; /* 12px — labels, badges, eyebrows, arrows */
+    --font-size-base: 0.9375rem; /* 15px — body text, UI chrome */
+    --font-size-lg: 1.125rem; /* 18px — component headings, lead text */
     --font-size-xl: 1.375rem; /* 22px — nav wordmark, accordion title */
     --font-size-2xl: 1.75rem; /* 28px — footer name, card icon */
 
@@ -190,22 +186,25 @@
     text-transform: uppercase;
   }
 
-  /* ----- Medium uppercase label (tag / subtitle pattern) ----- */
-  .text--tag {
-    font-weight: var(--weight-medium);
-    letter-spacing: var(--tracking-wide);
-    text-transform: uppercase;
-  }
-
   /* ----- Primary body text ----- */
   .text--body {
     font-size: var(--font-size-base);
     color: var(--text-secondary);
+    line-height: var(--leading-relaxed);
+  }
+
+  /* ----- Column label (accordion body col heading pattern) ----- */
+  .text--col-label {
+    font-size: var(--font-size-sm);
+    font-weight: var(--weight-semibold);
+    letter-spacing: var(--tracking-wider);
+    text-transform: uppercase;
+    color: var(--accent-pink);
   }
 
   /* ----- Pill badge (category / tag label) ----- */
   .badge {
-    font-size: var(--font-size-xs);
+    font-size: var(--font-size-sm);
     font-weight: var(--weight-medium);
     letter-spacing: var(--tracking-wide);
     text-transform: uppercase;
@@ -251,11 +250,24 @@
     letter-spacing: var(--tracking-widest);
     text-transform: uppercase;
     color: var(--accent-cyan);
-    margin-bottom: 0.75rem;
+  }
+
+  /* Margin-bottom utilities */
+  .mb--xs {
+    margin-bottom: var(--space-xs);
+  }
+  .mb--sm {
+    margin-bottom: var(--space-sm);
+  }
+  .mb--sm-plus {
+    margin-bottom: var(--space-sm-plus);
+  }
+  .mb--md {
+    margin-bottom: var(--space-md);
   }
 
   .section__title {
-    font-family: var(--font-display);
+    font-family: var(--font-body);
     font-size: clamp(2rem, 5vw, 3.25rem);
     line-height: var(--leading-display);
     letter-spacing: var(--tracking-tight);
@@ -264,7 +276,7 @@
   }
 
   .section__subtitle {
-    font-size: var(--font-size-md);
+    font-size: var(--font-size-lg);
     color: var(--text-secondary);
     line-height: var(--leading-relaxed);
     margin-bottom: var(--space-sm-plus);
@@ -369,6 +381,11 @@
     transition: opacity var(--duration) var(--ease-out);
   }
 
+  .btn:hover,
+  .btn:focus-visible {
+    transform: translateY(-2px);
+  }
+
   .btn--primary:hover::before,
   .btn--primary:focus-visible::before {
     opacity: 1;
@@ -376,7 +393,6 @@
 
   .btn--primary:hover,
   .btn--primary:focus-visible {
-    transform: translateY(-2px);
     box-shadow: 0 6px 28px var(--accent-glow);
   }
 
@@ -384,13 +400,15 @@
     border: var(--border-width) solid var(--border-subtle);
     color: var(--text-secondary);
     background: transparent;
+    transition:
+      border-color var(--duration),
+      color var(--duration);
   }
 
   .btn--ghost:hover,
   .btn--ghost:focus-visible {
     border-color: var(--border-hover);
     color: var(--text-primary);
-    transform: translateY(-2px);
   }
 
   /* ----- Button size modifiers ----- */
@@ -420,7 +438,7 @@
   }
 
   .btn__icon {
-    font-size: var(--font-size-ui);
+    font-size: var(--font-size-base);
     line-height: var(--leading-none);
     transition: transform var(--duration-medium) var(--ease-out);
   }
@@ -474,7 +492,9 @@
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border-bottom: var(--border-width) solid transparent;
-    transition: border-color var(--duration);
+    transition:
+      border-color var(--duration),
+      box-shadow var(--duration) var(--ease-out);
   }
 
   .nav.scrolled {
@@ -483,7 +503,7 @@
   }
 
   .nav__wordmark {
-    font-family: var(--font-display);
+    font-family: var(--font-body);
     font-size: var(--font-size-xl);
     letter-spacing: var(--tracking-tight);
     text-decoration: none;
@@ -554,7 +574,7 @@
 
   /* Big name */
   .hero__name {
-    font-family: var(--font-display);
+    font-family: var(--font-body);
     font-size: clamp(4rem, 13vw, 10rem);
     line-height: var(--leading-hero);
     letter-spacing: var(--tracking-tighter);
@@ -564,6 +584,7 @@
   /* Right-side content */
   .hero__title {
     font-size: clamp(0.8125rem, 2vw, 0.9375rem);
+    letter-spacing: var(--tracking-wide);
     color: var(--text-secondary);
     margin-bottom: var(--space-sm-plus);
   }
@@ -580,7 +601,7 @@
   }
 
   .hero__credibility {
-    font-size: var(--font-size-ui);
+    font-size: var(--font-size-base);
     color: var(--text-secondary);
     line-height: var(--leading-loose);
     margin-bottom: var(--space-sm-plus);
@@ -622,7 +643,7 @@
   }
 
   .card__title {
-    font-family: var(--font-display);
+    font-family: var(--font-body);
     font-size: var(--font-size-lg);
     letter-spacing: var(--tracking-normal);
     color: var(--text-primary);
@@ -693,21 +714,12 @@
 
   .accordion__title {
     grid-area: title;
-    font-family: var(--font-display);
+    font-family: var(--font-body);
     font-size: clamp(var(--font-size-lg), 2.5vw, var(--font-size-xl));
     font-weight: var(--weight-normal);
     letter-spacing: var(--tracking-normal);
     color: var(--text-primary);
     line-height: var(--leading-tight);
-    transition: color var(--duration);
-  }
-
-  .accordion__trigger:hover .accordion__title,
-  .accordion__item.is-open .accordion__title {
-    background-image: var(--gradient);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
   }
 
   .accordion__teaser {
@@ -778,25 +790,9 @@
     }
   }
 
-  .accordion__col h4 {
-    font-size: var(--font-size-xs);
-    letter-spacing: var(--tracking-wider);
-    color: var(--accent-pink);
-    margin-bottom: 0.65rem;
-  }
+  /* ----- Badge Group ----- */
 
-  .accordion__col p {
-    color: var(--text-secondary);
-    line-height: var(--leading-relaxed);
-  }
-
-  /* ----- Technical Experience ----- */
-
-  .tech__group .text--overline {
-    margin-bottom: var(--space-sm);
-  }
-
-  .tech__chips {
+  .badge-group__chips {
     display: flex;
     flex-wrap: wrap;
     gap: var(--space-xs);
@@ -880,14 +876,14 @@
   }
 
   .footer__name {
-    font-family: var(--font-display);
+    font-family: var(--font-body);
     font-size: var(--font-size-2xl);
     letter-spacing: var(--tracking-tight);
     margin-bottom: var(--space-xs);
   }
 
   .footer__tagline {
-    font-size: var(--font-size-ui);
+    font-size: var(--font-size-base);
     color: var(--text-secondary);
     line-height: var(--leading-snug);
   }
@@ -903,7 +899,7 @@
     display: inline-flex;
     align-items: center;
     gap: var(--space-xs);
-    font-size: var(--font-size-ui);
+    font-size: var(--font-size-base);
     color: var(--text-secondary);
     transition: color var(--duration);
   }
@@ -930,7 +926,7 @@
   }
 
   .footer__copy {
-    font-size: var(--font-size-ui);
+    font-size: var(--font-size-base);
     color: var(--text-secondary);
   }
 
