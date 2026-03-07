@@ -263,10 +263,6 @@
     padding-block: var(--space-xl);
   }
 
-  .hero + .section,
-  .section + .section {
-    border-top: var(--border-width) solid var(--border-subtle);
-  }
 
   .section__header {
     max-width: var(--measure);
@@ -364,6 +360,23 @@
 ============================================================ */
 
 @layer elements {
+  /* ----- Rainbow border top ----- */
+
+  .rainbow-border-top {
+    position: relative;
+  }
+
+  .rainbow-border-top::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: var(--border-width);
+    background: var(--rainbow-gradient);
+    opacity: 0.35;
+  }
+
   /* ----- Buttons ----- */
 
   .btn {
@@ -902,7 +915,6 @@
   /* ----- Footer ----- */
 
   .footer {
-    border-top: var(--border-width) solid var(--border-subtle);
     padding-block: var(--space-lg);
   }
 

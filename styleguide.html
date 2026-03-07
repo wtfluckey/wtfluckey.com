@@ -289,6 +289,7 @@
   <a href="#layout-section" class="sg-nav__sub">Section</a>
   <a href="#layout-section-header" class="sg-nav__sub">Section Header</a>
   <a href="#layout-bg" class="sg-nav__sub">Background Utils</a>
+  <a href="#layout-border" class="sg-nav__sub">Border Utils</a>
   <a href="#layout-grid" class="sg-nav__sub">Grid — 3col</a>
   <a href="#layout-gap" class="sg-nav__sub">Gap Utils</a>
   <a href="#layout-mb" class="sg-nav__sub">Margin-Bottom Utils</a>
@@ -756,6 +757,16 @@
       </div>
     </div>
     <pre class="sg-code">&lt;section class="section bg--section"&gt;…&lt;/section&gt;</pre>
+
+    <h2 class="sg-subheading" id="layout-border">Border Utilities</h2>
+    <p class="sg-desc">Utility class for adding a 1px rainbow gradient top border via <code>::before</code> pseudo-element. Applied to sections and the footer to divide page regions.</p>
+    <div class="sg-component-demo">
+      <div class="sg-demo">
+        <div class="rainbow-border-top" style="padding-top: var(--space-md); color: var(--text-secondary); font-size: var(--font-size-sm);">Content below a rainbow border</div>
+      </div>
+      <pre class="sg-code">&lt;section class="section rainbow-border-top"&gt;…&lt;/section&gt;</pre>
+      <p class="sg-note">Sets <code>position: relative</code> and renders the gradient line via <code>::before</code>. Uses <strong>--rainbow-gradient</strong> at 35% opacity. Applied to all <code>.section</code> elements and <code>.footer</code>.</p>
+    </div>
 
     <h2 class="sg-subheading" id="layout-grid">Grid — 3 Column</h2>
     <p class="sg-desc">Responsive 3-column grid. 1-col on mobile, 2-col at 640px, 3-col at 960px. Used for cards, tech chips, and any uniform-item layouts.</p>
