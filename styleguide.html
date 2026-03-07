@@ -122,7 +122,7 @@
     .sg-token__name {
       font-size: var(--font-size-sm);
       letter-spacing: var(--tracking-wider);
-      color: var(--accent-pink);
+      color: var(--rainbow-pink);
       font-family: monospace;
     }
 
@@ -144,7 +144,7 @@
     /* Spacing bars */
     .sg-space-bar {
       height: 1rem;
-      background: linear-gradient(to right, var(--accent-cyan), var(--accent-pink));
+      background: var(--rainbow-gradient);
       border-radius: var(--radius-sm);
       opacity: 0.7;
       margin-bottom: 0.4rem;
@@ -173,7 +173,7 @@
     .sg-type-label {
       font-family: monospace;
       font-size: var(--font-size-sm);
-      color: var(--accent-pink);
+      color: var(--rainbow-pink);
       min-width: 18ch;
       flex-shrink: 0;
     }
@@ -363,27 +363,17 @@
       </div>
     </div>
 
-    <h2 class="sg-subheading" id="tokens-color-accents">Color — Accents &amp; Gradient</h2>
+    <h2 class="sg-subheading" id="tokens-color-accents">Color — Accents</h2>
     <div class="sg-token-grid">
       <div class="sg-token">
         <div class="sg-swatch" style="background:#22d3ee;"></div>
         <span class="sg-token__name">--accent-cyan</span>
-        <span class="sg-token__value">#22d3ee</span>
-      </div>
-      <div class="sg-token">
-        <div class="sg-swatch" style="background:#ff3cac;"></div>
-        <span class="sg-token__name">--accent-pink</span>
-        <span class="sg-token__value">#ff3cac</span>
-      </div>
-      <div class="sg-token">
-        <div class="sg-swatch" style="background:linear-gradient(to right,#ff3cac,#6366f1);"></div>
-        <span class="sg-token__name">--gradient</span>
-        <span class="sg-token__value">pink → indigo — nav wordmark, focus ring</span>
+        <span class="sg-token__value">#22d3ee — focus ring, overlines, chevrons</span>
       </div>
       <div class="sg-token">
         <div class="sg-swatch" style="background:rgba(255,60,172,0.18);"></div>
         <span class="sg-token__name">--accent-glow</span>
-        <span class="sg-token__value">rgba(255,60,172,0.18)</span>
+        <span class="sg-token__value">rgba(255,60,172,0.18) — btn hover glow</span>
       </div>
     </div>
 
@@ -613,7 +603,7 @@
         <span class="gradient-text" style="font-size:var(--font-size-xl);font-family:var(--font-body);">Gradient Text</span>
       </div>
       <pre class="sg-code">&lt;span class="gradient-text"&gt;Gradient Text&lt;/span&gt;</pre>
-      <p class="sg-note">Applies <strong>--gradient</strong> as a clipped background by default. The hero name, footer name, and ✦ glyph override <code>background-image</code> to use <strong>--rainbow-gradient</strong> (7-stop spectrum). The nav wordmark uses the base <strong>--gradient</strong> (pink → indigo).</p>
+      <p class="sg-note">Applies <strong>--rainbow-gradient</strong> (7-stop spectrum) as a clipped background. Used on the hero name, nav wordmark, and footer name. The ✦ glyph sets <code>background-image</code> directly (not a <code>.gradient-text</code> element).</p>
     </div>
 
     <div class="sg-component-demo">
@@ -997,7 +987,7 @@
       </div>
       <div class="sg-token">
         <span class="sg-token__name">--duration-slow</span>
-        <span class="sg-token__value">0.5s — body bg, gradient-text transitions</span>
+        <span class="sg-token__value">0.5s — body bg transition</span>
       </div>
     </div>
 
@@ -1055,14 +1045,24 @@
         <span class="sg-token__value">#ff7a18 — spectrum stop</span>
       </div>
       <div class="sg-token">
+        <div class="sg-swatch" style="background:#ff3cac;"></div>
+        <span class="sg-token__name">--rainbow-pink</span>
+        <span class="sg-token__value">#ff3cac — spectrum stop</span>
+      </div>
+      <div class="sg-token">
         <div class="sg-swatch" style="background:#ff00cc;"></div>
         <span class="sg-token__name">--rainbow-magenta</span>
-        <span class="sg-token__value">#ff00cc — spectrum stop</span>
+        <span class="sg-token__value">#ff00cc — spectrum stop, .text--col-label</span>
       </div>
       <div class="sg-token">
         <div class="sg-swatch" style="background:#9333ea;"></div>
         <span class="sg-token__name">--rainbow-purple</span>
         <span class="sg-token__value">#9333ea — spectrum stop</span>
+      </div>
+      <div class="sg-token">
+        <div class="sg-swatch" style="background:#6366f1;"></div>
+        <span class="sg-token__name">--rainbow-indigo</span>
+        <span class="sg-token__value">#6366f1 — spectrum stop</span>
       </div>
       <div class="sg-token">
         <div class="sg-swatch" style="background:#3b82f6;"></div>
@@ -1089,16 +1089,12 @@
     <h2 class="sg-subheading" id="rainbow-components">Components Using Rainbow Spectrum</h2>
     <div class="sg-token" style="padding:0;overflow:hidden;">
       <div class="sg-motion-row" style="padding:var(--space-sm);">
-        <span class="sg-type-label">.hero__name .gradient-text</span>
-        <span style="color:var(--text-secondary);">background-image: --rainbow-gradient (7-stop horizontal spectrum)</span>
+        <span class="sg-type-label">.gradient-text</span>
+        <span style="color:var(--text-secondary);">background-image: --rainbow-gradient via base class — used on hero name, nav wordmark, footer name</span>
       </div>
       <div class="sg-motion-row" style="padding:var(--space-sm);">
         <span class="sg-type-label">.lets-talk__glyph</span>
-        <span style="color:var(--text-secondary);">background-image: --rainbow-gradient</span>
-      </div>
-      <div class="sg-motion-row" style="padding:var(--space-sm);">
-        <span class="sg-type-label">.footer__name</span>
-        <span style="color:var(--text-secondary);">background-image: --rainbow-gradient via .gradient-text; display: inline-block required for clip to work</span>
+        <span style="color:var(--text-secondary);">background-image: --rainbow-gradient (not a .gradient-text; has its own rule)</span>
       </div>
       <div class="sg-motion-row" style="padding:var(--space-sm);">
         <span class="sg-type-label">.card</span>

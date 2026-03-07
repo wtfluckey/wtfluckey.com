@@ -19,52 +19,44 @@
     --border-subtle: rgba(255, 255, 255, 0.08);
     --border-width: 1px;
 
-    /* Gradient — pink/hot → indigo (brand DNA) */
-    --grad-start: #ff3cac;
-    --grad-end: #6366f1;
-    --gradient: linear-gradient(
-      to right,
-      var(--grad-start) 0%,
-      var(--grad-end) 100%
-    );
-
     /* Text */
     --text-primary: #f0f0ff;
     --text-secondary: #9090b8;
 
-    /* Accents */
+    /* Accents — cyan is both a spectrum stop and a live UI color */
     --accent-cyan: #22d3ee;
-    --accent-pink: #ff3cac;
-    --accent-glow: rgba(255, 60, 172, 0.18);
+    --accent-glow: rgba(255, 60, 172, 0.18); /* btn glow */
 
     /* Alpha variants — semi-transparent color uses */
     --accent-cyan-subtle: rgba(34, 211, 238, 0.07); /* hero bg glow */
     --accent-pink-subtle: rgba(255, 60, 172, 0.07); /* hero bg glow */
 
-    /* Rainbow spectrum tokens */
+    /* Rainbow spectrum — the brand palette is always-on rainbow */
     --rainbow-orange: #ff7a18;
+    --rainbow-pink: #ff3cac;
     --rainbow-magenta: #ff00cc;
     --rainbow-purple: #9333ea;
+    --rainbow-indigo: #6366f1;
     --rainbow-blue: #3b82f6;
 
     /* Rainbow gradients — defined once, referenced across components */
     --rainbow-gradient: linear-gradient(
       to right,
       var(--rainbow-orange),
-      var(--accent-pink),
+      var(--rainbow-pink),
       var(--rainbow-magenta),
       var(--rainbow-purple),
-      var(--grad-end),
+      var(--rainbow-indigo),
       var(--rainbow-blue),
       var(--accent-cyan)
     );
     --rainbow-gradient-diagonal: linear-gradient(
       135deg,
       var(--rainbow-orange),
-      var(--accent-pink),
+      var(--rainbow-pink),
       var(--rainbow-magenta),
       var(--rainbow-purple),
-      var(--grad-end),
+      var(--rainbow-indigo),
       var(--rainbow-blue),
       var(--accent-cyan)
     );
@@ -72,10 +64,10 @@
       -135deg,
       var(--accent-cyan),
       var(--rainbow-blue),
-      var(--grad-end),
+      var(--rainbow-indigo),
       var(--rainbow-purple),
       var(--rainbow-magenta),
-      var(--accent-pink),
+      var(--rainbow-pink),
       var(--rainbow-orange)
     );
     --bg-nav: rgba(8, 8, 24, 0.7); /* nav backdrop */
@@ -141,7 +133,7 @@
     --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
     --duration: 0.3s; /* default — buttons, borders, colours */
     --duration-medium: 0.4s; /* nav wordmark, toggle icon */
-    --duration-slow: 0.5s; /* body bg, gradient-text transitions */
+    --duration-slow: 0.5s; /* body bg transition */
   }
 } /* end @layer tokens */
 
@@ -211,11 +203,10 @@
 
 @layer typography {
   .gradient-text {
-    background-image: var(--gradient);
+    background-image: var(--rainbow-gradient);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-    transition: background-image var(--duration-slow) var(--ease-out);
   }
 
   /* ----- Bold uppercase label (eyebrow / overline pattern) ----- */
@@ -651,8 +642,6 @@
     gap: var(--space-sm);
   }
 
-  /* Hero name and glyph use the full rainbow spectrum */
-  .hero__name .gradient-text,
   .lets-talk__glyph {
     background-image: var(--rainbow-gradient);
   }
