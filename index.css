@@ -360,22 +360,27 @@
 ============================================================ */
 
 @layer elements {
-  /* ----- Rainbow border top ----- */
+  /* ----- Rainbow border utilities ----- */
 
-  .rainbow-border-top {
+  .rainbow-border-top,
+  .rainbow-border-bottom {
     position: relative;
   }
 
-  .rainbow-border-top::before {
+  .rainbow-border-top::before,
+  .rainbow-border-bottom::after {
     content: '';
     position: absolute;
-    top: 0;
     left: 0;
     right: 0;
     height: var(--border-width);
     background: var(--rainbow-gradient);
-    opacity: 0.35;
+    opacity: var(--rainbow-border-opacity, 0.35);
+    transition: opacity var(--duration);
   }
+
+  .rainbow-border-top::before { top: 0; }
+  .rainbow-border-bottom::after { bottom: 0; }
 
   /* ----- Buttons ----- */
 
@@ -533,14 +538,12 @@
     background: var(--bg-nav);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border-bottom: var(--border-width) solid transparent;
-    transition:
-      border-color var(--duration),
-      box-shadow var(--duration) var(--ease-out);
+    --rainbow-border-opacity: 0;
+    transition: box-shadow var(--duration) var(--ease-out);
   }
 
   .nav.scrolled {
-    border-color: var(--border-subtle);
+    --rainbow-border-opacity: 0.35;
     box-shadow: var(--shadow-sm);
   }
 

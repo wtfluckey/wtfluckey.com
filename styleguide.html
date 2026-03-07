@@ -759,13 +759,20 @@
     <pre class="sg-code">&lt;section class="section bg--section"&gt;…&lt;/section&gt;</pre>
 
     <h2 class="sg-subheading" id="layout-border">Border Utilities</h2>
-    <p class="sg-desc">Utility class for adding a 1px rainbow gradient top border via <code>::before</code> pseudo-element. Applied to sections and the footer to divide page regions.</p>
+    <p class="sg-desc">A pair of utilities for adding a 1px rainbow gradient border via pseudo-element. Opacity is controlled by <code>--rainbow-border-opacity</code> (default 0.35), making it overridable for animated reveal states.</p>
     <div class="sg-component-demo">
       <div class="sg-demo">
         <div class="rainbow-border-top" style="padding-top: var(--space-md); color: var(--text-secondary); font-size: var(--font-size-sm);">Content below a rainbow border</div>
       </div>
       <pre class="sg-code">&lt;section class="section rainbow-border-top"&gt;…&lt;/section&gt;</pre>
-      <p class="sg-note">Sets <code>position: relative</code> and renders the gradient line via <code>::before</code>. Uses <strong>--rainbow-gradient</strong> at 35% opacity. Applied to all <code>.section</code> elements and <code>.footer</code>.</p>
+      <p class="sg-note">Renders via <code>::before</code> at <code>top: 0</code>. Applied to all <code>.section</code> and <code>.footer</code> elements.</p>
+    </div>
+    <div class="sg-component-demo">
+      <div class="sg-demo" style="position:relative; padding-bottom: var(--space-md);">
+        <div class="rainbow-border-bottom" style="padding-bottom: var(--space-md); color: var(--text-secondary); font-size: var(--font-size-sm);">Content above a rainbow border</div>
+      </div>
+      <pre class="sg-code">&lt;nav class="nav rainbow-border-bottom"&gt;…&lt;/nav&gt;</pre>
+      <p class="sg-note">Renders via <code>::after</code> at <code>bottom: 0</code>. Used on <code>.nav</code> — starts hidden (<code>--rainbow-border-opacity: 0</code>) and fades in on <code>.nav.scrolled</code>.</p>
     </div>
 
     <h2 class="sg-subheading" id="layout-grid">Grid — 3 Column</h2>
@@ -907,7 +914,7 @@
     &lt;/button&gt;
   &lt;/div&gt;
 &lt;/nav&gt;</pre>
-    <p class="sg-note"><code>.nav.scrolled</code> adds a border and shadow — applied by JS on scroll. <code>.nav.name-visible</code> fades the wordmark in — applied by JS via IntersectionObserver on the hero name.</p>
+    <p class="sg-note"><code>.nav.scrolled</code> reveals the <code>.rainbow-border-bottom</code> gradient (sets <code>--rainbow-border-opacity</code> to 0.35) and adds a drop shadow — applied by JS on scroll. <code>.nav.name-visible</code> fades the wordmark in — applied by JS via IntersectionObserver on the hero name.</p>
 
     <!-- BADGE GROUP -->
     <h2 class="sg-subheading" id="components-badge-group">Badge Group</h2>
@@ -1114,6 +1121,14 @@
       <div class="sg-motion-row" style="padding:var(--space-sm);">
         <span class="sg-type-label">.btn--primary::before</span>
         <span style="color:var(--text-secondary);">Gradient border uses --rainbow-gradient-diagonal</span>
+      </div>
+      <div class="sg-motion-row" style="padding:var(--space-sm);">
+        <span class="sg-type-label">.rainbow-border-top</span>
+        <span style="color:var(--text-secondary);">1px gradient top border via ::before. Applied to all .section and .footer elements.</span>
+      </div>
+      <div class="sg-motion-row" style="padding:var(--space-sm);">
+        <span class="sg-type-label">.rainbow-border-bottom</span>
+        <span style="color:var(--text-secondary);">1px gradient bottom border via ::after. Applied to .nav — fades in on scroll via --rainbow-border-opacity custom property.</span>
       </div>
     </div>
   </section>
