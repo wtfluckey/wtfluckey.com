@@ -186,13 +186,6 @@
     text-transform: uppercase;
   }
 
-  /* ----- Medium uppercase label (tag / subtitle pattern) ----- */
-  .text--tag {
-    font-weight: var(--weight-medium);
-    letter-spacing: var(--tracking-wide);
-    text-transform: uppercase;
-  }
-
   /* ----- Primary body text ----- */
   .text--body {
     font-size: var(--font-size-base);
@@ -259,10 +252,18 @@
   }
 
   /* Margin-bottom utilities */
-  .mb--xs { margin-bottom: var(--space-xs); }
-  .mb--sm { margin-bottom: var(--space-sm); }
-  .mb--sm-plus { margin-bottom: var(--space-sm-plus); }
-  .mb--md { margin-bottom: var(--space-md); }
+  .mb--xs {
+    margin-bottom: var(--space-xs);
+  }
+  .mb--sm {
+    margin-bottom: var(--space-sm);
+  }
+  .mb--sm-plus {
+    margin-bottom: var(--space-sm-plus);
+  }
+  .mb--md {
+    margin-bottom: var(--space-md);
+  }
 
   .section__title {
     font-family: var(--font-body);
@@ -582,6 +583,7 @@
   /* Right-side content */
   .hero__title {
     font-size: clamp(0.8125rem, 2vw, 0.9375rem);
+    letter-spacing: var(--tracking-wide);
     color: var(--text-secondary);
     margin-bottom: var(--space-sm-plus);
   }
@@ -718,7 +720,6 @@
     color: var(--text-primary);
     line-height: var(--leading-tight);
   }
-
 
   .accordion__teaser {
     grid-area: teaser;
